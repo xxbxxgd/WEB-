@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌介紹與養護 - 國堡門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .brand-hero {
+            min-height: 64vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(21, 18, 16, 0.62), rgba(21, 18, 16, 0.18)),
+                url('https://hung-chan.com.tw/media/k2/items/cache/24d767ce6c156eb07b1fc26c266211f5_XL.jpg') center center / cover no-repeat;
+        }
+
+        .brand-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 130px;
+            background: linear-gradient(180deg, rgba(255,255,255,0), rgba(247,240,231,1));
+        }
+
+        .brand-hero-content {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            max-width: 720px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.48rem 0.88rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .brand-hero-content h1 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .brand-hero-content p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1.05rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .brand-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+
+        .brand-metric {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            padding: 1rem;
+        }
+
+        .brand-metric strong {
+            display: block;
+            color: #fff3d8;
+            font-size: 1.2rem;
+        }
+
+        .brand-metric span {
+            color: rgba(255,255,255,0.72);
+            font-size: 0.88rem;
+        }
+
+        .brand-shell {
+            margin-top: -2.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-panel,
+        .brand-section {
+            background: linear-gradient(180deg, rgba(255,249,242,0.96), rgba(255,255,255,0.98));
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 20px 45px rgba(89, 56, 31, 0.08);
+            border: 1px solid rgba(139, 69, 19, 0.08);
+        }
+
+        .section-kicker {
+            color: #b06f2d;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 0.9rem;
+        }
+
+        .section-title-lg {
+            font-size: clamp(1.9rem, 3vw, 2.8rem);
+            font-weight: 900;
+            color: #1f2530;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-lead {
+            color: #6f6256;
+            max-width: 780px;
+        }
+
+        .brand-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.6rem;
+        }
+
+        .brand-tabs .nav-link {
+            border-radius: 999px;
+            border: 1px solid rgba(139, 69, 19, 0.12);
+            background: #fff;
+            color: #7a5a3b;
+            font-weight: 700;
+            padding: 0.75rem 1.15rem;
+        }
+
+        .brand-tabs .nav-link.active {
+            background: linear-gradient(135deg, #9c5a1e, #c47a2f);
+            color: #fff !important;
+            border-color: transparent;
+            box-shadow: 0 12px 24px rgba(156, 90, 30, 0.2);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.4rem;
+            margin-top: 1.6rem;
+        }
+
+        .story-card,
+        .value-card,
+        .care-card,
+        .note-card {
+            background: #fff;
+            border-radius: 24px;
+            border: 1px solid rgba(139, 69, 19, 0.08);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.05);
+            padding: 1.4rem;
+            height: 100%;
+        }
+
+        .story-visual {
+            min-height: 100%;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.18)),
+                url('https://hung-chan.com.tw/media/k2/items/cache/24d767ce6c156eb07b1fc26c266211f5_XL.jpg') center center / cover no-repeat;
+            border-radius: 24px;
+            min-height: 340px;
+        }
+
+        .value-grid,
+        .care-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+
+        .value-card i,
+        .care-card i,
+        .note-card i {
+            font-size: 1.6rem;
+            color: #b06f2d;
+            margin-bottom: 0.9rem;
+        }
+
+        .value-card h3,
+        .care-card h3,
+        .note-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #213040;
+            margin-bottom: 0.7rem;
+        }
+
+        .value-card p,
+        .care-card p,
+        .note-card p,
+        .story-card p {
+            color: #6b625d;
+            margin-bottom: 0;
+        }
+
+        .process-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+
+        .process-step {
+            background: #fff;
+            border-radius: 20px;
+            padding: 1.15rem;
+            border: 1px solid rgba(139, 69, 19, 0.08);
+        }
+
+        .process-step strong {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            background: #f7eadb;
+            color: #9c5a1e;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-step h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #213040;
+            margin-bottom: 0.4rem;
+        }
+
+        .process-step p {
+            color: #6b625d;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+
+        .trust-card {
+            background: #fff;
+            border-radius: 24px;
+            border: 1px solid rgba(139, 69, 19, 0.08);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.05);
+            padding: 1.4rem;
+            height: 100%;
+        }
+
+        .trust-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #213040;
+            margin-bottom: 0.8rem;
+        }
+
+        .trust-list {
+            margin: 0;
+            padding-left: 1.15rem;
+            color: #6b625d;
+        }
+
+        .trust-list li + li {
+            margin-top: 0.45rem;
+        }
+
+        .care-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .care-list {
+            margin: 0;
+            padding-left: 1.15rem;
+            color: #6b625d;
+        }
+
+        .care-list li + li {
+            margin-top: 0.45rem;
+        }
+
+        .note-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.4rem;
+        }
+
+        @media (max-width: 991.98px) {
+            .brand-metrics,
+            .value-grid,
+            .process-strip,
+            .care-grid,
+            .note-grid,
+            .story-grid,
+            .trust-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .brand-metrics,
+            .value-grid,
+            .process-strip,
+            .care-grid,
+            .note-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-panel,
+            .brand-section {
+                padding: 1.35rem;
+                border-radius: 22px;
+            }
+
+            .story-visual {
+                min-height: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-door-open me-2 text-warning"></i>
+                <span>國堡門 <small class="text-muted fs-6">Guobao Door DESIGN</small></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="品牌介紹.html">品牌介紹</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="產品系列.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">產品系列</a>
+                        <ul class="dropdown-menu product-series-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="雙玄關門A系列.html">雙玄關門系列A系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門D系列.html">雙玄關門系列D系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門系列.html">雙玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#double-window-series">雙玄關門雙視窗系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#waterproof-series">防水防污門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#steel-series">鋼製壓板門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louver-series">百頁通風門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#japanese-series">日式玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#stone-series">石材玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carving-series">烤漆精雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louvre-series">羅浮宮浮雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#door-in-door-series">門中門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#tech-wood-series">科技實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#natural-wood-series">天然實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carbon-series">碳纖防爆門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#smdoor-series">雙茂門</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDoorLock" role="button" data-bs-toggle="dropdown" aria-expanded="false">門花/鎖系列</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoorLock">
+                            <li><a class="dropdown-item" href="門花鎖系列.html">門花系列</a></li>
+                            <li><a class="dropdown-item" href="門鎖系列.html">門鎖系列</a></li>
+                            <li><a class="dropdown-item" href="門色總覽.html">門色總覽</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="展品出清.html">展品出清</a></li>
+                    <li class="nav-item"><a class="nav-link" href="聯絡我們.html">門市資訊</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-custom ms-2" href="聯絡我們.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="brand-hero">
+        <div class="container">
+            <div class="brand-hero-content">
+                <span class="eyebrow"><i class="fas fa-landmark"></i> Brand Story & Care Guide</span>
+                <h1>關於國堡門</h1>
+                <p>從品牌文化到門樘養護，這一頁整理國堡門對住宅入口的理解，也把使用後最需要的保養重點一次講清楚。</p>
+                <div class="brand-metrics">
+                    <div class="brand-metric">
+                        <strong>住宅入口</strong>
+                        <span>專注大門、玄關門與門面整體提案</span>
+                    </div>
+                    <div class="brand-metric">
+                        <strong>客製整合</strong>
+                        <span>從設計、製作到安裝與售後服務</span>
+                    </div>
+                    <div class="brand-metric">
+                        <strong>長期使用</strong>
+                        <span>重視品質、保固與養護可持續性</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5 brand-shell">
+        <section class="brand-panel mb-5">
+            <span class="section-kicker">Page Navigation</span>
+            <h2 class="section-title-lg">品牌文化與養護資訊，分開看會更清楚</h2>
+            <p class="section-lead mb-0">官方網站的「國堡文化」與「門樘養護」其實是兩個不同重點：前者建立品牌信任，後者解決使用後的實際問題。這裡把它整理成同一頁的雙主題切換。</p>
+            <ul class="nav brand-tabs" id="brandTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="culture-tab" data-bs-toggle="pill" data-bs-target="#culture-pane" type="button" role="tab" aria-controls="culture-pane" aria-selected="true">品牌文化</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="care-tab" data-bs-toggle="pill" data-bs-target="#care-pane" type="button" role="tab" aria-controls="care-pane" aria-selected="false">門樘養護</button>
+                </li>
+            </ul>
+        </section>
+
+        <div class="tab-content">
+            <section class="tab-pane fade show active brand-section mb-5" id="culture-pane" role="tabpanel" aria-labelledby="culture-tab" tabindex="0">
+                <span class="section-kicker">Brand Culture</span>
+                <h2 class="section-title-lg">國堡門不只是賣門，而是在處理住宅入口的安全與氣質</h2>
+                <p class="section-lead">比起單純展示產品，品牌介紹更應該讓使用者知道國堡門在乎什麼、擅長什麼，以及為什麼值得交付住宅門面與長期使用體驗。</p>
+
+                <div class="story-grid">
+                    <article class="story-card">
+                        <h3 class="fw-bold mb-3">品牌定位</h3>
+                        <p class="mb-3">國堡門以住宅入口為核心，從大門、玄關門、門花、門鎖到門色搭配，提供的是一整套門面提案，而不是只交付單一產品。品牌強調的不只是安全，更是進門第一眼的比例、質感與居住印象。</p>
+                        <p class="mb-3">這也是為什麼產品會從材質、結構、五金一路延伸到安裝與售後服務。對使用者來說，真正重要的不是門型名稱，而是住進去之後能不能長期安心使用。</p>
+                        <p>因此，品牌頁最需要傳達的核心就是：國堡門把「住宅入口」視為一個完整系統，兼顧美感、安全、耐用與後續維護。</p>
+                    </article>
+                    <div class="story-visual"></div>
+                </div>
+
+                <div class="value-grid">
+                    <article class="value-card">
+                        <i class="fas fa-medal"></i>
+                        <h3>品質把關</h3>
+                        <p>從材料、結構到五金配置都重視穩定度，讓產品不只在交件當下好看，也要經得起長期使用。</p>
+                    </article>
+                    <article class="value-card">
+                        <i class="fas fa-shield-heart"></i>
+                        <h3>安全結構</h3>
+                        <p>品牌重視防護機能與使用手感，從門扇厚度到鎖具配置，都以居家安心為前提。</p>
+                    </article>
+                    <article class="value-card">
+                        <i class="fas fa-screwdriver-wrench"></i>
+                        <h3>客製整合</h3>
+                        <p>不同住宅需要不同入口語言，國堡門的強項在於能將門型、門色與細節整合成一致方案。</p>
+                    </article>
+                    <article class="value-card">
+                        <i class="fas fa-handshake-angle"></i>
+                        <h3>售後保障</h3>
+                        <p>品牌不只在交件前出現，後續養護、門鎖保養與使用提醒，都是服務的一部分。</p>
+                    </article>
+                </div>
+
+                <div class="process-strip">
+                    <article class="process-step">
+                        <strong>1</strong>
+                        <h4>需求溝通</h4>
+                        <p>先釐清住宅風格、入口尺寸、安全需求與預算方向。</p>
+                    </article>
+                    <article class="process-step">
+                        <strong>2</strong>
+                        <h4>門型提案</h4>
+                        <p>依據門面比例與風格，搭配適合的系列、門色與鎖具配置。</p>
+                    </article>
+                    <article class="process-step">
+                        <strong>3</strong>
+                        <h4>製作安裝</h4>
+                        <p>重視現場條件與施作細節，讓門面完成度不只停留在型錄圖片上。</p>
+                    </article>
+                    <article class="process-step">
+                        <strong>4</strong>
+                        <h4>後續養護</h4>
+                        <p>提供日常保養與五金維護觀念，延長產品整體使用壽命。</p>
+                    </article>
+                </div>
+
+                <div class="trust-grid">
+                    <article class="trust-card">
+                        <h3>品牌認證與品質信任</h3>
+                        <ul class="trust-list">
+                            <li>重視產品結構、五金配置與實際使用穩定度，不只追求型錄上的外觀效果。</li>
+                            <li>延續官方品牌頁強調的品質要求、售後精神與長期使用觀念，讓品牌信任不只停留在文案層面。</li>
+                            <li>對住宅入口來說，真正重要的是門面能否兼顧美感、安全與後續維護，這也是國堡門品牌介紹最應該被看見的價值。</li>
+                        </ul>
+                    </article>
+                    <article class="trust-card">
+                        <h3>服務承諾</h3>
+                        <ul class="trust-list">
+                            <li>提供門型選擇、門色搭配、五金配置與安裝方向的整合建議。</li>
+                            <li>完工後仍保留使用提醒、保養觀念與門鎖維護等售後資訊。</li>
+                            <li>遇到客製尺寸、特殊材質或居家情境需求時，會先以整體入口比例與使用方式做評估，而不是只賣單一產品。</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="tab-pane fade brand-section mb-5" id="care-pane" role="tabpanel" aria-labelledby="care-tab" tabindex="0">
+                <span class="section-kicker">Maintenance Guide</span>
+                <h2 class="section-title-lg">門樘養護整理成更容易照著做的使用手冊</h2>
+                <p class="section-lead">養護頁最重要的價值不是看起來像品牌文案，而是使用者能不能快速知道「什麼能做、什麼不能做、多久做一次」。這裡把常見情境拆成幾個最實用的區塊。</p>
+
+                <div class="care-grid">
+                    <article class="care-card">
+                        <i class="fas fa-broom"></i>
+                        <h3>日常清潔</h3>
+                        <ul class="care-list">
+                            <li>以乾布先除塵，再搭配中性水蠟或碧麗珠擦拭門面。</li>
+                            <li>避免長時間使用濕布直接擦拭，以免影響烤漆與表面處理。</li>
+                            <li>不使用甲苯、去漬油、強酸強鹼等侵蝕性清潔劑。</li>
+                        </ul>
+                    </article>
+                    <article class="care-card">
+                        <i class="fas fa-paint-roller"></i>
+                        <h3>施工後處理</h3>
+                        <ul class="care-list">
+                            <li>水泥或水性油漆沾附時，先以濕紙巾軟化污漬再輕刷去除。</li>
+                            <li>切勿直接以硬物刮除，避免傷及烤漆與表面紋理。</li>
+                            <li>若污染範圍較大，建議先聯繫門市確認清潔方式。</li>
+                        </ul>
+                    </article>
+                    <article class="care-card">
+                        <i class="fas fa-key"></i>
+                        <h3>門鎖與鉸鍊</h3>
+                        <ul class="care-list">
+                            <li>建議每半年檢查一次門鎖、把手與鉸鍊運作是否順暢。</li>
+                            <li>可定期使用適合的潤滑用品保養五金，減少異音與卡滯。</li>
+                            <li>若發現鬆動或偏移，應盡早調整，避免使用負擔加大。</li>
+                        </ul>
+                    </article>
+                    <article class="care-card">
+                        <i class="fas fa-spray-can-sparkles"></i>
+                        <h3>玻璃與特殊材質</h3>
+                        <ul class="care-list">
+                            <li>玻璃先去除灰塵與雜質，再將少量清潔劑噴在抹布上擦拭。</li>
+                            <li>不要直接把清潔劑噴在玻璃上，以免殘留痕跡或起霧。</li>
+                            <li>實木與科技實木門請以乾布保養，避免以清水直接沖洗。</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="note-grid">
+                    <article class="note-card">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <h3>禁止事項</h3>
+                        <p>避免使用無煙鹽酸、去漬油、甲苯與其他高腐蝕性化學清潔劑；也不要以鐵刷、刀片等硬物刮除門面污漬。</p>
+                    </article>
+                    <article class="note-card">
+                        <i class="fas fa-tree"></i>
+                        <h3>實木門提醒</h3>
+                        <p>天然木材會受到氣候影響，可能出現細微裂痕或紋理變化，這屬於自然材質特性，日常應避免潮濕與曝曬。</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">國堡門 Guobao Door DESIGN</h5>
+                    <p class="text-white-50 mb-3">專注於住宅大門、門花、門鎖與門色搭配提案，結合美感、安全與實用性，打造更完整的入門體驗。</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-3 text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-line fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">快速連結</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">首頁</a></li>
+                        <li class="mb-2"><a href="品牌介紹.html" class="text-white-50 text-decoration-none">品牌介紹</a></li>
+                        <li class="mb-2"><a href="門花鎖系列.html" class="text-white-50 text-decoration-none">門花／門鎖系列</a></li>
+                        <li class="mb-2"><a href="展品出清.html" class="text-white-50 text-decoration-none">展品出清</a></li>
+                        <li class="mb-2"><a href="聯絡我們.html" class="text-white-50 text-decoration-none">門市資訊</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white mb-3">聯絡資訊</h5>
+                    <ul class="list-unstyled small text-white-50 mb-0">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>service@hung-chan.com.tw</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0800-368-369</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>週一至週六 09:30 - 20:00</li>
+                        <li class="mb-2"><i class="fas fa-location-dot me-2"></i>歡迎來店洽詢客製門款與安裝方案</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center small text-white-50">
+                &copy; 2026 國堡門 Guobao Door Design. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://hung-chan.com.tw/media/k2/items/cache/6825866abf6ddc014340326b35addd51_XL.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.clearance-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
+}
+
+.clearance-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.clearance-img-wrapper {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.clearance-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.clearance-item:hover .clearance-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.badge-sale {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.item-details {
+    padding: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.item-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.item-desc {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.price-tag {
+    color: #dc3545;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+/* Modal Specific Styles */
+#productDetailsModal .modal-content {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+#productDetailsModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 1.5rem;
+}
+
+#productDetailsModal .border-0 {
+    border: none !important;
+}
+
+#productDetailsModal .modal-title {
+    font-weight: 700;
+    color: #333;
+}
+
+#productDetailsModal .modal-body {
+    padding: 0;
+}
+
+.modal-product-image-container {
+    height: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.modal-product-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    padding: 20px;
+}
+
+.modal-product-info-col {
+    padding: 2rem;
+}
+
+.modal-product-price {
+    font-size: 1.8rem;
+    color: #dc3545;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.modal-product-specs tr th {
+    width: 100px;
+    color: #666;
+    font-weight: 500;
+    padding-bottom: 0.8rem;
+}
+
+.modal-product-specs tr td {
+    color: #333;
+    font-weight: 500;
+    padding-bottom: 0.8rem;
+}
+
+.modal-original-price {
+    font-size: 1rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
+.clearance-insights {
+    background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(250,240,232,0.92));
+    border: 1px solid rgba(139, 69, 19, 0.12);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 18px 40px rgba(83, 45, 14, 0.08);
+}
+
+.insights-kicker {
+    display: inline-flex;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(139, 69, 19, 0.08);
+    color: #8B4513;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+}
+
+.summary-card,
+.insight-panel,
+.cta-panel {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+}
+
+.summary-card {
+    height: 100%;
+    padding: 1.25rem;
+}
+
+.summary-card strong {
+    display: block;
+    font-size: 1.45rem;
+    color: #4f2f15;
+    margin-bottom: 0.35rem;
+}
+
+.summary-card p {
+    margin: 0;
+    color: #7a6d64;
+    font-size: 0.92rem;
+}
+
+.summary-label {
+    display: inline-block;
+    color: #a86b32;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.55rem;
+}
+
+.insight-panel {
+    padding: 1.4rem;
+}
+
+.panel-heading {
+    margin-bottom: 1rem;
+}
+
+.top-products-list,
+.comparison-chart {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.top-product-row {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    padding: 0.95rem;
+    background: #fffaf6;
+    border-radius: 16px;
+}
+
+.rank-badge {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b36a2e, #8B4513);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.top-score {
+    font-weight: 700;
+    color: #8B4513;
+}
+
+.top-product-meta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    color: #7d5f49;
+    font-size: 0.82rem;
+}
+
+.chart-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.chart-label strong,
+.chart-label span {
+    display: block;
+}
+
+.chart-label span {
+    font-size: 0.8rem;
+    color: #8d7a6d;
+}
+
+.chart-metrics {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.chart-track,
+.mini-bar-line {
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
+    gap: 0.6rem;
+    align-items: center;
+    font-size: 0.82rem;
+}
+
+.chart-track label,
+.mini-bar-line span:first-child {
+    color: #755742;
+    font-weight: 600;
+}
+
+.track,
+.mini-bar {
+    position: relative;
+    height: 0.52rem;
+    border-radius: 999px;
+    background: #ecdcd0;
+    overflow: hidden;
+}
+
+.track i,
+.mini-bar i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #8B4513, #d48b46);
+}
+
+.track.inquiries i {
+    background: linear-gradient(90deg, #6b7f3f, #92b34d);
+}
+
+.track.discount i,
+.mini-bar-accent i {
+    background: linear-gradient(90deg, #c85c38, #f3a145);
+}
+
+.section-heading {
+    margin-bottom: 1rem;
+}
+
+.legend-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #7d5f49;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.legend-row i {
+    color: #b36a2e;
+    margin-right: 0.3rem;
+}
+
+.sample-metrics {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ead7cb;
+}
+
+.popularity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+}
+
+.popularity-chip {
+    display: inline-flex;
+    padding: 0.28rem 0.75rem;
+    border-radius: 999px;
+    background: #fff0e4;
+    color: #b05d1d;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.popularity-score {
+    color: #7f5e48;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-bottom: 0.9rem;
+}
+
+.metric-box {
+    background: #fcf7f2;
+    border-radius: 14px;
+    padding: 0.7rem;
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #8c7a6d;
+    margin-bottom: 0.2rem;
+}
+
+.metric-box strong {
+    color: #52311b;
+    font-size: 0.95rem;
+}
+
+.mini-bar-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.mini-bar-line {
+    grid-template-columns: 32px 1fr;
+}
+
+.cta-panel {
+    padding: 2rem 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+    .chart-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .clearance-insights {
+        padding: 1.25rem;
+        border-radius: 18px;
+    }
+
+    .popularity-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

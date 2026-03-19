@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>門色總覽 - 國堡門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .series-hero {
+            background: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            min-height: 58vh;
+        }
+        .series-shell {
+            background: linear-gradient(180deg, rgba(255,245,230,0.84), rgba(255,251,246,0.95));
+            border-radius: 28px;
+            padding: 3rem 2rem;
+            margin-top: -3rem;
+            position: relative;
+            box-shadow: 0 20px 48px rgba(96, 63, 35, 0.08);
+        }
+        .series-section + .series-section {
+            margin-top: 4rem;
+        }
+        .catalog-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.75);
+            border: 1px solid rgba(139, 69, 19, 0.08);
+        }
+        .commerce-toolbar {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .toolbar-panel {
+            background: rgba(255,255,255,0.9);
+            border-radius: 22px;
+            padding: 1.25rem;
+            box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+        }
+        .toolbar-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #a2662c;
+            margin-bottom: 0.75rem;
+        }
+        .toolbar-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+        .toolbar-stat {
+            background: #fbf5ee;
+            border-radius: 16px;
+            padding: 0.9rem;
+            text-align: center;
+        }
+        .toolbar-stat strong {
+            display: block;
+            font-size: 1.15rem;
+            color: #4c3221;
+        }
+        .toolbar-stat span {
+            color: #7b6858;
+            font-size: 0.82rem;
+        }
+        .catalog-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .catalog-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            background: #fff;
+            color: #5f4532;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .catalog-summary {
+            color: #745946;
+            font-size: 0.95rem;
+        }
+        .sort-row {
+            display: flex;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+        }
+        .sort-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            background: #f6ede4;
+            color: #6b4b34;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .section-frame {
+            background: rgba(255,255,255,0.55);
+            border-radius: 24px;
+            padding: 1.5rem;
+        }
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .filter-sidebar {
+            position: sticky;
+            top: 96px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 22px;
+            padding: 1.25rem;
+            box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+        }
+        .filter-group + .filter-group {
+            margin-top: 1.2rem;
+        }
+        .filter-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #a2662c;
+            margin-bottom: 0.7rem;
+        }
+        .filter-list {
+            display: grid;
+            gap: 0.55rem;
+        }
+        .filter-btn {
+            width: 100%;
+            border: 1px solid rgba(139, 69, 19, 0.12);
+            background: #fffaf6;
+            color: #6b4b34;
+            border-radius: 14px;
+            padding: 0.7rem 0.9rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .filter-btn.active {
+            background: #8B4513;
+            color: #fff;
+        }
+        .sort-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .result-count {
+            color: #7a5d49;
+            font-weight: 600;
+        }
+        .sort-select {
+            min-width: 220px;
+            border: 1px solid rgba(139, 69, 19, 0.12);
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+            background: #fff;
+            color: #5f4532;
+        }
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 0.85rem;
+            color: #a2662c;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        .section-subtitle {
+            color: #7b6a5c;
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            text-align: center;
+        }
+        .color-card {
+            background: rgba(255,255,255,0.92);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .color-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 32px rgba(0,0,0,0.12);
+        }
+        .color-swatch {
+            height: 170px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .color-card-copy {
+            color: #786657;
+            font-size: 0.9rem;
+            margin-top: 0.6rem;
+            margin-bottom: 0;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 0.9rem;
+        }
+        .product-action {
+            border: none;
+            border-radius: 999px;
+            padding: 0.55rem 0.95rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+        .product-action-primary {
+            background: #8B4513;
+            color: #fff;
+        }
+        .product-action-secondary {
+            background: #f5ebe0;
+            color: #7a5538;
+        }
+        .card-meta {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+        .meta-chip {
+            display: inline-flex;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: #f5ebe0;
+            color: #7a5538;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+        .bg-red-iron { background: #8a3c34; }
+        .bg-black-sand { background: #2b2523; }
+        .bg-grey-sand { background: #7f7b77; }
+        .bg-light-grey-sand { background: #b9b3aa; }
+        .bg-bronze-sand { background: #8b6847; }
+        .bg-dark-grey-sparkle { background: linear-gradient(135deg, #3b3b3f, #5a5a60); }
+        .bg-coffee-sparkle { background: linear-gradient(135deg, #5e4739, #8a6b57); }
+        .bg-yellow-antique { background: #d0a14a; }
+        .bg-red-antique { background: #914136; }
+        .bg-red-antique-matt { background: #71352e; }
+        .bg-cream-white { background: #ede3d5; }
+        .bg-dark-green { background: #3b5141; }
+        .bg-date-red { background: #823a30; }
+        .bg-yellow-antique2 { background: #cfa64f; }
+        .bg-red-antique2 { background: #8a4336; }
+        .bg-silver-antique { background: #b2b5b8; }
+        .bg-sparkle-yellow { background: linear-gradient(135deg, #dfb95b, #c5922d); }
+        .bg-sparkle-red { background: linear-gradient(135deg, #9d4438, #6d2e26); }
+        .bg-rose-red { background: #b4524a; }
+        .bg-yellow-antique-diamond { background: linear-gradient(135deg, #d6b25b, #a67e2b); }
+        .bg-red-antique-diamond { background: linear-gradient(135deg, #9d4d40, #6b2d24); }
+        .bg-yellow-grey-sand { background: linear-gradient(135deg, #c5b284, #7b746e); }
+        .bg-red-grey-sand { background: linear-gradient(135deg, #85524b, #67615d); }
+        .bg-gold-sand { background: #b89552; }
+        .bg-matte-black-full { background: #1c1b1a; }
+        .bg-red-wood { background: linear-gradient(135deg, #77443b, #9d6a5d); }
+        .bg-teak { background: linear-gradient(135deg, #8d6a4c, #b08a67); }
+        .bg-walnut { background: linear-gradient(135deg, #5b4638, #7b604f); }
+        .bg-bronze-sculpture { background: linear-gradient(135deg, #6f5745, #9e7e65); }
+        @media (max-width: 991.98px) {
+            .commerce-toolbar {
+                grid-template-columns: 1fr;
+            }
+            .toolbar-stats {
+                grid-template-columns: 1fr;
+            }
+            .shop-layout {
+                grid-template-columns: 1fr;
+            }
+            .filter-sidebar {
+                position: static;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .series-shell {
+                padding: 2rem 1rem;
+                border-radius: 20px;
+                margin-top: -2rem;
+            }
+            .color-swatch {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-door-open me-2 text-warning"></i>
+                <span>國堡門 <small class="text-muted fs-6">Guobao Door DESIGN</small></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="品牌介紹.html">品牌介紹</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="產品系列.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">產品系列</a>
+                        <ul class="dropdown-menu product-series-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="雙玄關門A系列.html">雙玄關門系列A系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門D系列.html">雙玄關門系列D系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門系列.html">雙玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#double-window-series">雙玄關門雙視窗系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#waterproof-series">防水防污門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#steel-series">鋼製壓板門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louver-series">百頁通風門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#japanese-series">日式玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#stone-series">石材玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carving-series">烤漆精雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louvre-series">羅浮宮浮雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#door-in-door-series">門中門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#tech-wood-series">科技實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#natural-wood-series">天然實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carbon-series">碳纖防爆門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#smdoor-series">雙茂門</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownDoorLock" role="button" data-bs-toggle="dropdown" aria-expanded="false">門花/鎖系列</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoorLock">
+                            <li><a class="dropdown-item" href="門花鎖系列.html">門花系列</a></li>
+                            <li><a class="dropdown-item" href="門鎖系列.html">門鎖系列</a></li>
+                            <li><a class="dropdown-item active" href="門色總覽.html">門色總覽</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="展品出清.html">展品出清</a></li>
+                    <li class="nav-item"><a class="nav-link" href="聯絡我們.html">門市資訊</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-custom ms-2" href="聯絡我們.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section series-hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="display-3 fw-bold mb-3">門色總覽</h1>
+            <p class="lead mb-4">延續首頁視覺語言，集中比較不同門色質感與表面效果</p>
+            <a href="#color-overview" class="btn btn-lg btn-warning text-dark fw-bold px-5">查看門色</a>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="series-shell">
+            <div class="commerce-toolbar">
+                <div class="toolbar-panel">
+                    <div class="toolbar-title">CATEGORY OVERVIEW</div>
+                    <div class="toolbar-stats">
+                        <div class="toolbar-stat"><strong>7 色</strong><span>砂紋</span></div>
+                        <div class="toolbar-stat"><strong>6 色</strong><span>古典烤漆</span></div>
+                        <div class="toolbar-stat"><strong>16 色</strong><span>亮面與特殊色</span></div>
+                    </div>
+                </div>
+                <div class="toolbar-panel">
+                    <div class="toolbar-title">POPULAR FILTERS</div>
+                    <div class="sort-row">
+                        <span class="sort-chip">低調百搭</span>
+                        <span class="sort-chip">木紋感</span>
+                        <span class="sort-chip">金屬亮澤</span>
+                        <span class="sort-chip">高識別度</span>
+                    </div>
+                </div>
+            </div>
+            <div class="catalog-toolbar">
+                <div class="catalog-pills">
+                    <a class="catalog-pill" href="#color-overview">砂紋色</a>
+                    <a class="catalog-pill" href="#classic-section">古典烤漆</a>
+                    <a class="catalog-pill" href="#metal-section">金屬亮面</a>
+                    <a class="catalog-pill" href="#special-section">特殊紋理</a>
+                </div>
+            </div>
+
+            <div class="shop-layout">
+                <aside class="filter-sidebar">
+                    <div class="filter-group">
+                        <div class="filter-label">色系分類</div>
+                        <div class="filter-list">
+                            <button class="filter-btn active" type="button" data-color-filter="all">全部門色</button>
+                            <button class="filter-btn" type="button" data-color-filter="砂紋">砂紋色</button>
+                            <button class="filter-btn" type="button" data-color-filter="古典">古典烤漆</button>
+                            <button class="filter-btn" type="button" data-color-filter="亮面">金屬亮面</button>
+                            <button class="filter-btn" type="button" data-color-filter="特殊">特殊紋理</button>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-label">風格調性</div>
+                        <div class="filter-list">
+                            <button class="filter-btn" type="button" data-color-tone="沉穩調性">沉穩深色</button>
+                            <button class="filter-btn" type="button" data-color-tone="暖色質感">暖色質感</button>
+                            <button class="filter-btn" type="button" data-color-tone="木紋感">木紋紋理</button>
+                        </div>
+                    </div>
+                </aside>
+                <div>
+                    <div class="sort-toolbar">
+                        <div class="result-count" id="colorResultCount">共 29 色可瀏覽</div>
+                        <select class="sort-select" id="colorSort">
+                            <option value="default">預設排序</option>
+                            <option value="name-asc">名稱 A-Z</option>
+                            <option value="name-desc">名稱 Z-A</option>
+                        </select>
+                    </div>
+
+                    <section class="series-section section-frame" id="color-overview">
+                        <span class="section-kicker">TEXTURED SAND</span>
+                        <h2 class="section-title fw-bold text-dark">砂紋色系</h2>
+                        <p class="section-subtitle">偏金屬礦砂質感，適合沉穩、現代或工業感立面。</p>
+                        <div class="row g-4 product-grid" id="sandGrid"></div>
+                    </section>
+
+                    <section class="series-section section-frame" id="classic-section">
+                        <span class="section-kicker">CLASSIC COAT</span>
+                        <h2 class="section-title fw-bold text-dark">古典烤漆色</h2>
+                        <p class="section-subtitle">以經典塗裝與暖色系為主，適合傳統與歐式門面。</p>
+                        <div class="row g-4 product-grid" id="classicGrid"></div>
+                    </section>
+
+                    <section class="series-section section-frame" id="metal-section">
+                        <span class="section-kicker">METAL GLOW</span>
+                        <h2 class="section-title fw-bold text-dark">金屬與亮面色</h2>
+                        <p class="section-subtitle">提升材質存在感，讓門面更有精品感與辨識度。</p>
+                        <div class="row g-4 product-grid" id="metalGrid"></div>
+                    </section>
+
+                    <section class="series-section section-frame" id="special-section">
+                        <span class="section-kicker">SPECIAL TEXTURE</span>
+                        <h2 class="section-title fw-bold text-dark">特殊紋理色</h2>
+                        <p class="section-subtitle">木紋、雕塑色與高對比表面，適合需要風格表情的案型。</p>
+                        <div class="row g-4 product-grid" id="specialGrid"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">國堡門 Guobao Door DESIGN</h5>
+                    <p class="text-white-50 mb-3">專注於住宅大門、門花、門鎖與門色搭配提案，結合美感、安全與實用性，打造更完整的入門體驗。</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-3 text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-line fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">快速連結</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">首頁</a></li>
+                        <li class="mb-2"><a href="品牌介紹.html" class="text-white-50 text-decoration-none">品牌介紹</a></li>
+                        <li class="mb-2"><a href="門花鎖系列.html" class="text-white-50 text-decoration-none">門花／門鎖系列</a></li>
+                        <li class="mb-2"><a href="展品出清.html" class="text-white-50 text-decoration-none">展品出清</a></li>
+                        <li class="mb-2"><a href="聯絡我們.html" class="text-white-50 text-decoration-none">門市資訊</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white mb-3">聯絡資訊</h5>
+                    <ul class="list-unstyled small text-white-50 mb-0">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>service@hung-chan.com.tw</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0800-368-369</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>週一至週六 09:30 - 20:00</li>
+                        <li class="mb-2"><i class="fas fa-location-dot me-2"></i>歡迎來店洽詢客製門款與安裝方案</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center small text-white-50">
+                &copy; 2026 國堡門 Guobao Door Design. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const sandColors = [
+            ['赤鐵砂紋', 'bg-red-iron'],
+            ['黑砂紋', 'bg-black-sand'],
+            ['灰砂紋', 'bg-grey-sand'],
+            ['淺灰砂紋', 'bg-light-grey-sand'],
+            ['古銅砂紋', 'bg-bronze-sand'],
+            ['深灰亮砂', 'bg-dark-grey-sparkle'],
+            ['咖啡亮砂', 'bg-coffee-sparkle']
+        ];
+        const classicColors = [
+            ['黃古典', 'bg-yellow-antique'],
+            ['紅古典', 'bg-red-antique'],
+            ['霧紅古典', 'bg-red-antique-matt'],
+            ['米白色', 'bg-cream-white'],
+            ['深綠色', 'bg-dark-green'],
+            ['棗紅色', 'bg-date-red']
+        ];
+        const metalColors = [
+            ['黃古典亮面', 'bg-yellow-antique2'],
+            ['紅古典亮面', 'bg-red-antique2'],
+            ['銀古典', 'bg-silver-antique'],
+            ['亮金色', 'bg-sparkle-yellow'],
+            ['亮紅色', 'bg-sparkle-red'],
+            ['玫瑰紅', 'bg-rose-red']
+        ];
+        const specialColors = [
+            ['鑽光黃古典', 'bg-yellow-antique-diamond'],
+            ['鑽光紅古典', 'bg-red-antique-diamond'],
+            ['黃灰砂', 'bg-yellow-grey-sand'],
+            ['紅灰砂', 'bg-red-grey-sand'],
+            ['金砂色', 'bg-gold-sand'],
+            ['全消光黑', 'bg-matte-black-full'],
+            ['紅木紋', 'bg-red-wood'],
+            ['柚木紋', 'bg-teak'],
+            ['胡桃木', 'bg-walnut'],
+            ['古銅雕塑', 'bg-bronze-sculpture']
+        ];
+        function renderColorCard(item, group) {
+            const tone = item[0].includes('木') ? '木紋感' : item[0].includes('黑') ? '沉穩調性' : '暖色質感';
+            return `
+                <div class="col-6 col-md-4 col-lg-3 product-entry" data-group="${group}" data-tone="${tone}" data-name="${item[0]}">
+                    <article class="color-card text-center">
+                        <div class="color-swatch ${item[1]}"></div>
+                        <div class="p-3">
+                            <h5 class="fw-bold mb-0">${item[0]}</h5>
+                            <div class="card-meta">
+                                <span class="meta-chip">${group}</span>
+                                <span class="meta-chip">${tone}</span>
+                            </div>
+                            <p class="color-card-copy">${group === '砂紋' ? '適合現代、俐落或金屬感立面。' : group === '古典' ? '適合偏溫潤、傳統與經典門面。' : group === '亮面' ? '適合想讓門面更有存在感的配置。' : '適合需要風格識別度的案型。'}</p>
+                            <div class="product-actions">
+                                <button class="product-action product-action-secondary" type="button">加入比較</button>
+                                <button class="product-action product-action-primary" type="button">查看搭配</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            `;
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('sandGrid').innerHTML = sandColors.map(item => renderColorCard(item, '砂紋')).join('');
+            document.getElementById('classicGrid').innerHTML = classicColors.map(item => renderColorCard(item, '古典')).join('');
+            document.getElementById('metalGrid').innerHTML = metalColors.map(item => renderColorCard(item, '亮面')).join('');
+            document.getElementById('specialGrid').innerHTML = specialColors.map(item => renderColorCard(item, '特殊')).join('');
+
+            const filterButtons = Array.from(document.querySelectorAll('[data-color-filter]'));
+            const toneButtons = Array.from(document.querySelectorAll('[data-color-tone]'));
+            const sortSelect = document.getElementById('colorSort');
+            const resultCount = document.getElementById('colorResultCount');
+            const grids = Array.from(document.querySelectorAll('.product-grid'));
+            let activeGroup = 'all';
+            let activeTone = '';
+
+            function updateColorCatalog() {
+                const entries = Array.from(document.querySelectorAll('.product-entry'));
+                entries.forEach(entry => {
+                    const matchGroup = activeGroup === 'all' || entry.dataset.group === activeGroup;
+                    const matchTone = !activeTone || entry.dataset.tone === activeTone;
+                    entry.style.display = matchGroup && matchTone ? 'block' : 'none';
+                });
+                const visibleEntries = entries.filter(entry => entry.style.display !== 'none');
+                resultCount.textContent = `共 ${visibleEntries.length} 色可瀏覽`;
+                const sorter = sortSelect.value;
+                grids.forEach(grid => {
+                    Array.from(grid.children).sort((a, b) => {
+                        if (sorter === 'name-asc') return a.dataset.name.localeCompare(b.dataset.name, 'zh-Hant');
+                        if (sorter === 'name-desc') return b.dataset.name.localeCompare(a.dataset.name, 'zh-Hant');
+                        return 0;
+                    }).forEach(item => grid.appendChild(item));
+                });
+            }
+
+            filterButtons.forEach(button => button.addEventListener('click', function() {
+                filterButtons.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                activeGroup = this.dataset.colorFilter;
+                updateColorCatalog();
+            }));
+            toneButtons.forEach(button => button.addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+                toneButtons.forEach(item => item.classList.remove('active'));
+                activeTone = '';
+                if (!isActive) {
+                    this.classList.add('active');
+                    activeTone = this.dataset.colorTone;
+                }
+                updateColorCatalog();
+            }));
+            sortSelect.addEventListener('change', updateColorCatalog);
+            updateColorCatalog();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雙玄關門系列 - 國堡門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .entry-hero{min-height:68vh;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(21,18,16,.5),rgba(21,18,16,.12)),url('https://hung-chan.com.tw/media/k2/categories/146.jpg') center/cover no-repeat}
+        .entry-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:130px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(247,240,231,1))}
+        .entry-hero-content{position:relative;z-index:1;max-width:680px;color:#fff}
+        .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.48rem .88rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.82rem;letter-spacing:.08em;margin-bottom:1rem}
+        .entry-hero-content h1{font-size:clamp(2.5rem,4vw,4rem);font-weight:900;margin-bottom:1rem}
+        .entry-hero-content p{color:rgba(255,255,255,.88);font-size:1.05rem;margin-bottom:1.5rem}
+        .entry-shell{margin-top:-2.5rem;position:relative;z-index:2}
+        .entry-panel,.entry-grid-panel{background:linear-gradient(180deg,rgba(255,249,242,.96),rgba(255,255,255,.98));border-radius:28px;padding:2rem;box-shadow:0 20px 45px rgba(89,56,31,.08);border:1px solid rgba(139,69,19,.08)}
+        .section-kicker{color:#b06f2d;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:.9rem}
+        .section-title-lg{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:900;color:#1f2530;margin-bottom:.8rem}
+        .section-lead{color:#6f6256;max-width:760px}
+        .series-overview-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+        .series-overview-stats .stat{background:#fff;border-radius:18px;padding:1rem;border:1px solid rgba(139,69,19,.08)}
+        .series-overview-stats strong{display:block;color:#1e2530;font-size:1.15rem}
+        .series-overview-stats span{color:#8a7662;font-size:.84rem}
+        .entry-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.8rem}
+        .entry-product-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(139,69,19,.08);box-shadow:0 14px 30px rgba(0,0,0,.06);height:100%}
+        .entry-product-image{height:320px;background-size:cover;background-position:center;position:relative;cursor:pointer}
+        .entry-product-image::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.28))}
+        .entry-product-body{padding:1.35rem}
+        .entry-product-meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem}
+        .entry-product-meta span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.34rem .65rem;font-size:.75rem;font-weight:700}
+        .entry-product-body h3{font-size:1.25rem;font-weight:800;color:#213040;margin-bottom:.6rem;cursor:pointer}
+        .entry-product-body p{color:#6b625d;margin-bottom:1rem}
+        .entry-product-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+        .entry-product-specs div{background:#fcf7f1;border-radius:14px;padding:.8rem}
+        .entry-product-specs strong{display:block;color:#8f663d;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+        .entry-product-specs span{color:#3d342d;font-weight:600}
+        .entry-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+        .series-detail-modal{border:0;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#fdf7ef,#fff)}
+        .series-detail-modal .modal-header{border-bottom:1px solid rgba(139,69,19,.08);padding:1.2rem 1.4rem}
+        .series-detail-modal .modal-body{padding:1.4rem}
+        .detail-hero-image{width:100%;min-height:420px;border-radius:24px;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(139,69,19,.08)}
+        .detail-summary-card{background:#f8efe5;border-radius:22px;padding:1.2rem;margin-top:1rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-summary-card strong{display:block;color:#8f663d;margin-bottom:.3rem}
+        .detail-pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1rem}
+        .detail-pills span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.38rem .72rem;font-size:.8rem;font-weight:700}
+        .detail-price-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem .95rem;border-radius:999px;background:linear-gradient(135deg,#9c5a1e,#c47a2f);color:#fff;font-weight:800;margin-bottom:1rem}
+        .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-bottom:1rem}
+        .detail-grid div{background:#fff;border-radius:16px;padding:.9rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-grid strong{display:block;color:#8f663d;font-size:.76rem;margin-bottom:.2rem}
+        .detail-grid span{color:#2f2f34;font-weight:600}
+        .detail-section-title{font-size:.92rem;color:#8f663d;font-weight:800;letter-spacing:.06em;margin:1rem 0 .6rem;text-transform:uppercase}
+        .detail-feature-list{margin:0;padding-left:1.1rem;color:#5f5650}
+        .detail-feature-list li+li{margin-top:.35rem}
+        .detail-price-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;border:1px solid rgba(139,69,19,.08)}
+        .detail-price-table th,.detail-price-table td{padding:.8rem .9rem;font-size:.92rem}
+        .detail-price-table thead th{background:#6b4c3a;color:#fff}
+        .detail-price-table tbody td{background:#fff;color:#564a43;border-top:1px solid rgba(139,69,19,.08)}
+        @media (max-width:991.98px){.series-overview-stats,.entry-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media (max-width:767.98px){.series-overview-stats,.entry-product-grid,.entry-product-specs,.detail-grid{grid-template-columns:1fr}.entry-panel,.entry-grid-panel{padding:1.35rem;border-radius:22px}.entry-product-image{height:260px}.detail-hero-image{min-height:280px}}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html"><i class="fas fa-door-open me-2 text-warning"></i><span>國堡門 <small class="text-muted fs-6">Guobao Door DESIGN</small></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="品牌介紹.html">品牌介紹</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="產品系列.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">產品系列</a>
+                        <ul class="dropdown-menu product-series-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="雙玄關門A系列.html">雙玄關門系列A系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門D系列.html">雙玄關門系列D系列</a></li>
+                            <li><a class="dropdown-item active" href="雙玄關門系列.html">雙玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#double-window-series">雙玄關門雙視窗系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#waterproof-series">防水防污門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#steel-series">鋼製壓板門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louver-series">百頁通風門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#japanese-series">日式玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#stone-series">石材玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carving-series">烤漆精雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louvre-series">羅浮宮浮雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#door-in-door-series">門中門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#tech-wood-series">科技實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#natural-wood-series">天然實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carbon-series">碳纖防爆門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#smdoor-series">雙茂門</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDoorLock" role="button" data-bs-toggle="dropdown" aria-expanded="false">門花/鎖系列</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoorLock">
+                            <li><a class="dropdown-item" href="門花鎖系列.html">門花系列</a></li>
+                            <li><a class="dropdown-item" href="門鎖系列.html">門鎖系列</a></li>
+                            <li><a class="dropdown-item" href="門色總覽.html">門色總覽</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="展品出清.html">展品出清</a></li>
+                    <li class="nav-item"><a class="nav-link" href="聯絡我們.html">門市資訊</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-custom ms-2" href="聯絡我們.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="entry-hero">
+        <div class="container">
+            <div class="entry-hero-content">
+                <span class="eyebrow"><i class="fas fa-door-open"></i> Series Detail</span>
+                <h1>雙玄關門系列</h1>
+                <p>依照官方原始頁內容重整，這一頁直接展示雙玄關門系列代表款式，讓使用者比較不同門色、外門樣式與內門配置。</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#entry-products" class="btn btn-warning btn-lg text-dark fw-bold px-4">查看系列款式</a>
+                    <a href="產品系列.html" class="btn btn-outline-light btn-lg px-4">返回產品系列</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5 entry-shell">
+        <section class="entry-panel mb-5">
+            <span class="section-kicker">Series Overview</span>
+            <h2 class="section-title-lg">雙玄關門系列重點整理</h2>
+            <p class="section-lead mb-0">官方系列頁列出 5 款代表產品，差異主要在門色、外門樣式與內門配置，適合想先比較通用雙玄關門款式的使用者。</p>
+            <div class="series-overview-stats">
+                <div class="stat"><strong>5 款</strong><span>官方代表門型</span></div>
+                <div class="stat"><strong>4 種門色</strong><span>黑砂色、黃古銅色、紅鐵砂色、灰沙色</span></div>
+                <div class="stat"><strong>雙面造型</strong><span>卡登或三方格內門配置</span></div>
+                <div class="stat"><strong>玄關門</strong><span>住宅主入口定位</span></div>
+            </div>
+        </section>
+
+        <section class="entry-grid-panel" id="entry-products">
+            <span class="section-kicker">Entry-Series Catalog</span>
+            <h2 class="section-title-lg">雙玄關門系列代表款式</h2>
+            <p class="section-lead">以下依照官方原始頁整理雙玄關門系列代表門型，保留型號、門色、外門與內門配置，並補成可點開的詳細資訊視窗。</p>
+            <div class="entry-product-grid">
+                <article class="entry-product-card">
+                    <div class="entry-product-image" style="background-image:url('https://hung-chan.com.tw/images/pc/14/01.jpg');"></div>
+                    <div class="entry-product-body">
+                        <div class="entry-product-meta"><span>雙玄關門 1</span><span>黑砂色</span></div>
+                        <h3>雙玄關門 1</h3>
+                        <p>外門採 F3 崇山峻嶺，適合喜歡厚實立面與穩重入口層次的住宅風格。</p>
+                        <div class="entry-product-specs">
+                            <div><strong>外門造型</strong><span>F3 崇山峻嶺</span></div>
+                            <div><strong>內門配置</strong><span>卡登(雙面造型)</span></div>
+                            <div><strong>門色</strong><span>黑砂色</span></div>
+                            <div><strong>適用門型</strong><span>雙玄關門</span></div>
+                        </div>
+                        <div class="entry-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="entry-product-card">
+                    <div class="entry-product-image" style="background-image:url('https://hung-chan.com.tw/images/pc/14/02.jpg');"></div>
+                    <div class="entry-product-body">
+                        <div class="entry-product-meta"><span>雙玄關門 2</span><span>黃古銅色</span></div>
+                        <h3>雙玄關門 2</h3>
+                        <p>外門為 F5 劃時代，搭配黃古銅色更顯現代俐落，適合新成屋或簡潔立面。</p>
+                        <div class="entry-product-specs">
+                            <div><strong>外門造型</strong><span>F5 劃時代</span></div>
+                            <div><strong>內門配置</strong><span>卡登(雙面造型)</span></div>
+                            <div><strong>門色</strong><span>黃古銅色</span></div>
+                            <div><strong>適用門型</strong><span>雙玄關門</span></div>
+                        </div>
+                        <div class="entry-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="entry-product-card">
+                    <div class="entry-product-image" style="background-image:url('https://hung-chan.com.tw/images/pc/14/03.jpg');"></div>
+                    <div class="entry-product-body">
+                        <div class="entry-product-meta"><span>雙玄關門 3</span><span>紅鐵砂色</span></div>
+                        <h3>雙玄關門 3</h3>
+                        <p>外門為 F6 五福臨門，適合重視寓意與迎賓感的家庭，同時保留對稱穩重門面。</p>
+                        <div class="entry-product-specs">
+                            <div><strong>外門造型</strong><span>F6 五福臨門</span></div>
+                            <div><strong>內門配置</strong><span>卡登(雙面造型)</span></div>
+                            <div><strong>門色</strong><span>紅鐵砂色</span></div>
+                            <div><strong>適用門型</strong><span>雙玄關門</span></div>
+                        </div>
+                        <div class="entry-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="entry-product-card">
+                    <div class="entry-product-image" style="background-image:url('https://hung-chan.com.tw/images/pc/14/04.jpg');"></div>
+                    <div class="entry-product-body">
+                        <div class="entry-product-meta"><span>雙玄關門 5</span><span>黑砂色</span></div>
+                        <h3>雙玄關門 5</h3>
+                        <p>外門採鏡花水月雕花玻璃設計，門面更有層次與精品感，適合想強化細節表情的入口。</p>
+                        <div class="entry-product-specs">
+                            <div><strong>外門造型</strong><span>鏡花水月(10mm厚雕花玻璃)</span></div>
+                            <div><strong>內門配置</strong><span>卡登(雙面造型)</span></div>
+                            <div><strong>門色</strong><span>黑砂色</span></div>
+                            <div><strong>適用門型</strong><span>雙玄關門</span></div>
+                        </div>
+                        <div class="entry-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="entry-product-card">
+                    <div class="entry-product-image" style="background-image:url('https://hung-chan.com.tw/images/pc/14/05.jpg');"></div>
+                    <div class="entry-product-body">
+                        <div class="entry-product-meta"><span>雙玄關門 6</span><span>灰沙色</span></div>
+                        <h3>雙玄關門 6</h3>
+                        <p>外門為 F2 戀琴，搭配灰沙色與三方格內門，整體更柔和，適合內斂溫潤的住宅氣質。</p>
+                        <div class="entry-product-specs">
+                            <div><strong>外門造型</strong><span>F2 戀琴</span></div>
+                            <div><strong>內門配置</strong><span>三方格(雙面造型)</span></div>
+                            <div><strong>門色</strong><span>灰沙色</span></div>
+                            <div><strong>適用門型</strong><span>雙玄關門</span></div>
+                        </div>
+                        <div class="entry-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="seriesDetailModal" tabindex="-1" aria-labelledby="seriesDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content series-detail-modal">
+                <div class="modal-header">
+                    <div>
+                        <div class="detail-pills mb-2" id="detailModalPills"></div>
+                        <h3 class="modal-title fw-bold mb-1" id="seriesDetailModalLabel">產品詳細資訊</h3>
+                        <p class="text-muted mb-0" id="detailModalSubtitle"></p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="detail-hero-image" id="detailModalImage"></div>
+                            <div class="detail-summary-card"><strong>款式配置</strong><span id="detailModalSummary"></span></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="detail-price-chip" id="detailModalPrice"></div>
+                            <div class="detail-grid" id="detailModalSpecs"></div>
+                            <div class="detail-section-title">特色</div>
+                            <ul class="detail-feature-list" id="detailModalFeatures"></ul>
+                            <div class="detail-section-title">門鎖與備註</div>
+                            <p class="mb-2 text-muted" id="detailModalLock"></p>
+                            <p class="small text-muted mb-0" id="detailModalNote"></p>
+                        </div>
+                    </div>
+                    <div class="detail-section-title">常見尺寸與價格</div>
+                    <div class="table-responsive">
+                        <table class="detail-price-table">
+                            <thead><tr><th>內容</th><th>規格尺寸</th><th>非甲級/價格</th><th>甲級防火/價格</th></tr></thead>
+                            <tbody id="detailModalTable"></tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="聯絡我們.html" class="btn btn-primary-custom btn-lg">詢問這款</a>
+                        <button type="button" class="btn btn-outline-secondary btn-lg" data-bs-dismiss="modal">回到列表</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">國堡門 Guobao Door DESIGN</h5>
+                    <p class="text-white-50 mb-3">專注於住宅大門、門花、門鎖與門色搭配提案，結合美感、安全與實用性，打造更完整的入門體驗。</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">快速連結</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">首頁</a></li>
+                        <li class="mb-2"><a href="產品系列.html" class="text-white-50 text-decoration-none">產品系列</a></li>
+                        <li class="mb-2"><a href="雙玄關門系列.html" class="text-white-50 text-decoration-none">雙玄關門系列</a></li>
+                        <li class="mb-2"><a href="雙玄關門A系列.html" class="text-white-50 text-decoration-none">雙玄關門 A 系列</a></li>
+                        <li class="mb-2"><a href="雙玄關門D系列.html" class="text-white-50 text-decoration-none">雙玄關門 D 系列</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white mb-3">聯絡資訊</h5>
+                    <ul class="list-unstyled small text-white-50 mb-0">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>service@hung-chan.com.tw</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0800-368-369</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>週一至週六 09:30 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productDetails = {
+                '雙玄關門 1': {title:'雙玄關門 1｜黑砂色',subtitle:'厚實穩重，適合強調入口層次感的住宅門面',image:'https://hung-chan.com.tw/images/pc/03/images/p_11.jpg',summary:'外門：F3 崇山峻嶺 / 內門：卡登(雙面造型)',pills:['雙玄關門系列','黑砂色','穩重立面'],priceFrom:'$58,800 起',specs:[['型號','雙玄關門 1'],['外門造型','F3 崇山峻嶺'],['內門配置','卡登(雙面造型)'],['門色','黑砂色']],features:['適合重視厚實門面與穩重氣質的住宅','雙層配置可加強入口層次感','外門視覺較具存在感'],lock:'外門：COE 三段鎖 + 暗栓 / 內門：COE 五段鎖 + 三段暗栓',note:'實際價格依尺寸與防火等級調整，五金升級另計。',prices:[['雙玄關','93.5 x 208 cm','$58,800','$79,800'],['雙玄關','96 x 208 cm','$60,800','$81,800'],['雙玄關','100 x 208 cm','$62,800','$83,800']]},
+                '雙玄關門 2': {title:'雙玄關門 2｜黃古銅色',subtitle:'俐落現代，適合簡潔明快的新成屋立面',image:'https://hung-chan.com.tw/images/pc/03/images/p_12.jpg',summary:'外門：F5 劃時代 / 內門：卡登(雙面造型)',pills:['雙玄關門系列','黃古銅色','現代俐落'],priceFrom:'$59,800 起',specs:[['型號','雙玄關門 2'],['外門造型','F5 劃時代'],['內門配置','卡登(雙面造型)'],['門色','黃古銅色']],features:['門色更有金屬質感','適合現代風格住宅與新成屋','立面語言清楚俐落'],lock:'外門：COE 三段鎖 + 暗栓 / 內門：COE 五段鎖 + 三段暗栓',note:'特殊門色與把手升級將依需求另行報價。',prices:[['雙玄關','93.5 x 208 cm','$59,800','$80,800'],['雙玄關','96 x 208 cm','$61,800','$82,800'],['雙玄關','100 x 208 cm','$63,800','$84,800']]},
+                '雙玄關門 3': {title:'雙玄關門 3｜紅鐵砂色',subtitle:'寓意鮮明，適合重視迎賓感與祝福感的家庭',image:'https://hung-chan.com.tw/images/pc/03/images/p_13.jpg',summary:'外門：F6 五福臨門 / 內門：卡登(雙面造型)',pills:['雙玄關門系列','紅鐵砂色','吉祥寓意'],priceFrom:'$60,800 起',specs:[['型號','雙玄關門 3'],['外門造型','F6 五福臨門'],['內門配置','卡登(雙面造型)'],['門色','紅鐵砂色']],features:['門面祝福意象鮮明','適合重視傳統寓意與迎賓氣氛的家庭','整體氣質穩重而不單調'],lock:'外門：COE 三段鎖 + 暗栓 / 內門：COE 五段鎖 + 三段暗栓',note:'防火等級、尺寸與五金選配會影響最終價格。',prices:[['雙玄關','93.5 x 208 cm','$60,800','$81,800'],['雙玄關','96 x 208 cm','$62,800','$83,800'],['雙玄關','100 x 208 cm','$64,800','$85,800']]},
+                '雙玄關門 5': {title:'雙玄關門 5｜黑砂色',subtitle:'鏡花水月雕花玻璃，細節層次更豐富',image:'https://hung-chan.com.tw/images/pc/03/images/p_14.jpg',summary:'外門：鏡花水月(10mm厚雕花玻璃) / 內門：卡登(雙面造型)',pills:['雙玄關門系列','黑砂色','雕花玻璃'],priceFrom:'$62,800 起',specs:[['型號','雙玄關門 5'],['外門造型','鏡花水月'],['內門配置','卡登(雙面造型)'],['門色','黑砂色']],features:['10mm 厚雕花玻璃提升細節感','適合希望入口更具精品感的空間','立面視覺更細膩'],lock:'外門：COE 三段鎖 + 暗栓 / 內門：COE 五段鎖 + 三段暗栓',note:'玻璃與五金客製項目將依實際需求另行計價。',prices:[['雙玄關','93.5 x 208 cm','$62,800','$83,800'],['雙玄關','96 x 208 cm','$64,800','$85,800'],['雙玄關','100 x 208 cm','$66,800','$87,800']]},
+                '雙玄關門 6': {title:'雙玄關門 6｜灰沙色',subtitle:'氣質柔和，適合內斂溫潤的住宅入口',image:'https://hung-chan.com.tw/images/pc/03/images/p_15.jpg',summary:'外門：F2 戀琴 / 內門：三方格(雙面造型)',pills:['雙玄關門系列','灰沙色','溫潤柔和'],priceFrom:'$61,800 起',specs:[['型號','雙玄關門 6'],['外門造型','F2 戀琴'],['內門配置','三方格(雙面造型)'],['門色','灰沙色']],features:['灰沙色較為柔和耐看','適合喜歡低調溫潤氣質的住宅','三方格內門讓整體更有細節感'],lock:'外門：COE 三段鎖 + 暗栓 / 內門：COE 五段鎖 + 三段暗栓',note:'加寬、加高或更換五金將另行報價。',prices:[['雙玄關','93.5 x 208 cm','$61,800','$82,800'],['雙玄關','96 x 208 cm','$63,800','$84,800'],['雙玄關','100 x 208 cm','$65,800','$86,800']]}
+            };
+
+            const modal = new bootstrap.Modal(document.getElementById('seriesDetailModal'));
+            const pillsEl = document.getElementById('detailModalPills');
+            const titleEl = document.getElementById('seriesDetailModalLabel');
+            const subtitleEl = document.getElementById('detailModalSubtitle');
+            const imageEl = document.getElementById('detailModalImage');
+            const summaryEl = document.getElementById('detailModalSummary');
+            const priceEl = document.getElementById('detailModalPrice');
+            const specsEl = document.getElementById('detailModalSpecs');
+            const featuresEl = document.getElementById('detailModalFeatures');
+            const lockEl = document.getElementById('detailModalLock');
+            const noteEl = document.getElementById('detailModalNote');
+            const tableEl = document.getElementById('detailModalTable');
+
+            function openProductModal(code, imageStyle) {
+                const item = productDetails[code];
+                if (!item) return;
+                pillsEl.innerHTML = item.pills.map((pill) => `<span>${pill}</span>`).join('');
+                titleEl.textContent = item.title;
+                subtitleEl.textContent = item.subtitle;
+                imageEl.style.backgroundImage = imageStyle || `url('${item.image}')`;
+                summaryEl.textContent = item.summary;
+                priceEl.innerHTML = `<i class="fas fa-tags"></i> 參考價格 ${item.priceFrom}`;
+                specsEl.innerHTML = item.specs.map(([label, value]) => `<div><strong>${label}</strong><span>${value}</span></div>`).join('');
+                featuresEl.innerHTML = item.features.map((feature) => `<li>${feature}</li>`).join('');
+                lockEl.textContent = item.lock;
+                noteEl.textContent = item.note;
+                tableEl.innerHTML = item.prices.map((row) => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`).join('');
+                modal.show();
+            }
+
+            document.querySelectorAll('.entry-product-card').forEach((card) => {
+                const code = card.querySelector('.entry-product-meta span')?.textContent.trim();
+                const image = card.querySelector('.entry-product-image');
+                const title = card.querySelector('h3');
+                const cta = card.querySelector('.entry-cta');
+                if (!code || !productDetails[code]) return;
+                const imageStyle = image.style.backgroundImage || getComputedStyle(image).backgroundImage;
+                image.addEventListener('click', () => openProductModal(code, imageStyle));
+                title.addEventListener('click', () => openProductModal(code, imageStyle));
+                const detailButton = document.createElement('button');
+                detailButton.type = 'button';
+                detailButton.className = 'btn btn-outline-primary';
+                detailButton.textContent = '查看詳情';
+                detailButton.addEventListener('click', () => openProductModal(code, imageStyle));
+                cta.prepend(detailButton);
+            });
+        });
+    </script>
+</body>
+</html>

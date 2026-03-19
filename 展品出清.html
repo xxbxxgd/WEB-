@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展品出清 - 國寶門中門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="展品出清.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-door-open me-2 text-warning"></i>
+                <span>國堡門 <small class="text-muted fs-6">Guobao Door DESIGN</small></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="品牌介紹.html">品牌介紹</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="產品系列.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">產品系列</a>
+                        <ul class="dropdown-menu product-series-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="雙玄關門A系列.html">雙玄關門系列A系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門D系列.html">雙玄關門系列D系列</a></li>
+                            <li><a class="dropdown-item" href="雙玄關門系列.html">雙玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#double-window-series">雙玄關門雙視窗系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#waterproof-series">防水防污門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#steel-series">鋼製壓板門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louver-series">百頁通風門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#japanese-series">日式玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#stone-series">石材玄關門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carving-series">烤漆精雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#louvre-series">羅浮宮浮雕門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#door-in-door-series">門中門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#tech-wood-series">科技實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#natural-wood-series">天然實木門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#carbon-series">碳纖防爆門系列</a></li>
+                            <li><a class="dropdown-item" href="產品系列.html#smdoor-series">雙茂門</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDoorLock" role="button" data-bs-toggle="dropdown" aria-expanded="false">門花/鎖系列</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoorLock">
+                            <li><a class="dropdown-item" href="門花鎖系列.html">門花系列</a></li>
+                            <li><a class="dropdown-item" href="門鎖系列.html">門鎖系列</a></li>
+                            <li><a class="dropdown-item" href="門色總覽.html">門色總覽</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="展品出清.html">展品出清</a></li>
+                    <li class="nav-item"><a class="nav-link" href="聯絡我們.html">門市資訊</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-custom ms-2" href="聯絡我們.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="text-center position-relative z-1">
+            <h1 class="display-4 fw-bold">展品出清</h1>
+            <p class="lead text-white">以模擬熱度數據快速找出最受歡迎的展示樣品</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <section class="clearance-insights mb-5" id="clearanceInsights">
+            <div class="insights-header text-center mb-4">
+                <span class="insights-kicker">HOT SAMPLES</span>
+                <h2 class="fw-bold mb-2">熱門樣品快速總覽</h2>
+                <p class="text-muted mb-0">以下數據皆為展示用模擬資料，方便使用者一眼比較哪些樣品最熱門、詢問最多、折扣最吸引人。</p>
+            </div>
+            <div class="row g-4 mb-4" id="insightSummaryCards"></div>
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-5">
+                    <div class="insight-panel h-100">
+                        <div class="panel-heading">
+                            <h3 class="h5 mb-1">熱門排行</h3>
+                            <p class="text-muted small mb-0">依綜合熱門分數排序</p>
+                        </div>
+                        <div id="topProductsList" class="top-products-list"></div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="insight-panel h-100">
+                        <div class="panel-heading">
+                            <h3 class="h5 mb-1">熱門度比較圖</h3>
+                            <p class="text-muted small mb-0">同時比較人氣、詢問與折扣幅度</p>
+                        </div>
+                        <div id="comparisonChart" class="comparison-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <div class="section-heading d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-4">
+                <div>
+                    <h2 class="h3 fw-bold mb-2">全部出清樣品</h2>
+                    <p class="text-muted mb-0">每張卡片都加入了模擬的瀏覽、詢問、預留與折扣指標，方便快速比較。</p>
+                </div>
+                <div class="legend-row">
+                    <span><i class="fas fa-fire"></i> 熱門度</span>
+                    <span><i class="fas fa-comments"></i> 詢問量</span>
+                    <span><i class="fas fa-tags"></i> 折扣率</span>
+                </div>
+            </div>
+            <div class="row g-4" id="clearance-product-list"></div>
+        </section>
+
+        <nav aria-label="Page navigation" class="mt-5">
+            <ul class="pagination justify-content-center" id="pagination-controls"></ul>
+        </nav>
+
+        <div class="text-center mt-5 cta-panel">
+            <p class="text-muted mb-3">看到喜歡的熱門樣品，可以直接從商品卡或詳細資訊中查看規格，並透過聯絡頁面洽詢保留。</p>
+            <a href="聯絡我們.html" class="btn btn-lg btn-warning text-dark fw-bold px-5">前往聯絡我們</a>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">國堡門 Guobao Door DESIGN</h5>
+                    <p class="text-white-50 mb-3">專注於住宅大門、門花、門鎖與門色搭配提案，結合美感、安全與實用性，打造更完整的入門體驗。</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-3 text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-line fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">快速連結</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">首頁</a></li>
+                        <li class="mb-2"><a href="品牌介紹.html" class="text-white-50 text-decoration-none">品牌介紹</a></li>
+                        <li class="mb-2"><a href="門花鎖系列.html" class="text-white-50 text-decoration-none">門花／門鎖系列</a></li>
+                        <li class="mb-2"><a href="展品出清.html" class="text-white-50 text-decoration-none">展品出清</a></li>
+                        <li class="mb-2"><a href="聯絡我們.html" class="text-white-50 text-decoration-none">門市資訊</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white mb-3">聯絡資訊</h5>
+                    <ul class="list-unstyled small text-white-50 mb-0">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>service@hung-chan.com.tw</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0800-368-369</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>週一至週六 09:30 - 20:00</li>
+                        <li class="mb-2"><i class="fas fa-location-dot me-2"></i>歡迎來店洽詢客製門款與安裝方案</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center small text-white-50">
+                &copy; 2026 國堡門 Guobao Door Design. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="productDetailsModalLabel">樣品詳細資訊</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-0">
+                        <div class="col-lg-6 modal-product-image-container">
+                            <img src="" alt="Product Image" class="modal-product-image" id="modalProductImage">
+                        </div>
+                        <div class="col-lg-6 modal-product-info-col">
+                            <h2 class="mb-3 fw-bold" id="modalProductTitle">樣品名稱</h2>
+                            <p class="text-muted mb-4" id="modalProductDesc">樣品描述</p>
+                            <div class="d-flex align-items-baseline mb-4">
+                                <span class="modal-product-price" id="modalProductPrice">NT$ 0</span>
+                                <span class="modal-original-price" id="modalOriginalPrice">NT$ 0</span>
+                            </div>
+                            <table class="table table-borderless modal-product-specs">
+                                <tbody>
+                                    <tr><th>風格</th><td id="modalSpecStyle">-</td></tr>
+                                    <tr><th>色系</th><td id="modalSpecColor">-</td></tr>
+                                    <tr><th>開向</th><td id="modalSpecDirection">-</td></tr>
+                                    <tr><th>尺寸</th><td id="modalSpecSize">-</td></tr>
+                                    <tr><th>鎖體</th><td id="modalSpecLock">-</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="mt-4 pt-3 border-top">
+                                <p class="small text-muted mb-3"><i class="fas fa-info-circle me-1"></i> 模擬數據包含熱門度、瀏覽、詢問與預留指標，適合作為出清頁的快速比較展示。</p>
+                                <a href="聯絡我們.html" class="btn btn-danger btn-lg w-100"><i class="fas fa-envelope me-2"></i>聯絡我們洽詢</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const sampleCatalog = [
+            ["樣品 6", "https://hung-chan.com.tw/media/k2/items/cache/178044b1339d92618b3b1af938fc75de_M.jpg"],
+            ["樣品 12", "https://hung-chan.com.tw/media/k2/items/cache/feb7e9c589993a5a644987614f09b605_M.jpg"],
+            ["樣品 13", "https://hung-chan.com.tw/media/k2/items/cache/fe9f389134b872478c99a836d55de88e_M.jpg"],
+            ["樣品 14", "https://hung-chan.com.tw/media/k2/items/cache/e6f7eb86455f00eeac074fd25095dcde_M.jpg"],
+            ["樣品 15", "https://hung-chan.com.tw/media/k2/items/cache/597106f07a53c1d5cb7a9980c4c166ec_M.jpg"],
+            ["樣品 20", "https://hung-chan.com.tw/media/k2/items/cache/d12fc2ba4cae84a5ddd14475d5a89895_M.jpg"],
+            ["樣品 25", "https://hung-chan.com.tw/media/k2/items/cache/b221b486bfa5e70a3ef7b7059063a568_M.jpg"],
+            ["樣品 27", "https://hung-chan.com.tw/media/k2/items/cache/f5a85333d553b860310d6f60f5af8288_M.jpg"],
+            ["樣品 28", "https://hung-chan.com.tw/media/k2/items/cache/cc7d5309aa94aa0d0b6c12a9b8c6f0e5_M.jpg"],
+            ["樣品 30", "https://hung-chan.com.tw/media/k2/items/cache/10a451d868feb5fd854c1535dddc148e_M.jpg"],
+            ["樣品 35", "https://hung-chan.com.tw/media/k2/items/cache/c5c0a28a3994ca1491828123987c79bf_M.jpg"],
+            ["樣品 36", "https://hung-chan.com.tw/media/k2/items/cache/6384a1a5c65741ab6f8625372f3d4127_M.jpg"],
+            ["樣品 37", "https://hung-chan.com.tw/media/k2/items/cache/1b15decb97a7e442d17245363ff90a02_M.jpg"],
+            ["樣品 38", "https://hung-chan.com.tw/media/k2/items/cache/2fe3e76a66d4105790a62f68d8e5622a_M.jpg"],
+            ["樣品 39", "https://hung-chan.com.tw/media/k2/items/cache/1b56d005723ad175e526bbe57567b8ab_M.jpg"],
+            ["樣品 44", "https://hung-chan.com.tw/media/k2/items/cache/64c6c2009c6dd734d3530c988c7cc437_M.jpg"],
+            ["樣品 45", "https://hung-chan.com.tw/media/k2/items/cache/9e18ae44efb984e430f0539350fef656_M.jpg"],
+            ["樣品 48", "https://hung-chan.com.tw/media/k2/items/cache/1da7a0ac7a34d319d36fde2ba2a083ea_M.jpg"],
+            ["樣品 51", "https://hung-chan.com.tw/media/k2/items/cache/1fb8d2d7c882fbaba1a2c09d1d9cbe68_M.jpg"],
+            ["樣品 53", "https://hung-chan.com.tw/media/k2/items/cache/b0d7d8c971b982fb6678172b9076bb96_M.jpg"],
+            ["樣品 56", "https://hung-chan.com.tw/media/k2/items/cache/893c4fdc824f051f07606f44d5d60e5a_M.jpg"],
+            ["樣品 57", "https://hung-chan.com.tw/media/k2/items/cache/0ee70163e29bae5db9d4be0d088a4c1c_M.jpg"],
+            ["樣品 58", "https://hung-chan.com.tw/media/k2/items/cache/e26e070f0b61121e8e747746e6882f29_M.jpg"],
+            ["樣品 59", "https://hung-chan.com.tw/media/k2/items/cache/01eec10693d9896b4d757174d0f20dd9_M.jpg"],
+            ["樣品 60", "https://hung-chan.com.tw/media/k2/items/cache/bf1e20a4462b71e3cc4cece2a8c96ac8_M.jpg"],
+            ["樣品 61", "https://hung-chan.com.tw/media/k2/items/cache/0b2c0f4f7276d5cab9ebf370bc3a4b57_M.jpg"],
+            ["樣品 62", "https://hung-chan.com.tw/media/k2/items/cache/1659cc75227694996edfedee430cb4a4_M.jpg"],
+            ["樣品 67", "https://hung-chan.com.tw/media/k2/items/cache/423c23827096d15f6a3f90fd1a691b32_M.jpg"],
+            ["樣品 69", "https://hung-chan.com.tw/media/k2/items/cache/a8d0dd35ac3aeaea0c447d40f598ed01_M.jpg"],
+            ["樣品 71", "https://hung-chan.com.tw/media/k2/items/cache/3d4417dea4b5985d283b0a7dfa9861de_M.jpg"],
+            ["樣品 72", "https://hung-chan.com.tw/media/k2/items/cache/d0781aab6107ab09663a5b35f9583041_M.jpg"],
+            ["樣品 73", "https://hung-chan.com.tw/media/k2/items/cache/10dd7f46ca2f22ce7ce9308c89d2507c_M.jpg"],
+            ["樣品 74", "https://hung-chan.com.tw/media/k2/items/cache/c230427c303c0684b5582388f5d0dfd7_M.jpg"],
+            ["樣品 76", "https://hung-chan.com.tw/media/k2/items/cache/9ee28f01f100eeeb1372f6866ddd0d3a_M.jpg"],
+            ["樣品 86", "https://hung-chan.com.tw/media/k2/items/cache/c54cd01619725a4dabebc35be504cd7b_M.jpg"],
+            ["樣品 87", "https://hung-chan.com.tw/media/k2/items/cache/5778877be1a35482f319be586a4e5dc3_M.jpg"],
+            ["樣品 V00大門", "https://hung-chan.com.tw/media/k2/items/cache/3bd383cdf9446912a35458166e99234d_M.jpg"],
+            ["樣品 V02", "https://hung-chan.com.tw/media/k2/items/cache/04af3f34de2f909b68ae5d07ed6ca171_M.jpg"],
+            ["樣品 V04", "https://hung-chan.com.tw/media/k2/items/cache/e3cae036c4e2bea1fb8b65e8b2938a97_M.jpg"],
+            ["樣品 V06", "https://hung-chan.com.tw/media/k2/items/cache/96cba9244d7f9076720df00586971bd0_M.jpg"],
+            ["樣品 V07", "https://hung-chan.com.tw/media/k2/items/cache/f964ddc910acbc5c426350c1b152e08d_M.jpg"],
+            ["樣品 V09", "https://hung-chan.com.tw/media/k2/items/cache/eeca348660096e711cd17c1f61fb2519_M.jpg"],
+            ["樣品 V10", "https://hung-chan.com.tw/media/k2/items/cache/51b8ab8a165aa1fb5a57daf7b2513248_M.jpg"],
+            ["樣品 V11", "https://hung-chan.com.tw/media/k2/items/cache/37d94cffab20228fab482582b7bd4773_M.jpg"],
+            ["樣品 V12", "https://hung-chan.com.tw/media/k2/items/cache/0bbf3df5693cbd3118c040cdf0cdd245_M.jpg"],
+            ["樣品 V13", "https://hung-chan.com.tw/media/k2/items/cache/55a9ec53054b140fa3784d6b9508fcf5_M.jpg"],
+            ["樣品 V16", "https://hung-chan.com.tw/media/k2/items/cache/f8f336d27957a1b2f13b2daec1d1b4b0_M.jpg"]
+        ];
+
+        const stylePool = ["現代木紋", "極簡線條", "玻璃鑲嵌", "歐式雕花", "沉穩格柵", "都會俐落"];
+        const colorPool = ["胡桃木棕", "霧黑灰", "奶茶橡木", "暖沙金", "岩石灰", "深海藍"];
+        const directionPool = ["左開", "右開", "雙開"];
+        const lockPool = ["電子鎖組", "五段鎖體", "靜音鎖舌", "智慧門鎖", "防盜多段鎖"];
+        const copyPool = [
+            "門市展示保存良好，外觀吸睛，適合重視第一印象的住宅空間。",
+            "高詢問度樣品，兼顧折扣與設計感，常被拿來比較的熱門款。",
+            "現場視覺存在感強，適合喜歡有質感立面的使用者。",
+            "兼具價格優勢與穩定機能，是詢價轉單率很高的出清樣品。"
+        ];
+
+        function seedFromTitle(title, index) {
+            return Array.from(title).reduce((sum, char) => sum + char.charCodeAt(0), 0) + index * 41;
+        }
+
+        function formatCurrency(value) {
+            return `NT$ ${value.toLocaleString("zh-TW")}`;
+        }
+
+        function createProduct(title, image, index) {
+            const seed = seedFromTitle(title, index);
+            const originalPrice = 28000 + (seed % 11) * 3200 + index * 180;
+            const discountRate = 18 + (seed % 23);
+            const price = Math.round((originalPrice * (100 - discountRate)) / 100 / 100) * 100;
+            const views = 900 + (seed % 2600);
+            const inquiries = 18 + (seed % 66);
+            const reservations = 1 + (seed % 8);
+            const stock = 1 + (seed % 4);
+            const rating = (4.1 + (seed % 10) * 0.07).toFixed(1);
+            const width = 88 + (seed % 26);
+            const height = 198 + (seed % 18);
+            const popularity = Math.round(Math.min(98, inquiries * 0.78 + reservations * 4 + discountRate * 0.58 + views / 110 + Number(rating) * 6));
+            const tag = popularity >= 88 ? "爆款關注" : popularity >= 80 ? "高詢問度" : popularity >= 72 ? "折扣亮眼" : "穩定人氣";
+
+            return {
+                title,
+                image,
+                desc: copyPool[seed % copyPool.length],
+                style: stylePool[seed % stylePool.length],
+                color: colorPool[(seed + 2) % colorPool.length],
+                direction: directionPool[seed % directionPool.length],
+                size: `${width} x ${height} cm`,
+                lock: lockPool[(seed + 1) % lockPool.length],
+                originalPrice,
+                price,
+                discountRate,
+                views,
+                inquiries,
+                reservations,
+                stock,
+                rating,
+                popularity,
+                tag
+            };
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const products = sampleCatalog.map(([title, image], index) => createProduct(title, image, index));
+            const productMap = Object.fromEntries(products.map(product => [product.title, product]));
+            const container = document.getElementById("clearance-product-list");
+            const paginationContainer = document.getElementById("pagination-controls");
+            const summaryCards = document.getElementById("insightSummaryCards");
+            const topProductsList = document.getElementById("topProductsList");
+            const comparisonChart = document.getElementById("comparisonChart");
+            const itemsPerPage = 16;
+            const totalPages = Math.ceil(products.length / itemsPerPage);
+            const myModal = new bootstrap.Modal(document.getElementById("productDetailsModal"));
+
+            renderCards(products);
+            renderInsights(products);
+            bindCardEvents(productMap, myModal);
+            showPage(1);
+
+            function renderCards(list) {
+                container.innerHTML = list.map(product => `
+                    <div class="col-md-6 col-lg-3 clearance-col" data-title="${product.title}">
+                        <div class="card h-100 clearance-item">
+                            <span class="badge-sale">${product.discountRate}% OFF</span>
+                            <div class="clearance-img-wrapper">
+                                <img src="${product.image}" alt="${product.title}">
+                            </div>
+                            <div class="item-details text-center">
+                                <h5 class="item-title">${product.title}</h5>
+                                <p class="item-desc">${product.desc}</p>
+                                <div class="price-section">
+                                    <span class="price-tag">${formatCurrency(product.price)}</span>
+                                    <span class="original-price">${formatCurrency(product.originalPrice)}</span>
+                                </div>
+                                <div class="sample-metrics">
+                                    <div class="popularity-row">
+                                        <span class="popularity-chip">${product.tag}</span>
+                                        <span class="popularity-score">熱門度 ${product.popularity}</span>
+                                    </div>
+                                    <div class="metric-grid">
+                                        <div class="metric-box"><span class="metric-label">瀏覽</span><strong>${product.views.toLocaleString("zh-TW")}</strong></div>
+                                        <div class="metric-box"><span class="metric-label">詢問</span><strong>${product.inquiries}</strong></div>
+                                        <div class="metric-box"><span class="metric-label">預留</span><strong>${product.reservations}</strong></div>
+                                        <div class="metric-box"><span class="metric-label">庫存</span><strong>${product.stock} 樘</strong></div>
+                                    </div>
+                                    <div class="mini-bar-group">
+                                        <div class="mini-bar-line">
+                                            <span>人氣</span>
+                                            <div class="mini-bar"><i style="width:${product.popularity}%"></i></div>
+                                        </div>
+                                        <div class="mini-bar-line">
+                                            <span>折扣</span>
+                                            <div class="mini-bar mini-bar-accent"><i style="width:${Math.min(100, product.discountRate * 2.2)}%"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-danger btn-sm mt-3 w-100 js-open-modal">查看數據與規格</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join("");
+            }
+
+            function renderInsights(list) {
+                const ranked = [...list].sort((a, b) => b.popularity - a.popularity);
+                const topFive = ranked.slice(0, 5);
+                const avgDiscount = Math.round(list.reduce((sum, product) => sum + product.discountRate, 0) / list.length);
+                const totalViews = list.reduce((sum, product) => sum + product.views, 0);
+                const totalStock = list.reduce((sum, product) => sum + product.stock, 0);
+
+                summaryCards.innerHTML = `
+                    <div class="col-md-6 col-xl-3"><div class="summary-card"><span class="summary-label">最高人氣</span><strong>${topFive[0].title}</strong><p>熱門度 ${topFive[0].popularity}，詢問 ${topFive[0].inquiries} 筆</p></div></div>
+                    <div class="col-md-6 col-xl-3"><div class="summary-card"><span class="summary-label">平均折扣</span><strong>${avgDiscount}% OFF</strong><p>整體出清樣品皆具備明顯折扣吸引力</p></div></div>
+                    <div class="col-md-6 col-xl-3"><div class="summary-card"><span class="summary-label">總瀏覽熱度</span><strong>${totalViews.toLocaleString("zh-TW")}</strong><p>模擬的整頁累積瀏覽數據</p></div></div>
+                    <div class="col-md-6 col-xl-3"><div class="summary-card"><span class="summary-label">現貨總數</span><strong>${totalStock} 樘</strong><p>熱門樣品仍有現貨可安排保留</p></div></div>
+                `;
+
+                topProductsList.innerHTML = topFive.map((product, index) => `
+                    <article class="top-product-row">
+                        <div class="rank-badge">${index + 1}</div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center gap-3">
+                                <h4 class="h6 mb-1">${product.title}</h4>
+                                <span class="top-score">${product.popularity}</span>
+                            </div>
+                            <p class="small text-muted mb-2">${product.style} / ${product.color}</p>
+                            <div class="top-product-meta">
+                                <span>詢問 ${product.inquiries}</span>
+                                <span>預留 ${product.reservations}</span>
+                                <span>${product.discountRate}% OFF</span>
+                            </div>
+                        </div>
+                    </article>
+                `).join("");
+
+                comparisonChart.innerHTML = topFive.map(product => `
+                    <div class="chart-row">
+                        <div class="chart-label">
+                            <strong>${product.title}</strong>
+                            <span>${product.tag}</span>
+                        </div>
+                        <div class="chart-metrics">
+                            <div class="chart-track">
+                                <label>人氣</label>
+                                <div class="track"><i style="width:${product.popularity}%"></i></div>
+                                <span>${product.popularity}</span>
+                            </div>
+                            <div class="chart-track">
+                                <label>詢問</label>
+                                <div class="track inquiries"><i style="width:${Math.min(100, product.inquiries * 1.2)}%"></i></div>
+                                <span>${product.inquiries}</span>
+                            </div>
+                            <div class="chart-track">
+                                <label>折扣</label>
+                                <div class="track discount"><i style="width:${Math.min(100, product.discountRate * 2.2)}%"></i></div>
+                                <span>${product.discountRate}%</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join("");
+            }
+
+            function bindCardEvents(map, modal) {
+                container.querySelectorAll(".clearance-col").forEach(card => {
+                    const title = card.dataset.title;
+                    const product = map[title];
+                    const opener = function(event) {
+                        event.preventDefault();
+                        openProductModal(product, modal);
+                    };
+                    card.querySelector(".clearance-img-wrapper").addEventListener("click", opener);
+                    card.querySelector(".js-open-modal").addEventListener("click", opener);
+                });
+            }
+
+            function openProductModal(product, modal) {
+                document.getElementById("modalProductImage").src = product.image;
+                document.getElementById("modalProductTitle").textContent = product.title;
+                document.getElementById("modalProductDesc").textContent = `${product.desc} 熱門度 ${product.popularity} 分，近期共有 ${product.inquiries} 筆詢問、${product.reservations} 筆預留。`;
+                document.getElementById("modalProductPrice").textContent = formatCurrency(product.price);
+                document.getElementById("modalOriginalPrice").textContent = formatCurrency(product.originalPrice);
+                document.getElementById("modalSpecStyle").textContent = `${product.style} / ${product.tag}`;
+                document.getElementById("modalSpecColor").textContent = product.color;
+                document.getElementById("modalSpecDirection").textContent = product.direction;
+                document.getElementById("modalSpecSize").textContent = `${product.size} / 現貨 ${product.stock} 樘`;
+                document.getElementById("modalSpecLock").textContent = `${product.lock} / 評分 ${product.rating}`;
+                modal.show();
+            }
+
+            function showPage(page) {
+                if (page < 1 || page > totalPages) {
+                    return;
+                }
+
+                const cards = Array.from(container.children);
+                cards.forEach((card, index) => {
+                    const isVisible = index >= (page - 1) * itemsPerPage && index < page * itemsPerPage;
+                    card.style.display = isVisible ? "block" : "none";
+                });
+
+                updatePagination(page);
+                document.querySelector(".page-header").scrollIntoView({ behavior: "smooth" });
+            }
+
+            function updatePagination(currentPage) {
+                paginationContainer.innerHTML = "";
+
+                const prev = document.createElement("li");
+                prev.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+                prev.innerHTML = '<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>';
+                prev.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    showPage(currentPage - 1);
+                });
+                paginationContainer.appendChild(prev);
+
+                for (let page = 1; page <= totalPages; page += 1) {
+                    const item = document.createElement("li");
+                    item.className = `page-item ${page === currentPage ? "active" : ""}`;
+                    item.innerHTML = `<a class="page-link" href="#">${page}</a>`;
+                    item.addEventListener("click", function(event) {
+                        event.preventDefault();
+                        showPage(page);
+                    });
+                    paginationContainer.appendChild(item);
+                }
+
+                const next = document.createElement("li");
+                next.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
+                next.innerHTML = '<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>';
+                next.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    showPage(currentPage + 1);
+                });
+                paginationContainer.appendChild(next);
+            }
+        });
+    </script>
+</body>
+</html>

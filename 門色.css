@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://hung-chan.com.tw/media/k2/items/cache/2964cd8751427f56b2f06582b92bec36_XL.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+/* Color Card Styles */
+.color-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.color-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+/* 
+   === 使用說明 ===
+   若要使用圖片，請在對應的類別中，填入 background-image: url('您的圖片網址');
+   當您設定圖片後，圖片會蓋過現有的顏色設定。
+*/
+
+.color-swatch {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 新增：圖片顯示設定 */
+    background-size: cover;      /* 讓圖片填滿區塊 */
+    background-position: center; /* 圖片居中 */
+    background-repeat: no-repeat;
+    background-color: #e0e0e0;   /* 圖片載入前的底色 */
+}
+
+/* 針對手工漆與特殊手工漆的圓形樣式 */
+.section-circle-swatch .color-swatch {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 15px auto; /* 水平置中，並增加垂直間距 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 增加輕微陰影增加立體感 */
+}
+
+/* --- 砂面漆 --- */
+.bg-red-iron { 
+    background-image: url('https://hung-chan.com.tw/images/paint/01.jpg');  
+}
+.bg-black-sand { 
+    background-image: url('https://hung-chan.com.tw/images/paint/02.jpg'); 
+}
+.bg-grey-sand { 
+    background-image: url('https://hung-chan.com.tw/images/paint/03.jpg'); 
+}
+.bg-light-grey-sand { 
+    background-image: url('https://hung-chan.com.tw/images/paint/04.jpg');
+}
+.bg-bronze-sand { 
+    background-image: url('https://hung-chan.com.tw/images/paint/05.jpg');
+}
+.bg-dark-grey-sparkle { 
+    background-image: url('https://hung-chan.com.tw/images/paint/06.jpg');
+}
+.bg-coffee-sparkle { 
+    background-image: url('https://hung-chan.com.tw/images/paint/07.jpg');
+}
+
+/* --- 顆粒漆 --- */
+.bg-yellow-antique { 
+    background-image: url('https://hung-chan.com.tw/images/paint/a01.jpg');
+}
+.bg-red-antique { 
+    background-image: url('https://hung-chan.com.tw/images/paint/a02.jpg');
+}
+.bg-red-antique-matt { 
+    background-image: url('https://hung-chan.com.tw/images/paint/a03.jpg');
+}
+.bg-cream-white { 
+    background-image: url('https://hung-chan.com.tw/images/paint/a04.jpg');
+}
+.bg-dark-green { 
+    background-image: url('https://hung-chan.com.tw/images/paint/a05.jpg');
+}
+.bg-date-red { 
+    background-image: url('https://hung-chan.com.tw/images/paint/a06.jpg');
+}
+
+/* --- 手工漆 --- */
+.bg-yellow-antique2 { 
+    background-image: url('https://hung-chan.com.tw/images/paint/c01.jpg');
+}
+.bg-red-antique2 { 
+    background-image: url('https://hung-chan.com.tw/images/paint/c02.jpg');
+}
+.bg-silver-antique { 
+    background-image: url('https://hung-chan.com.tw/images/paint/c03.jpg');
+}
+.bg-sparkle-yellow { 
+    background-image: url('https://hung-chan.com.tw/images/paint/c07.jpg');
+}
+.bg-sparkle-red { 
+    background-image: url('https://hung-chan.com.tw/images/paint/c08.jpg');
+}
+.bg-rose-red { 
+    background-image: url('https://hung-chan.com.tw/images/paint/c09.jpg');
+}
+
+/* --- 特殊手工漆 --- */
+.bg-yellow-antique-diamond {
+    background-image: url('https://hung-chan.com.tw/images/paint/c04.jpg');
+    /* 預設顏色 (圖片載入失敗時顯示) */
+    background-color: #d4af37;
+}
+.bg-red-antique-diamond {
+    background-image: url('https://hung-chan.com.tw/images/paint/d05.jpg');
+    background-color: #8b4513;
+}
+.bg-yellow-grey-sand {
+    background-image: url('https://hung-chan.com.tw/images/paint/d06.jpg');
+    background-color: #d4af37;
+}
+.bg-red-grey-sand {
+    background-image: url('https://hung-chan.com.tw/images/paint/d07.jpg');
+    background-color: #8b4513;
+}
+.bg-gold-sand {
+    background-image: url('https://hung-chan.com.tw/images/paint/d08.jpg');
+    background-color: #ffd700;
+}
+.bg-matte-black-full {
+    background-image: url('https://hung-chan.com.tw/images/paint/d09.jpg');
+    background-color: #1a1a1a;
+}
+.bg-red-wood {
+    background-image: url('https://hung-chan.com.tw/images/paint/d13.jpg');
+    background-color: #65000b;
+}
+.bg-teak {
+    background-image: url('https://hung-chan.com.tw/images/paint/d10.jpg');
+    background-color: #b5651d;
+}
+.bg-walnut {
+    background-image: url('https://hung-chan.com.tw/images/paint/d11.jpg');
+    background-color: #3d2b1f;
+}
+.bg-bronze-sculpture {
+    background-image: url('https://hung-chan.com.tw/images/paint/d12.jpg');
+    background-color: #cd7f32;
+}
