@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guobao Door provides entry doors, locks, color options, product catalogs, and showroom contact information.">
+    <meta property="og:title" content="Guobao Door">
+    <meta property="og:description" content="Guobao Door provides entry doors, locks, color options, product catalogs, and showroom contact information.">
+    <meta property="og:type" content="website">
     <title>門色總覽 - 國堡門</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -115,19 +119,75 @@
             border-radius: 24px;
             padding: 1.5rem;
         }
-        .shop-layout {
+        .insight-board {
             display: grid;
-            grid-template-columns: 280px minmax(0, 1fr);
-            gap: 1.5rem;
-            align-items: start;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-        .filter-sidebar {
-            position: sticky;
-            top: 96px;
+        .insight-card,
+        .filter-ribbon {
             background: rgba(255,255,255,0.9);
             border-radius: 22px;
             padding: 1.25rem;
             box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+        }
+        .insight-card h3 {
+            font-size: 1.1rem;
+            color: #4c3221;
+            margin-bottom: 0.35rem;
+        }
+        .insight-card p {
+            color: #7b6858;
+            margin-bottom: 1rem;
+        }
+        .insight-chart {
+            display: grid;
+            gap: 0.85rem;
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 92px minmax(0, 1fr) 52px;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .chart-row span {
+            color: #6b4b34;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+        .chart-track {
+            height: 10px;
+            border-radius: 999px;
+            background: #f4e7d9;
+            overflow: hidden;
+        }
+        .chart-fill {
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #8B4513, #d6a16f);
+        }
+        .tone-distribution {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+        .tone-pill {
+            border-radius: 18px;
+            padding: 1rem;
+            background: #fbf5ee;
+        }
+        .tone-pill strong {
+            display: block;
+            font-size: 1.15rem;
+            color: #4c3221;
+        }
+        .tone-pill span {
+            color: #7b6858;
+            font-size: 0.84rem;
+        }
+        .filter-ribbon {
+            margin-bottom: 1.5rem;
         }
         .filter-group + .filter-group {
             margin-top: 1.2rem;
@@ -140,17 +200,16 @@
             margin-bottom: 0.7rem;
         }
         .filter-list {
-            display: grid;
+            display: flex;
+            flex-wrap: wrap;
             gap: 0.55rem;
         }
         .filter-btn {
-            width: 100%;
             border: 1px solid rgba(139, 69, 19, 0.12);
             background: #fffaf6;
             color: #6b4b34;
-            border-radius: 14px;
+            border-radius: 999px;
             padding: 0.7rem 0.9rem;
-            text-align: left;
             font-weight: 600;
         }
         .filter-btn.active {
@@ -302,11 +361,11 @@
             .toolbar-stats {
                 grid-template-columns: 1fr;
             }
-            .shop-layout {
+            .insight-board {
                 grid-template-columns: 1fr;
             }
-            .filter-sidebar {
-                position: static;
+            .tone-distribution {
+                grid-template-columns: 1fr;
             }
         }
         @media (max-width: 767.98px) {
@@ -318,59 +377,13 @@
             .color-swatch {
                 height: 140px;
             }
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fas fa-door-open me-2 text-warning"></i>
-                <span>國堡門 <small class="text-muted fs-6">Guobao Door DESIGN</small></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-                    <li class="nav-item"><a class="nav-link" href="品牌介紹.html">品牌介紹</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="產品系列.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">產品系列</a>
-                        <ul class="dropdown-menu product-series-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="雙玄關門A系列.html">雙玄關門系列A系列</a></li>
-                            <li><a class="dropdown-item" href="雙玄關門D系列.html">雙玄關門系列D系列</a></li>
-                            <li><a class="dropdown-item" href="雙玄關門系列.html">雙玄關門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#double-window-series">雙玄關門雙視窗系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#waterproof-series">防水防污門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#steel-series">鋼製壓板門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#louver-series">百頁通風門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#japanese-series">日式玄關門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#stone-series">石材玄關門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#carving-series">烤漆精雕門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#louvre-series">羅浮宮浮雕門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#door-in-door-series">門中門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#tech-wood-series">科技實木門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#natural-wood-series">天然實木門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#carbon-series">碳纖防爆門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#smdoor-series">雙茂門</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownDoorLock" role="button" data-bs-toggle="dropdown" aria-expanded="false">門花/鎖系列</a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoorLock">
-                            <li><a class="dropdown-item" href="門花鎖系列.html">門花系列</a></li>
-                            <li><a class="dropdown-item" href="門鎖系列.html">門鎖系列</a></li>
-                            <li><a class="dropdown-item active" href="門色總覽.html">門色總覽</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="展品出清.html">展品出清</a></li>
-                    <li class="nav-item"><a class="nav-link" href="聯絡我們.html">門市資訊</a></li>
-                    <li class="nav-item"><a class="btn btn-primary-custom ms-2" href="聯絡我們.html">聯絡我們</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <header class="hero-section series-hero">
         <div class="hero-overlay"></div>
@@ -411,28 +424,43 @@
                 </div>
             </div>
 
-            <div class="shop-layout">
-                <aside class="filter-sidebar">
-                    <div class="filter-group">
-                        <div class="filter-label">色系分類</div>
-                        <div class="filter-list">
-                            <button class="filter-btn active" type="button" data-color-filter="all">全部門色</button>
-                            <button class="filter-btn" type="button" data-color-filter="砂紋">砂紋色</button>
-                            <button class="filter-btn" type="button" data-color-filter="古典">古典烤漆</button>
-                            <button class="filter-btn" type="button" data-color-filter="亮面">金屬亮面</button>
-                            <button class="filter-btn" type="button" data-color-filter="特殊">特殊紋理</button>
-                        </div>
+            <div class="insight-board">
+                <section class="insight-card">
+                    <div class="toolbar-title">COLOR INSIGHT</div>
+                    <h3>不同門色的風格熱度比較</h3>
+                    <p>加入示意數據後，門色不只是型錄排列，使用者能更快理解熱門區間與風格分布。</p>
+                    <div class="insight-chart" id="colorTrendChart"></div>
+                </section>
+                <section class="insight-card">
+                    <div class="toolbar-title">TONE DISTRIBUTION</div>
+                    <h3>站內主力色調分布</h3>
+                    <p>把常見需求拆成深色、暖色、木紋三類，方便當成快速導覽。</p>
+                    <div class="tone-distribution" id="toneDistribution"></div>
+                </section>
+            </div>
+
+            <div class="filter-ribbon">
+                <div class="filter-group">
+                    <div class="filter-label">色系分類</div>
+                    <div class="filter-list">
+                        <button class="filter-btn active" type="button" data-color-filter="all">全部門色</button>
+                        <button class="filter-btn" type="button" data-color-filter="砂紋">砂紋色</button>
+                        <button class="filter-btn" type="button" data-color-filter="古典">古典烤漆</button>
+                        <button class="filter-btn" type="button" data-color-filter="亮面">金屬亮面</button>
+                        <button class="filter-btn" type="button" data-color-filter="特殊">特殊紋理</button>
                     </div>
-                    <div class="filter-group">
-                        <div class="filter-label">風格調性</div>
-                        <div class="filter-list">
-                            <button class="filter-btn" type="button" data-color-tone="沉穩調性">沉穩深色</button>
-                            <button class="filter-btn" type="button" data-color-tone="暖色質感">暖色質感</button>
-                            <button class="filter-btn" type="button" data-color-tone="木紋感">木紋紋理</button>
-                        </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">風格調性</div>
+                    <div class="filter-list">
+                        <button class="filter-btn" type="button" data-color-tone="沉穩調性">沉穩深色</button>
+                        <button class="filter-btn" type="button" data-color-tone="暖色質感">暖色質感</button>
+                        <button class="filter-btn" type="button" data-color-tone="木紋感">木紋紋理</button>
                     </div>
-                </aside>
-                <div>
+                </div>
+            </div>
+
+            <div class="catalog-stage">
                     <div class="sort-toolbar">
                         <div class="result-count" id="colorResultCount">共 29 色可瀏覽</div>
                         <select class="sort-select" id="colorSort">
@@ -469,93 +497,53 @@
                         <p class="section-subtitle">木紋、雕塑色與高對比表面，適合需要風格表情的案型。</p>
                         <div class="row g-4 product-grid" id="specialGrid"></div>
                     </section>
-                </div>
             </div>
         </div>
     </main>
 
-    <footer id="contact" class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3">國堡門 Guobao Door DESIGN</h5>
-                    <p class="text-white-50 mb-3">專注於住宅大門、門花、門鎖與門色搭配提案，結合美感、安全與實用性，打造更完整的入門體驗。</p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="me-3 text-white"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-line fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3">快速連結</h5>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">首頁</a></li>
-                        <li class="mb-2"><a href="品牌介紹.html" class="text-white-50 text-decoration-none">品牌介紹</a></li>
-                        <li class="mb-2"><a href="門花鎖系列.html" class="text-white-50 text-decoration-none">門花／門鎖系列</a></li>
-                        <li class="mb-2"><a href="展品出清.html" class="text-white-50 text-decoration-none">展品出清</a></li>
-                        <li class="mb-2"><a href="聯絡我們.html" class="text-white-50 text-decoration-none">門市資訊</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <h5 class="text-white mb-3">聯絡資訊</h5>
-                    <ul class="list-unstyled small text-white-50 mb-0">
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>service@hung-chan.com.tw</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0800-368-369</li>
-                        <li class="mb-2"><i class="fas fa-clock me-2"></i>週一至週六 09:30 - 20:00</li>
-                        <li class="mb-2"><i class="fas fa-location-dot me-2"></i>歡迎來店洽詢客製門款與安裝方案</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="border-secondary my-4">
-            <div class="text-center small text-white-50">
-                &copy; 2026 國堡門 Guobao Door Design. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const sandColors = [
-            ['赤鐵砂紋', 'bg-red-iron'],
-            ['黑砂紋', 'bg-black-sand'],
-            ['灰砂紋', 'bg-grey-sand'],
-            ['淺灰砂紋', 'bg-light-grey-sand'],
-            ['古銅砂紋', 'bg-bronze-sand'],
-            ['深灰亮砂', 'bg-dark-grey-sparkle'],
-            ['咖啡亮砂', 'bg-coffee-sparkle']
+            ['赤鐵砂紋', 'bg-red-iron', 86],
+            ['黑砂紋', 'bg-black-sand', 94],
+            ['灰砂紋', 'bg-grey-sand', 84],
+            ['淺灰砂紋', 'bg-light-grey-sand', 71],
+            ['古銅砂紋', 'bg-bronze-sand', 77],
+            ['深灰亮砂', 'bg-dark-grey-sparkle', 89],
+            ['咖啡亮砂', 'bg-coffee-sparkle', 82]
         ];
         const classicColors = [
-            ['黃古典', 'bg-yellow-antique'],
-            ['紅古典', 'bg-red-antique'],
-            ['霧紅古典', 'bg-red-antique-matt'],
-            ['米白色', 'bg-cream-white'],
-            ['深綠色', 'bg-dark-green'],
-            ['棗紅色', 'bg-date-red']
+            ['黃古典', 'bg-yellow-antique', 80],
+            ['紅古典', 'bg-red-antique', 88],
+            ['霧紅古典', 'bg-red-antique-matt', 74],
+            ['米白色', 'bg-cream-white', 69],
+            ['深綠色', 'bg-dark-green', 67],
+            ['棗紅色', 'bg-date-red', 83]
         ];
         const metalColors = [
-            ['黃古典亮面', 'bg-yellow-antique2'],
-            ['紅古典亮面', 'bg-red-antique2'],
-            ['銀古典', 'bg-silver-antique'],
-            ['亮金色', 'bg-sparkle-yellow'],
-            ['亮紅色', 'bg-sparkle-red'],
-            ['玫瑰紅', 'bg-rose-red']
+            ['黃古典亮面', 'bg-yellow-antique2', 78],
+            ['紅古典亮面', 'bg-red-antique2', 84],
+            ['銀古典', 'bg-silver-antique', 72],
+            ['亮金色', 'bg-sparkle-yellow', 87],
+            ['亮紅色', 'bg-sparkle-red', 85],
+            ['玫瑰紅', 'bg-rose-red', 76]
         ];
         const specialColors = [
-            ['鑽光黃古典', 'bg-yellow-antique-diamond'],
-            ['鑽光紅古典', 'bg-red-antique-diamond'],
-            ['黃灰砂', 'bg-yellow-grey-sand'],
-            ['紅灰砂', 'bg-red-grey-sand'],
-            ['金砂色', 'bg-gold-sand'],
-            ['全消光黑', 'bg-matte-black-full'],
-            ['紅木紋', 'bg-red-wood'],
-            ['柚木紋', 'bg-teak'],
-            ['胡桃木', 'bg-walnut'],
-            ['古銅雕塑', 'bg-bronze-sculpture']
+            ['鑽光黃古典', 'bg-yellow-antique-diamond', 81],
+            ['鑽光紅古典', 'bg-red-antique-diamond', 86],
+            ['黃灰砂', 'bg-yellow-grey-sand', 75],
+            ['紅灰砂', 'bg-red-grey-sand', 73],
+            ['金砂色', 'bg-gold-sand', 88],
+            ['全消光黑', 'bg-matte-black-full', 96],
+            ['紅木紋', 'bg-red-wood', 90],
+            ['柚木紋', 'bg-teak', 85],
+            ['胡桃木', 'bg-walnut', 91],
+            ['古銅雕塑', 'bg-bronze-sculpture', 79]
         ];
         function renderColorCard(item, group) {
             const tone = item[0].includes('木') ? '木紋感' : item[0].includes('黑') ? '沉穩調性' : '暖色質感';
             return `
-                <div class="col-6 col-md-4 col-lg-3 product-entry" data-group="${group}" data-tone="${tone}" data-name="${item[0]}">
+                <div class="col-6 col-md-4 col-lg-3 product-entry" data-group="${group}" data-tone="${tone}" data-name="${item[0]}" data-score="${item[2]}">
                     <article class="color-card text-center">
                         <div class="color-swatch ${item[1]}"></div>
                         <div class="p-3">
@@ -563,6 +551,7 @@
                             <div class="card-meta">
                                 <span class="meta-chip">${group}</span>
                                 <span class="meta-chip">${tone}</span>
+                                <span class="meta-chip">熱度 ${item[2]}</span>
                             </div>
                             <p class="color-card-copy">${group === '砂紋' ? '適合現代、俐落或金屬感立面。' : group === '古典' ? '適合偏溫潤、傳統與經典門面。' : group === '亮面' ? '適合想讓門面更有存在感的配置。' : '適合需要風格識別度的案型。'}</p>
                             <div class="product-actions">
@@ -575,6 +564,31 @@
             `;
         }
         document.addEventListener('DOMContentLoaded', function() {
+            const chartGroups = [
+                ['砂紋色', 88],
+                ['古典烤漆', 76],
+                ['金屬亮面', 81],
+                ['特殊紋理', 90]
+            ];
+            const toneMetrics = [
+                ['沉穩深色', 10, '適合現代立面與耐看配置'],
+                ['暖色質感', 15, '偏傳統、歐式與迎賓氣質'],
+                ['木紋紋理', 4, '風格識別度最高']
+            ];
+            document.getElementById('colorTrendChart').innerHTML = chartGroups.map(([label, value]) => `
+                <div class="chart-row">
+                    <span>${label}</span>
+                    <div class="chart-track"><div class="chart-fill" style="width:${value}%"></div></div>
+                    <span>${value}</span>
+                </div>
+            `).join('');
+            document.getElementById('toneDistribution').innerHTML = toneMetrics.map(([label, count, note]) => `
+                <div class="tone-pill">
+                    <strong>${count} 款</strong>
+                    <span>${label}</span>
+                    <p class="mb-0 mt-2 small text-muted">${note}</p>
+                </div>
+            `).join('');
             document.getElementById('sandGrid').innerHTML = sandColors.map(item => renderColorCard(item, '砂紋')).join('');
             document.getElementById('classicGrid').innerHTML = classicColors.map(item => renderColorCard(item, '古典')).join('');
             document.getElementById('metalGrid').innerHTML = metalColors.map(item => renderColorCard(item, '亮面')).join('');
@@ -602,6 +616,7 @@
                     Array.from(grid.children).sort((a, b) => {
                         if (sorter === 'name-asc') return a.dataset.name.localeCompare(b.dataset.name, 'zh-Hant');
                         if (sorter === 'name-desc') return b.dataset.name.localeCompare(a.dataset.name, 'zh-Hant');
+                        if (sorter === 'default') return Number(b.dataset.score) - Number(a.dataset.score);
                         return 0;
                     }).forEach(item => grid.appendChild(item));
                 });
@@ -627,5 +642,16 @@
             updateColorCatalog();
         });
     </script>
+    <script src="shared-layout.js"></script>
+    <script src="shared-enhancements.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+        .catalog-stage {
+            min-width: 0;
+        }

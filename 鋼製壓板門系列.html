@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="瀏覽國堡門鋼製壓板門系列，整理結構穩定、安全規格與防火延伸門型。">
+    <meta property="og:title" content="國堡門 - 鋼製壓板門系列">
+    <meta property="og:description" content="瀏覽國堡門鋼製壓板門系列，整理結構穩定、安全規格與防火延伸門型。">
+    <meta property="og:type" content="website">
+    <title>鋼製壓板門系列 - 國堡門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .steel-hero{min-height:68vh;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(21,18,16,.5),rgba(21,18,16,.12)),url('https://hung-chan.com.tw/media/k2/categories/127.jpg') center/cover no-repeat}
+        .steel-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:130px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(247,240,231,1))}
+        .steel-hero-content{position:relative;z-index:1;max-width:680px;color:#fff}
+        .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.48rem .88rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.82rem;letter-spacing:.08em;margin-bottom:1rem}
+        .steel-hero-content h1{font-size:clamp(2.5rem,4vw,4rem);font-weight:900;margin-bottom:1rem}
+        .steel-hero-content p{color:rgba(255,255,255,.88);font-size:1.05rem;margin-bottom:1.5rem}
+        .steel-shell{margin-top:-2.5rem;position:relative;z-index:2}
+        .steel-panel,.steel-grid-panel{background:linear-gradient(180deg,rgba(255,249,242,.96),rgba(255,255,255,.98));border-radius:28px;padding:2rem;box-shadow:0 20px 45px rgba(89,56,31,.08);border:1px solid rgba(139,69,19,.08)}
+        .section-kicker{color:#b06f2d;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:.9rem}
+        .section-title-lg{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:900;color:#1f2530;margin-bottom:.8rem}
+        .section-lead{color:#6f6256;max-width:760px}
+        .series-overview-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+        .series-overview-stats .stat{background:#fff;border-radius:18px;padding:1rem;border:1px solid rgba(139,69,19,.08)}
+        .series-overview-stats strong{display:block;color:#1e2530;font-size:1.15rem}
+        .series-overview-stats span{color:#8a7662;font-size:.84rem}
+        .steel-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.8rem}
+        .steel-product-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(139,69,19,.08);box-shadow:0 14px 30px rgba(0,0,0,.06);height:100%}
+        .steel-product-image{height:320px;background-size:cover;background-position:center;position:relative;cursor:pointer}
+        .steel-product-image::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.28))}
+        .steel-product-body{padding:1.35rem}
+        .steel-product-meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem}
+        .steel-product-meta span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.34rem .65rem;font-size:.75rem;font-weight:700}
+        .steel-product-body h3{font-size:1.25rem;font-weight:800;color:#213040;margin-bottom:.6rem;cursor:pointer}
+        .steel-product-body p{color:#6b625d;margin-bottom:1rem}
+        .steel-product-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+        .steel-product-specs div{background:#fcf7f1;border-radius:14px;padding:.8rem}
+        .steel-product-specs strong{display:block;color:#8f663d;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+        .steel-product-specs span{color:#3d342d;font-weight:600}
+        .steel-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+        .series-detail-modal{border:0;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#fdf7ef,#fff)}
+        .series-detail-modal .modal-header{border-bottom:1px solid rgba(139,69,19,.08);padding:1.2rem 1.4rem}
+        .series-detail-modal .modal-body{padding:1.4rem}
+        .detail-hero-image{width:100%;min-height:420px;border-radius:24px;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(139,69,19,.08)}
+        .detail-summary-card{background:#f8efe5;border-radius:22px;padding:1.2rem;margin-top:1rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-summary-card strong{display:block;color:#8f663d;margin-bottom:.3rem}
+        .detail-pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1rem}
+        .detail-pills span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.38rem .72rem;font-size:.8rem;font-weight:700}
+        .detail-price-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem .95rem;border-radius:999px;background:linear-gradient(135deg,#9c5a1e,#c47a2f);color:#fff;font-weight:800;margin-bottom:1rem}
+        .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-bottom:1rem}
+        .detail-grid div{background:#fff;border-radius:16px;padding:.9rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-grid strong{display:block;color:#8f663d;font-size:.76rem;margin-bottom:.2rem}
+        .detail-grid span{color:#2f2f34;font-weight:600}
+        .detail-section-title{font-size:.92rem;color:#8f663d;font-weight:800;letter-spacing:.06em;margin:1rem 0 .6rem;text-transform:uppercase}
+        .detail-feature-list{margin:0;padding-left:1.1rem;color:#5f5650}
+        .detail-feature-list li+li{margin-top:.35rem}
+        .detail-price-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;border:1px solid rgba(139,69,19,.08)}
+        .detail-price-table th,.detail-price-table td{padding:.8rem .9rem;font-size:.92rem}
+        .detail-price-table thead th{background:#6b4c3a;color:#fff}
+        .detail-price-table tbody td{background:#fff;color:#564a43;border-top:1px solid rgba(139,69,19,.08)}
+        @media (max-width:991.98px){.series-overview-stats,.steel-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media (max-width:767.98px){.series-overview-stats,.steel-product-grid,.steel-product-specs,.detail-grid{grid-template-columns:1fr}.steel-panel,.steel-grid-panel{padding:1.35rem;border-radius:22px}.steel-product-image{height:260px}.detail-hero-image{min-height:280px}}
+    </style>
+</head>
+<body>
+    <header class="steel-hero">
+        <div class="container">
+            <div class="steel-hero-content">
+                <span class="eyebrow"><i class="fas fa-shield-halved"></i> Series Detail</span>
+                <h1>鋼製壓板門系列</h1>
+                <p>這一類系列偏向結構型需求，重點在穩定、安全規格與耐用度。若有防火需求，也可依規格延伸到對應門型與證明需求。</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#steel-products" class="btn btn-warning btn-lg text-dark fw-bold px-4">查看系列款式</a>
+                    <a href="產品系列.html" class="btn btn-outline-light btn-lg px-4">返回產品系列</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5 steel-shell">
+        <section class="steel-panel mb-5">
+            <span class="section-kicker">Series Overview</span>
+            <h2 class="section-title-lg">鋼製壓板系列重點整理</h2>
+            <p class="section-lead mb-0">這一類門款適合需求導向比較清楚的使用者，例如重視結構穩定、耐用度、防火規格或特定建築條件。以下整理 4 種常見配置方向。</p>
+            <div class="series-overview-stats">
+                <div class="stat"><strong>4 款</strong><span>代表型號整理</span></div>
+                <div class="stat"><strong>結構型</strong><span>耐用與安全為重點</span></div>
+                <div class="stat"><strong>防火延伸</strong><span>可對應甲級防火需求</span></div>
+                <div class="stat"><strong>耐候耐用</strong><span>適合長期穩定使用</span></div>
+            </div>
+        </section>
+
+        <section class="steel-grid-panel" id="steel-products">
+            <span class="section-kicker">Steel Catalog</span>
+            <h2 class="section-title-lg">鋼製壓板門代表款式</h2>
+            <p class="section-lead">以下整理 4 種常見方向，讓使用者能先理解結構、安全與防火需求差異，再進一步做客製洽詢。</p>
+            <div class="steel-product-grid">
+                <article class="steel-product-card">
+                    <div class="steel-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/127.jpg');"></div>
+                    <div class="steel-product-body">
+                        <div class="steel-product-meta"><span>ST-01</span><span>標準結構</span></div>
+                        <h3>標準壓板款</h3>
+                        <p>適合作為住宅或機能空間的基本耐用門型，重點在結構穩定與門面俐落。</p>
+                        <div class="steel-product-specs">
+                            <div><strong>結構定位</strong><span>標準壓板</span></div>
+                            <div><strong>安全需求</strong><span>日常使用</span></div>
+                            <div><strong>適用區域</strong><span>住宅入口</span></div>
+                            <div><strong>延伸方向</strong><span>耐用升級</span></div>
+                        </div>
+                        <div class="steel-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="steel-product-card">
+                    <div class="steel-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/126.jpg');"></div>
+                    <div class="steel-product-body">
+                        <div class="steel-product-meta"><span>ST-02</span><span>防火需求</span></div>
+                        <h3>甲級防火款</h3>
+                        <p>適合需對應防火規格與證明的建築條件，重點在門體重量、填充與合法認證。</p>
+                        <div class="steel-product-specs">
+                            <div><strong>結構定位</strong><span>甲級防火</span></div>
+                            <div><strong>安全需求</strong><span>F60A 規格</span></div>
+                            <div><strong>適用區域</strong><span>法規需求建築</span></div>
+                            <div><strong>延伸方向</strong><span>證明開立</span></div>
+                        </div>
+                        <div class="steel-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="steel-product-card">
+                    <div class="steel-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/130.jpg');"></div>
+                    <div class="steel-product-body">
+                        <div class="steel-product-meta"><span>ST-03</span><span>耐候升級</span></div>
+                        <h3>耐候加強款</h3>
+                        <p>適合重視外部環境耐受度與長期穩定性的使用情境，常用於高頻率出入口。</p>
+                        <div class="steel-product-specs">
+                            <div><strong>結構定位</strong><span>耐候加強</span></div>
+                            <div><strong>安全需求</strong><span>穩定耐用</span></div>
+                            <div><strong>適用區域</strong><span>外側入口</span></div>
+                            <div><strong>延伸方向</strong><span>耐用升級</span></div>
+                        </div>
+                        <div class="steel-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="steel-product-card">
+                    <div class="steel-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/129.jpg');"></div>
+                    <div class="steel-product-body">
+                        <div class="steel-product-meta"><span>ST-04</span><span>多情境</span></div>
+                        <h3>機能整合款</h3>
+                        <p>把結構安全與日常便利整合在同一門型，適合作為住宅機能門的延伸選擇。</p>
+                        <div class="steel-product-specs">
+                            <div><strong>結構定位</strong><span>機能整合</span></div>
+                            <div><strong>安全需求</strong><span>中高需求</span></div>
+                            <div><strong>適用區域</strong><span>機能門區</span></div>
+                            <div><strong>延伸方向</strong><span>多情境應用</span></div>
+                        </div>
+                        <div class="steel-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="seriesDetailModal" tabindex="-1" aria-labelledby="seriesDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content series-detail-modal">
+                <div class="modal-header"><div><div class="detail-pills mb-2" id="detailModalPills"></div><h3 class="modal-title fw-bold mb-1" id="seriesDetailModalLabel">產品詳細資訊</h3><p class="text-muted mb-0" id="detailModalSubtitle"></p></div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-6"><div class="detail-hero-image" id="detailModalImage"></div><div class="detail-summary-card"><strong>款式配置</strong><span id="detailModalSummary"></span></div></div>
+                        <div class="col-lg-6"><div class="detail-price-chip" id="detailModalPrice"></div><div class="detail-grid" id="detailModalSpecs"></div><div class="detail-section-title">特色</div><ul class="detail-feature-list" id="detailModalFeatures"></ul><div class="detail-section-title">門鎖與備註</div><p class="mb-2 text-muted" id="detailModalLock"></p><p class="small text-muted mb-0" id="detailModalNote"></p></div>
+                    </div>
+                    <div class="detail-section-title">常見尺寸與價格</div>
+                    <div class="table-responsive"><table class="detail-price-table"><thead><tr><th>內容</th><th>規格尺寸</th><th>非甲級/價格</th><th>甲級防火/價格</th></tr></thead><tbody id="detailModalTable"></tbody></table></div>
+                    <div class="d-flex flex-wrap gap-3 mt-4"><a href="聯絡我們.html" class="btn btn-primary-custom btn-lg">詢問這款</a><button type="button" class="btn btn-outline-secondary btn-lg" data-bs-dismiss="modal">回到列表</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productDetails = {
+                'ST-01': {title:'鋼製壓板門 ST-01｜標準壓板款',subtitle:'結構穩定，適合作為住宅基本耐用門型',image:'https://hung-chan.com.tw/media/k2/categories/127.jpg',summary:'標準壓板結構 / 住宅入口配置',pills:['鋼製壓板門','標準結構','耐用'],priceFrom:'$38,800 起',specs:[['型號','ST-01'],['結構定位','標準壓板'],['適用區域','住宅入口'],['定位','日常耐用']],features:['結構穩定耐用','適合作為基本安全門型','門面俐落易於搭配'],lock:'標準門鎖配置，可加購多段鎖體',note:'門色、尺寸與把手樣式可客製調整。',prices:[['單門','90 x 210 cm','$38,800','$43,800'],['單門','100 x 210 cm','$40,800','$45,800'],['子母門','120 x 210 cm','$48,800','$54,800']]},
+                'ST-02': {title:'鋼製壓板門 ST-02｜甲級防火款',subtitle:'適合需對應防火規格與證明的建築條件',image:'https://hung-chan.com.tw/media/k2/categories/126.jpg',summary:'甲級防火結構 / 可對應 F60A 需求',pills:['鋼製壓板門','甲級防火','安全規格'],priceFrom:'$46,800 起',specs:[['型號','ST-02'],['結構定位','甲級防火'],['適用區域','法規需求建築'],['定位','F60A 規格']],features:['可對應合法防火需求','結構填充與重量較高','適合重視證明與法規條件的使用者'],lock:'可搭配防火門專用五金配置',note:'防火門可開立證明與標章，實際規格仍需依現場需求確認。',prices:[['單門','90 x 210 cm','$46,800','$52,800'],['單門','100 x 210 cm','$48,800','$54,800'],['子母門','120 x 210 cm','$58,800','$65,800']]},
+                'ST-03': {title:'鋼製壓板門 ST-03｜耐候加強款',subtitle:'適合高頻率使用與外部環境需求較高的門區',image:'https://hung-chan.com.tw/media/k2/categories/130.jpg',summary:'耐候加強結構 / 高使用頻率配置',pills:['鋼製壓板門','耐候升級','外側入口'],priceFrom:'$41,800 起',specs:[['型號','ST-03'],['結構定位','耐候加強'],['適用區域','外側入口'],['定位','耐用升級']],features:['適合風雨較多或高使用頻率場景','結構厚實，穩定性更高','可作為機能門款升級方案'],lock:'標準門鎖配置，可依需求升級',note:'防火等級與五金升級不同，價格將另行調整。',prices:[['單門','90 x 210 cm','$41,800','$46,800'],['單門','100 x 210 cm','$43,800','$48,800'],['子母門','120 x 210 cm','$51,800','$57,800']]},
+                'ST-04': {title:'鋼製壓板門 ST-04｜機能整合款',subtitle:'結構安全與日常便利並重的多情境門型',image:'https://hung-chan.com.tw/media/k2/categories/129.jpg',summary:'機能整合結構 / 多情境使用',pills:['鋼製壓板門','多情境','機能整合'],priceFrom:'$42,800 起',specs:[['型號','ST-04'],['結構定位','機能整合'],['適用區域','機能門區'],['定位','多情境應用']],features:['適合需要兼顧安全與便利的空間','可作為住宅機能門延伸選擇','結構穩定且使用情境彈性高'],lock:'標準門鎖配置，可依需求加購升級',note:'若需特殊尺寸與門中門配置，將另外報價。',prices:[['單門','90 x 210 cm','$42,800','$47,800'],['單門','100 x 210 cm','$44,800','$49,800'],['子母門','120 x 210 cm','$52,800','$58,800']]}
+            };
+
+            const modal = new bootstrap.Modal(document.getElementById('seriesDetailModal'));
+            const pillsEl = document.getElementById('detailModalPills');
+            const titleEl = document.getElementById('seriesDetailModalLabel');
+            const subtitleEl = document.getElementById('detailModalSubtitle');
+            const imageEl = document.getElementById('detailModalImage');
+            const summaryEl = document.getElementById('detailModalSummary');
+            const priceEl = document.getElementById('detailModalPrice');
+            const specsEl = document.getElementById('detailModalSpecs');
+            const featuresEl = document.getElementById('detailModalFeatures');
+            const lockEl = document.getElementById('detailModalLock');
+            const noteEl = document.getElementById('detailModalNote');
+            const tableEl = document.getElementById('detailModalTable');
+
+            function openProductModal(code, imageStyle) {
+                const item = productDetails[code];
+                if (!item) return;
+                pillsEl.innerHTML = item.pills.map((pill) => `<span>${pill}</span>`).join('');
+                titleEl.textContent = item.title;
+                subtitleEl.textContent = item.subtitle;
+                imageEl.style.backgroundImage = imageStyle || `url('${item.image}')`;
+                summaryEl.textContent = item.summary;
+                priceEl.innerHTML = `<i class="fas fa-tags"></i> 參考價格 ${item.priceFrom}`;
+                specsEl.innerHTML = item.specs.map(([label, value]) => `<div><strong>${label}</strong><span>${value}</span></div>`).join('');
+                featuresEl.innerHTML = item.features.map((feature) => `<li>${feature}</li>`).join('');
+                lockEl.textContent = item.lock;
+                noteEl.textContent = item.note;
+                tableEl.innerHTML = item.prices.map((row) => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`).join('');
+                modal.show();
+            }
+
+            document.querySelectorAll('.steel-product-card').forEach((card) => {
+                const code = card.querySelector('.steel-product-meta span')?.textContent.trim();
+                const image = card.querySelector('.steel-product-image');
+                const title = card.querySelector('h3');
+                const cta = card.querySelector('.steel-cta');
+                if (!code || !productDetails[code]) return;
+                const imageStyle = image.style.backgroundImage || getComputedStyle(image).backgroundImage;
+                image.addEventListener('click', () => openProductModal(code, imageStyle));
+                title.addEventListener('click', () => openProductModal(code, imageStyle));
+                const detailButton = document.createElement('button');
+                detailButton.type = 'button';
+                detailButton.className = 'btn btn-outline-primary';
+                detailButton.textContent = '查看詳情';
+                detailButton.addEventListener('click', () => openProductModal(code, imageStyle));
+                cta.prepend(detailButton);
+            });
+        });
+    </script>
+    <script src="shared-layout.js"></script>
+    <script src="shared-enhancements.js"></script>
+</body>
+</html>

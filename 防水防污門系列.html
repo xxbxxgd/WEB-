@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="瀏覽國堡門防水防污門系列，整理日常好清潔、耐候與穩定耐用的機能型門款。">
+    <meta property="og:title" content="國堡門 - 防水防污門系列">
+    <meta property="og:description" content="瀏覽國堡門防水防污門系列，整理日常好清潔、耐候與穩定耐用的機能型門款。">
+    <meta property="og:type" content="website">
+    <title>防水防污門系列 - 國堡門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .water-hero{min-height:68vh;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(21,18,16,.5),rgba(21,18,16,.12)),url('https://hung-chan.com.tw/media/k2/categories/130.jpg') center/cover no-repeat}
+        .water-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:130px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(247,240,231,1))}
+        .water-hero-content{position:relative;z-index:1;max-width:680px;color:#fff}
+        .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.48rem .88rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.82rem;letter-spacing:.08em;margin-bottom:1rem}
+        .water-hero-content h1{font-size:clamp(2.5rem,4vw,4rem);font-weight:900;margin-bottom:1rem}
+        .water-hero-content p{color:rgba(255,255,255,.88);font-size:1.05rem;margin-bottom:1.5rem}
+        .water-shell{margin-top:-2.5rem;position:relative;z-index:2}
+        .water-panel,.water-grid-panel{background:linear-gradient(180deg,rgba(255,249,242,.96),rgba(255,255,255,.98));border-radius:28px;padding:2rem;box-shadow:0 20px 45px rgba(89,56,31,.08);border:1px solid rgba(139,69,19,.08)}
+        .section-kicker{color:#b06f2d;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:.9rem}
+        .section-title-lg{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:900;color:#1f2530;margin-bottom:.8rem}
+        .section-lead{color:#6f6256;max-width:760px}
+        .series-overview-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+        .series-overview-stats .stat{background:#fff;border-radius:18px;padding:1rem;border:1px solid rgba(139,69,19,.08)}
+        .series-overview-stats strong{display:block;color:#1e2530;font-size:1.15rem}
+        .series-overview-stats span{color:#8a7662;font-size:.84rem}
+        .water-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.8rem}
+        .water-product-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(139,69,19,.08);box-shadow:0 14px 30px rgba(0,0,0,.06);height:100%}
+        .water-product-image{height:320px;background-size:cover;background-position:center;position:relative;cursor:pointer}
+        .water-product-image::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.28))}
+        .water-product-body{padding:1.35rem}
+        .water-product-meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem}
+        .water-product-meta span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.34rem .65rem;font-size:.75rem;font-weight:700}
+        .water-product-body h3{font-size:1.25rem;font-weight:800;color:#213040;margin-bottom:.6rem;cursor:pointer}
+        .water-product-body p{color:#6b625d;margin-bottom:1rem}
+        .water-product-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+        .water-product-specs div{background:#fcf7f1;border-radius:14px;padding:.8rem}
+        .water-product-specs strong{display:block;color:#8f663d;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+        .water-product-specs span{color:#3d342d;font-weight:600}
+        .water-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+        .series-detail-modal{border:0;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#fdf7ef,#fff)}
+        .series-detail-modal .modal-header{border-bottom:1px solid rgba(139,69,19,.08);padding:1.2rem 1.4rem}
+        .series-detail-modal .modal-body{padding:1.4rem}
+        .detail-hero-image{width:100%;min-height:420px;border-radius:24px;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(139,69,19,.08)}
+        .detail-summary-card{background:#f8efe5;border-radius:22px;padding:1.2rem;margin-top:1rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-summary-card strong{display:block;color:#8f663d;margin-bottom:.3rem}
+        .detail-pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1rem}
+        .detail-pills span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.38rem .72rem;font-size:.8rem;font-weight:700}
+        .detail-price-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem .95rem;border-radius:999px;background:linear-gradient(135deg,#9c5a1e,#c47a2f);color:#fff;font-weight:800;margin-bottom:1rem}
+        .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-bottom:1rem}
+        .detail-grid div{background:#fff;border-radius:16px;padding:.9rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-grid strong{display:block;color:#8f663d;font-size:.76rem;margin-bottom:.2rem}
+        .detail-grid span{color:#2f2f34;font-weight:600}
+        .detail-section-title{font-size:.92rem;color:#8f663d;font-weight:800;letter-spacing:.06em;margin:1rem 0 .6rem;text-transform:uppercase}
+        .detail-feature-list{margin:0;padding-left:1.1rem;color:#5f5650}
+        .detail-feature-list li+li{margin-top:.35rem}
+        .detail-price-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;border:1px solid rgba(139,69,19,.08)}
+        .detail-price-table th,.detail-price-table td{padding:.8rem .9rem;font-size:.92rem}
+        .detail-price-table thead th{background:#6b4c3a;color:#fff}
+        .detail-price-table tbody td{background:#fff;color:#564a43;border-top:1px solid rgba(139,69,19,.08)}
+        @media (max-width:991.98px){.series-overview-stats,.water-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media (max-width:767.98px){.series-overview-stats,.water-product-grid,.water-product-specs,.detail-grid{grid-template-columns:1fr}.water-panel,.water-grid-panel{padding:1.35rem;border-radius:22px}.water-product-image{height:260px}.detail-hero-image{min-height:280px}}
+    </style>
+</head>
+<body>
+    <header class="water-hero">
+        <div class="container">
+            <div class="water-hero-content">
+                <span class="eyebrow"><i class="fas fa-shield-droplet"></i> Series Detail</span>
+                <h1>防水防污門系列</h1>
+                <p>以日常好整理、耐候穩定與實用性為主軸，這一頁整理適合廚後門、工作陽台、側門與高使用頻率入口的防水防污門款。</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#water-products" class="btn btn-warning btn-lg text-dark fw-bold px-4">查看系列款式</a>
+                    <a href="產品系列.html" class="btn btn-outline-light btn-lg px-4">返回產品系列</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5 water-shell">
+        <section class="water-panel mb-5">
+            <span class="section-kicker">Series Overview</span>
+            <h2 class="section-title-lg">防水防污系列重點整理</h2>
+            <p class="section-lead mb-0">這一類門款重點不是裝飾語彙，而是面材穩定、清潔便利與長期使用感。適合想降低保養負擔，又希望外觀俐落耐看的住宅入口與工作出入口。</p>
+            <div class="series-overview-stats">
+                <div class="stat"><strong>4 款</strong><span>代表型號整理</span></div>
+                <div class="stat"><strong>好清潔</strong><span>日常維護負擔低</span></div>
+                <div class="stat"><strong>耐候性</strong><span>適合高使用頻率區域</span></div>
+                <div class="stat"><strong>機能導向</strong><span>以實用與穩定為優先</span></div>
+            </div>
+        </section>
+
+        <section class="water-grid-panel" id="water-products">
+            <span class="section-kicker">Waterproof Catalog</span>
+            <h2 class="section-title-lg">防水防污門代表款式</h2>
+            <p class="section-lead">以下以實用型配置整理 4 款代表門型，讓使用者能快速比較面材風格、結構定位與適用場景。</p>
+            <div class="water-product-grid">
+                <article class="water-product-card">
+                    <div class="water-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/130.jpg');"></div>
+                    <div class="water-product-body">
+                        <div class="water-product-meta"><span>WP-01</span><span>高實用</span></div>
+                        <h3>簡約素面款</h3>
+                        <p>適合後陽台、工作門與高頻率出入區域，強調穩定面材與低維護門面。</p>
+                        <div class="water-product-specs">
+                            <div><strong>面材風格</strong><span>簡約素面</span></div>
+                            <div><strong>系列定位</strong><span>日常耐用</span></div>
+                            <div><strong>適用區域</strong><span>後門 / 工作門</span></div>
+                            <div><strong>保養特性</strong><span>好清潔</span></div>
+                        </div>
+                        <div class="water-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="water-product-card">
+                    <div class="water-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/127.jpg');"></div>
+                    <div class="water-product-body">
+                        <div class="water-product-meta"><span>WP-02</span><span>耐候結構</span></div>
+                        <h3>壓紋結構款</h3>
+                        <p>比素面款更有結構感，適合想兼顧俐落外觀與高使用強度的住宅側門。</p>
+                        <div class="water-product-specs">
+                            <div><strong>面材風格</strong><span>壓紋立面</span></div>
+                            <div><strong>系列定位</strong><span>耐候升級</span></div>
+                            <div><strong>適用區域</strong><span>側門 / 服務入口</span></div>
+                            <div><strong>保養特性</strong><span>耐污好整理</span></div>
+                        </div>
+                        <div class="water-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="water-product-card">
+                    <div class="water-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/118.jpg');"></div>
+                    <div class="water-product-body">
+                        <div class="water-product-meta"><span>WP-03</span><span>通風延伸</span></div>
+                        <h3>透氣機能款</h3>
+                        <p>適合需要一定通風需求，但仍以日常清潔與穩定面材為優先的住宅空間。</p>
+                        <div class="water-product-specs">
+                            <div><strong>面材風格</strong><span>透氣機能</span></div>
+                            <div><strong>系列定位</strong><span>通風延伸</span></div>
+                            <div><strong>適用區域</strong><span>工作陽台</span></div>
+                            <div><strong>保養特性</strong><span>兼顧通風與清潔</span></div>
+                        </div>
+                        <div class="water-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="water-product-card">
+                    <div class="water-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/126.jpg');"></div>
+                    <div class="water-product-body">
+                        <div class="water-product-meta"><span>WP-04</span><span>加強耐用</span></div>
+                        <h3>強化防護款</h3>
+                        <p>適合較重視安全感與結構厚實度的使用者，常作為高頻率機能門款的升級選擇。</p>
+                        <div class="water-product-specs">
+                            <div><strong>面材風格</strong><span>加強結構</span></div>
+                            <div><strong>系列定位</strong><span>耐用升級</span></div>
+                            <div><strong>適用區域</strong><span>住宅外側入口</span></div>
+                            <div><strong>保養特性</strong><span>穩定耐久</span></div>
+                        </div>
+                        <div class="water-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="seriesDetailModal" tabindex="-1" aria-labelledby="seriesDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content series-detail-modal">
+                <div class="modal-header">
+                    <div>
+                        <div class="detail-pills mb-2" id="detailModalPills"></div>
+                        <h3 class="modal-title fw-bold mb-1" id="seriesDetailModalLabel">產品詳細資訊</h3>
+                        <p class="text-muted mb-0" id="detailModalSubtitle"></p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="detail-hero-image" id="detailModalImage"></div>
+                            <div class="detail-summary-card"><strong>款式配置</strong><span id="detailModalSummary"></span></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="detail-price-chip" id="detailModalPrice"></div>
+                            <div class="detail-grid" id="detailModalSpecs"></div>
+                            <div class="detail-section-title">特色</div>
+                            <ul class="detail-feature-list" id="detailModalFeatures"></ul>
+                            <div class="detail-section-title">門鎖與備註</div>
+                            <p class="mb-2 text-muted" id="detailModalLock"></p>
+                            <p class="small text-muted mb-0" id="detailModalNote"></p>
+                        </div>
+                    </div>
+                    <div class="detail-section-title">常見尺寸與價格</div>
+                    <div class="table-responsive">
+                        <table class="detail-price-table">
+                            <thead><tr><th>內容</th><th>規格尺寸</th><th>非甲級/價格</th><th>甲級防火/價格</th></tr></thead>
+                            <tbody id="detailModalTable"></tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="聯絡我們.html" class="btn btn-primary-custom btn-lg">詢問這款</a>
+                        <button type="button" class="btn btn-outline-secondary btn-lg" data-bs-dismiss="modal">回到列表</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productDetails = {
+                'WP-01': {title:'防水防污門 WP-01｜簡約素面款',subtitle:'好清潔、低維護，適合後門與工作門',image:'https://hung-chan.com.tw/media/k2/categories/130.jpg',summary:'素面耐用面材 / 標準機能門扇配置',pills:['防水防污門','高實用','好清潔'],priceFrom:'$29,800 起',specs:[['型號','WP-01'],['面材風格','簡約素面'],['適用區域','後門 / 工作門'],['定位','日常耐用']],features:['清潔維護負擔低','適合高頻率使用門區','門面簡潔耐看'],lock:'標準門鎖配置，可依需求升級',note:'尺寸、門色與把手配置可依需求調整。',prices:[['單門','90 x 210 cm','$29,800','$34,800'],['單門','100 x 210 cm','$31,800','$36,800'],['子母門','120 x 210 cm','$39,800','$45,800']]},
+                'WP-02': {title:'防水防污門 WP-02｜壓紋結構款',subtitle:'立面更有結構感，適合服務入口與住宅側門',image:'https://hung-chan.com.tw/media/k2/categories/127.jpg',summary:'壓紋面材 / 加強耐候結構',pills:['防水防污門','耐候結構','側門'],priceFrom:'$31,800 起',specs:[['型號','WP-02'],['面材風格','壓紋立面'],['適用區域','側門 / 服務入口'],['定位','耐候升級']],features:['比素面款更有門面層次','適合風雨較多區域','兼顧俐落外觀與耐用度'],lock:'標準門鎖配置，可加購防盜鎖體',note:'實際報價依門片尺寸與五金升級內容為準。',prices:[['單門','90 x 210 cm','$31,800','$36,800'],['單門','100 x 210 cm','$33,800','$38,800'],['子母門','120 x 210 cm','$41,800','$47,800']]},
+                'WP-03': {title:'防水防污門 WP-03｜透氣機能款',subtitle:'兼顧通風需求與日常好整理的機能門型',image:'https://hung-chan.com.tw/media/k2/categories/118.jpg',summary:'透氣面材 / 機能導向配置',pills:['防水防污門','通風延伸','工作陽台'],priceFrom:'$32,800 起',specs:[['型號','WP-03'],['面材風格','透氣機能'],['適用區域','工作陽台'],['定位','通風延伸']],features:['適合半戶外使用環境','在清潔便利之外增加透氣感','適合作為家事空間與側向出入口'],lock:'標準門鎖配置，可依需求升級',note:'通風開孔比例可依現場條件建議調整。',prices:[['單門','90 x 210 cm','$32,800','$37,800'],['單門','100 x 210 cm','$34,800','$39,800'],['子母門','120 x 210 cm','$42,800','$48,800']]},
+                'WP-04': {title:'防水防污門 WP-04｜強化防護款',subtitle:'更重視安全感與結構厚實度的機能門型',image:'https://hung-chan.com.tw/media/k2/categories/126.jpg',summary:'加強結構 / 穩定耐久配置',pills:['防水防污門','加強耐用','外側入口'],priceFrom:'$34,800 起',specs:[['型號','WP-04'],['面材風格','加強結構'],['適用區域','住宅外側入口'],['定位','耐用升級']],features:['結構更厚實，適合高使用頻率區域','可作為機能門款的升級選擇','兼顧實用與安全感'],lock:'標準門鎖配置，可加價升級多段鎖',note:'如需甲級防火規格，將另外提供對應門型方案。',prices:[['單門','90 x 210 cm','$34,800','$39,800'],['單門','100 x 210 cm','$36,800','$41,800'],['子母門','120 x 210 cm','$44,800','$50,800']]}
+            };
+
+            const modal = new bootstrap.Modal(document.getElementById('seriesDetailModal'));
+            const pillsEl = document.getElementById('detailModalPills');
+            const titleEl = document.getElementById('seriesDetailModalLabel');
+            const subtitleEl = document.getElementById('detailModalSubtitle');
+            const imageEl = document.getElementById('detailModalImage');
+            const summaryEl = document.getElementById('detailModalSummary');
+            const priceEl = document.getElementById('detailModalPrice');
+            const specsEl = document.getElementById('detailModalSpecs');
+            const featuresEl = document.getElementById('detailModalFeatures');
+            const lockEl = document.getElementById('detailModalLock');
+            const noteEl = document.getElementById('detailModalNote');
+            const tableEl = document.getElementById('detailModalTable');
+
+            function openProductModal(code, imageStyle) {
+                const item = productDetails[code];
+                if (!item) return;
+                pillsEl.innerHTML = item.pills.map((pill) => `<span>${pill}</span>`).join('');
+                titleEl.textContent = item.title;
+                subtitleEl.textContent = item.subtitle;
+                imageEl.style.backgroundImage = imageStyle || `url('${item.image}')`;
+                summaryEl.textContent = item.summary;
+                priceEl.innerHTML = `<i class="fas fa-tags"></i> 參考價格 ${item.priceFrom}`;
+                specsEl.innerHTML = item.specs.map(([label, value]) => `<div><strong>${label}</strong><span>${value}</span></div>`).join('');
+                featuresEl.innerHTML = item.features.map((feature) => `<li>${feature}</li>`).join('');
+                lockEl.textContent = item.lock;
+                noteEl.textContent = item.note;
+                tableEl.innerHTML = item.prices.map((row) => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`).join('');
+                modal.show();
+            }
+
+            document.querySelectorAll('.water-product-card').forEach((card) => {
+                const code = card.querySelector('.water-product-meta span')?.textContent.trim();
+                const image = card.querySelector('.water-product-image');
+                const title = card.querySelector('h3');
+                const cta = card.querySelector('.water-cta');
+                if (!code || !productDetails[code]) return;
+                const imageStyle = image.style.backgroundImage || getComputedStyle(image).backgroundImage;
+                image.addEventListener('click', () => openProductModal(code, imageStyle));
+                title.addEventListener('click', () => openProductModal(code, imageStyle));
+                const detailButton = document.createElement('button');
+                detailButton.type = 'button';
+                detailButton.className = 'btn btn-outline-primary';
+                detailButton.textContent = '查看詳情';
+                detailButton.addEventListener('click', () => openProductModal(code, imageStyle));
+                cta.prepend(detailButton);
+            });
+        });
+    </script>
+    <script src="shared-layout.js"></script>
+    <script src="shared-enhancements.js"></script>
+</body>
+</html>

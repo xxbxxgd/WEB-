@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="瀏覽國堡門百頁通風門系列，整理通風、採光與安全兼顧的機能型門款。">
+    <meta property="og:title" content="國堡門 - 百頁通風門系列">
+    <meta property="og:description" content="瀏覽國堡門百頁通風門系列，整理通風、採光與安全兼顧的機能型門款。">
+    <meta property="og:type" content="website">
+    <title>百頁通風門系列 - 國堡門</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .louver-hero{min-height:68vh;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(21,18,16,.5),rgba(21,18,16,.12)),url('https://hung-chan.com.tw/media/k2/categories/118.jpg') center/cover no-repeat}
+        .louver-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:130px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(247,240,231,1))}
+        .louver-hero-content{position:relative;z-index:1;max-width:680px;color:#fff}
+        .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.48rem .88rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.82rem;letter-spacing:.08em;margin-bottom:1rem}
+        .louver-hero-content h1{font-size:clamp(2.5rem,4vw,4rem);font-weight:900;margin-bottom:1rem}
+        .louver-hero-content p{color:rgba(255,255,255,.88);font-size:1.05rem;margin-bottom:1.5rem}
+        .louver-shell{margin-top:-2.5rem;position:relative;z-index:2}
+        .louver-panel,.louver-grid-panel{background:linear-gradient(180deg,rgba(255,249,242,.96),rgba(255,255,255,.98));border-radius:28px;padding:2rem;box-shadow:0 20px 45px rgba(89,56,31,.08);border:1px solid rgba(139,69,19,.08)}
+        .section-kicker{color:#b06f2d;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:.9rem}
+        .section-title-lg{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:900;color:#1f2530;margin-bottom:.8rem}
+        .section-lead{color:#6f6256;max-width:760px}
+        .series-overview-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+        .series-overview-stats .stat{background:#fff;border-radius:18px;padding:1rem;border:1px solid rgba(139,69,19,.08)}
+        .series-overview-stats strong{display:block;color:#1e2530;font-size:1.15rem}
+        .series-overview-stats span{color:#8a7662;font-size:.84rem}
+        .louver-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.8rem}
+        .louver-product-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(139,69,19,.08);box-shadow:0 14px 30px rgba(0,0,0,.06);height:100%}
+        .louver-product-image{height:320px;background-size:cover;background-position:center;position:relative;cursor:pointer}
+        .louver-product-image::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.28))}
+        .louver-product-body{padding:1.35rem}
+        .louver-product-meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem}
+        .louver-product-meta span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.34rem .65rem;font-size:.75rem;font-weight:700}
+        .louver-product-body h3{font-size:1.25rem;font-weight:800;color:#213040;margin-bottom:.6rem;cursor:pointer}
+        .louver-product-body p{color:#6b625d;margin-bottom:1rem}
+        .louver-product-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+        .louver-product-specs div{background:#fcf7f1;border-radius:14px;padding:.8rem}
+        .louver-product-specs strong{display:block;color:#8f663d;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+        .louver-product-specs span{color:#3d342d;font-weight:600}
+        .louver-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+        .series-detail-modal{border:0;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#fdf7ef,#fff)}
+        .series-detail-modal .modal-header{border-bottom:1px solid rgba(139,69,19,.08);padding:1.2rem 1.4rem}
+        .series-detail-modal .modal-body{padding:1.4rem}
+        .detail-hero-image{width:100%;min-height:420px;border-radius:24px;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(139,69,19,.08)}
+        .detail-summary-card{background:#f8efe5;border-radius:22px;padding:1.2rem;margin-top:1rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-summary-card strong{display:block;color:#8f663d;margin-bottom:.3rem}
+        .detail-pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1rem}
+        .detail-pills span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.38rem .72rem;font-size:.8rem;font-weight:700}
+        .detail-price-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem .95rem;border-radius:999px;background:linear-gradient(135deg,#9c5a1e,#c47a2f);color:#fff;font-weight:800;margin-bottom:1rem}
+        .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-bottom:1rem}
+        .detail-grid div{background:#fff;border-radius:16px;padding:.9rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-grid strong{display:block;color:#8f663d;font-size:.76rem;margin-bottom:.2rem}
+        .detail-grid span{color:#2f2f34;font-weight:600}
+        .detail-section-title{font-size:.92rem;color:#8f663d;font-weight:800;letter-spacing:.06em;margin:1rem 0 .6rem;text-transform:uppercase}
+        .detail-feature-list{margin:0;padding-left:1.1rem;color:#5f5650}
+        .detail-feature-list li+li{margin-top:.35rem}
+        .detail-price-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;border:1px solid rgba(139,69,19,.08)}
+        .detail-price-table th,.detail-price-table td{padding:.8rem .9rem;font-size:.92rem}
+        .detail-price-table thead th{background:#6b4c3a;color:#fff}
+        .detail-price-table tbody td{background:#fff;color:#564a43;border-top:1px solid rgba(139,69,19,.08)}
+        @media (max-width:991.98px){.series-overview-stats,.louver-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media (max-width:767.98px){.series-overview-stats,.louver-product-grid,.louver-product-specs,.detail-grid{grid-template-columns:1fr}.louver-panel,.louver-grid-panel{padding:1.35rem;border-radius:22px}.louver-product-image{height:260px}.detail-hero-image{min-height:280px}}
+    </style>
+</head>
+<body>
+    <header class="louver-hero">
+        <div class="container">
+            <div class="louver-hero-content">
+                <span class="eyebrow"><i class="fas fa-wind"></i> Series Detail</span>
+                <h1>百頁通風門系列</h1>
+                <p>這一類門款重點在於兼顧通風、採光與安全感，適合工作陽台、玄關側門與需要空氣流動的住宅出入口。</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#louver-products" class="btn btn-warning btn-lg text-dark fw-bold px-4">查看系列款式</a>
+                    <a href="產品系列.html" class="btn btn-outline-light btn-lg px-4">返回產品系列</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5 louver-shell">
+        <section class="louver-panel mb-5">
+            <span class="section-kicker">Series Overview</span>
+            <h2 class="section-title-lg">百頁通風系列重點整理</h2>
+            <p class="section-lead mb-0">通風門的價值不只是開孔，而是如何在通風、採光與安全之間取得平衡。以下整理適合住宅常見使用情境的代表門型。</p>
+            <div class="series-overview-stats">
+                <div class="stat"><strong>4 款</strong><span>代表型號整理</span></div>
+                <div class="stat"><strong>通風需求</strong><span>空氣流動更順暢</span></div>
+                <div class="stat"><strong>採光延伸</strong><span>兼顧日常使用感</span></div>
+                <div class="stat"><strong>機能導向</strong><span>側門 / 玄關皆適用</span></div>
+            </div>
+        </section>
+
+        <section class="louver-grid-panel" id="louver-products">
+            <span class="section-kicker">Louver Catalog</span>
+            <h2 class="section-title-lg">百頁通風門代表款式</h2>
+            <p class="section-lead">以下整理 4 款代表型，讓使用者能快速比較開孔比例、通風形式與適用區域。</p>
+            <div class="louver-product-grid">
+                <article class="louver-product-card">
+                    <div class="louver-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/118.jpg');"></div>
+                    <div class="louver-product-body">
+                        <div class="louver-product-meta"><span>LV-01</span><span>均衡通風</span></div>
+                        <h3>標準百頁款</h3>
+                        <p>適合大部分住宅工作門與側門，兼顧空氣流動、隱私與日常清潔。</p>
+                        <div class="louver-product-specs">
+                            <div><strong>開孔形式</strong><span>標準百頁</span></div>
+                            <div><strong>系列定位</strong><span>均衡通風</span></div>
+                            <div><strong>適用區域</strong><span>工作門 / 側門</span></div>
+                            <div><strong>視覺風格</strong><span>俐落規整</span></div>
+                        </div>
+                        <div class="louver-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="louver-product-card">
+                    <div class="louver-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/121.jpg');"></div>
+                    <div class="louver-product-body">
+                        <div class="louver-product-meta"><span>LV-02</span><span>日式格柵</span></div>
+                        <h3>細格採光款</h3>
+                        <p>適合喜歡較細緻格柵語言的住家入口，通風之外也保留更安靜的門面比例。</p>
+                        <div class="louver-product-specs">
+                            <div><strong>開孔形式</strong><span>細格採光</span></div>
+                            <div><strong>系列定位</strong><span>日式格柵</span></div>
+                            <div><strong>適用區域</strong><span>玄關側門</span></div>
+                            <div><strong>視覺風格</strong><span>內斂簡潔</span></div>
+                        </div>
+                        <div class="louver-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="louver-product-card">
+                    <div class="louver-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/129.jpg');"></div>
+                    <div class="louver-product-body">
+                        <div class="louver-product-meta"><span>LV-03</span><span>彈性出入</span></div>
+                        <h3>門中門通風款</h3>
+                        <p>把通風需求與日常出入便利整合在同一門型，適合高頻率使用的生活場景。</p>
+                        <div class="louver-product-specs">
+                            <div><strong>開孔形式</strong><span>門中門整合</span></div>
+                            <div><strong>系列定位</strong><span>彈性出入</span></div>
+                            <div><strong>適用區域</strong><span>工作陽台</span></div>
+                            <div><strong>視覺風格</strong><span>機能整合</span></div>
+                        </div>
+                        <div class="louver-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+                <article class="louver-product-card">
+                    <div class="louver-product-image" style="background-image:url('https://hung-chan.com.tw/media/k2/categories/130.jpg');"></div>
+                    <div class="louver-product-body">
+                        <div class="louver-product-meta"><span>LV-04</span><span>耐用升級</span></div>
+                        <h3>強化機能款</h3>
+                        <p>適合更重視耐用與穩定性的使用者，讓通風門也能保有更完整的結構感。</p>
+                        <div class="louver-product-specs">
+                            <div><strong>開孔形式</strong><span>機能百頁</span></div>
+                            <div><strong>系列定位</strong><span>耐用升級</span></div>
+                            <div><strong>適用區域</strong><span>半戶外出入口</span></div>
+                            <div><strong>視覺風格</strong><span>穩定厚實</span></div>
+                        </div>
+                        <div class="louver-cta"><a href="聯絡我們.html" class="btn btn-primary-custom">詢問這款</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="seriesDetailModal" tabindex="-1" aria-labelledby="seriesDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content series-detail-modal">
+                <div class="modal-header"><div><div class="detail-pills mb-2" id="detailModalPills"></div><h3 class="modal-title fw-bold mb-1" id="seriesDetailModalLabel">產品詳細資訊</h3><p class="text-muted mb-0" id="detailModalSubtitle"></p></div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-6"><div class="detail-hero-image" id="detailModalImage"></div><div class="detail-summary-card"><strong>款式配置</strong><span id="detailModalSummary"></span></div></div>
+                        <div class="col-lg-6"><div class="detail-price-chip" id="detailModalPrice"></div><div class="detail-grid" id="detailModalSpecs"></div><div class="detail-section-title">特色</div><ul class="detail-feature-list" id="detailModalFeatures"></ul><div class="detail-section-title">門鎖與備註</div><p class="mb-2 text-muted" id="detailModalLock"></p><p class="small text-muted mb-0" id="detailModalNote"></p></div>
+                    </div>
+                    <div class="detail-section-title">常見尺寸與價格</div>
+                    <div class="table-responsive"><table class="detail-price-table"><thead><tr><th>內容</th><th>規格尺寸</th><th>非甲級/價格</th><th>甲級防火/價格</th></tr></thead><tbody id="detailModalTable"></tbody></table></div>
+                    <div class="d-flex flex-wrap gap-3 mt-4"><a href="聯絡我們.html" class="btn btn-primary-custom btn-lg">詢問這款</a><button type="button" class="btn btn-outline-secondary btn-lg" data-bs-dismiss="modal">回到列表</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productDetails = {
+                'LV-01': {title:'百頁通風門 LV-01｜標準百頁款',subtitle:'適合工作門與側門的均衡通風配置',image:'https://hung-chan.com.tw/media/k2/categories/118.jpg',summary:'標準百頁開孔 / 機能通風門扇',pills:['百頁通風門','均衡通風','高實用'],priceFrom:'$33,800 起',specs:[['型號','LV-01'],['開孔形式','標準百頁'],['適用區域','工作門 / 側門'],['定位','均衡通風']],features:['兼顧通風、採光與隱私','適合多數住宅高頻率使用區域','日常清潔與保養相對容易'],lock:'標準門鎖配置，可依需求升級',note:'實際開孔比例與尺寸可依現場條件建議。',prices:[['單門','90 x 210 cm','$33,800','$38,800'],['單門','100 x 210 cm','$35,800','$40,800'],['子母門','120 x 210 cm','$43,800','$49,800']]},
+                'LV-02': {title:'百頁通風門 LV-02｜細格採光款',subtitle:'更細緻的格柵語言，適合內斂住宅門面',image:'https://hung-chan.com.tw/media/k2/categories/121.jpg',summary:'細格採光 / 日式格柵門面',pills:['百頁通風門','日式格柵','採光'],priceFrom:'$35,800 起',specs:[['型號','LV-02'],['開孔形式','細格採光'],['適用區域','玄關側門'],['定位','日式格柵']],features:['格柵語言較細緻安靜','適合喜歡簡潔比例的住宅','兼具採光與門面層次'],lock:'標準門鎖配置，可依需求升級',note:'可依門色與把手樣式做客製調整。',prices:[['單門','90 x 210 cm','$35,800','$40,800'],['單門','100 x 210 cm','$37,800','$42,800'],['子母門','120 x 210 cm','$45,800','$51,800']]},
+                'LV-03': {title:'百頁通風門 LV-03｜門中門通風款',subtitle:'把通風需求與日常出入便利整合在同一門型',image:'https://hung-chan.com.tw/media/k2/categories/129.jpg',summary:'門中門整合 / 多情境出入配置',pills:['百頁通風門','門中門','彈性出入'],priceFrom:'$36,800 起',specs:[['型號','LV-03'],['開孔形式','門中門整合'],['適用區域','工作陽台'],['定位','彈性出入']],features:['適合高頻率使用場景','兼顧通風與通行便利','機能整合度高'],lock:'標準門鎖配置，可加價升級多段鎖',note:'門中門比例可依實際使用習慣調整。',prices:[['單門','90 x 210 cm','$36,800','$41,800'],['單門','100 x 210 cm','$38,800','$43,800'],['子母門','120 x 210 cm','$46,800','$52,800']]},
+                'LV-04': {title:'百頁通風門 LV-04｜強化機能款',subtitle:'更重視耐用與穩定性的通風門型',image:'https://hung-chan.com.tw/media/k2/categories/130.jpg',summary:'機能百頁 / 加強耐用結構',pills:['百頁通風門','耐用升級','半戶外'],priceFrom:'$37,800 起',specs:[['型號','LV-04'],['開孔形式','機能百頁'],['適用區域','半戶外出入口'],['定位','耐用升級']],features:['結構穩定度更高','適合半戶外高頻率使用區域','維持通風同時保有厚實感'],lock:'標準門鎖配置，可依需求升級',note:'尺寸、防火與五金內容不同，價格將隨之調整。',prices:[['單門','90 x 210 cm','$37,800','$42,800'],['單門','100 x 210 cm','$39,800','$44,800'],['子母門','120 x 210 cm','$47,800','$53,800']]}
+            };
+
+            const modal = new bootstrap.Modal(document.getElementById('seriesDetailModal'));
+            const pillsEl = document.getElementById('detailModalPills');
+            const titleEl = document.getElementById('seriesDetailModalLabel');
+            const subtitleEl = document.getElementById('detailModalSubtitle');
+            const imageEl = document.getElementById('detailModalImage');
+            const summaryEl = document.getElementById('detailModalSummary');
+            const priceEl = document.getElementById('detailModalPrice');
+            const specsEl = document.getElementById('detailModalSpecs');
+            const featuresEl = document.getElementById('detailModalFeatures');
+            const lockEl = document.getElementById('detailModalLock');
+            const noteEl = document.getElementById('detailModalNote');
+            const tableEl = document.getElementById('detailModalTable');
+
+            function openProductModal(code, imageStyle) {
+                const item = productDetails[code];
+                if (!item) return;
+                pillsEl.innerHTML = item.pills.map((pill) => `<span>${pill}</span>`).join('');
+                titleEl.textContent = item.title;
+                subtitleEl.textContent = item.subtitle;
+                imageEl.style.backgroundImage = imageStyle || `url('${item.image}')`;
+                summaryEl.textContent = item.summary;
+                priceEl.innerHTML = `<i class="fas fa-tags"></i> 參考價格 ${item.priceFrom}`;
+                specsEl.innerHTML = item.specs.map(([label, value]) => `<div><strong>${label}</strong><span>${value}</span></div>`).join('');
+                featuresEl.innerHTML = item.features.map((feature) => `<li>${feature}</li>`).join('');
+                lockEl.textContent = item.lock;
+                noteEl.textContent = item.note;
+                tableEl.innerHTML = item.prices.map((row) => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`).join('');
+                modal.show();
+            }
+
+            document.querySelectorAll('.louver-product-card').forEach((card) => {
+                const code = card.querySelector('.louver-product-meta span')?.textContent.trim();
+                const image = card.querySelector('.louver-product-image');
+                const title = card.querySelector('h3');
+                const cta = card.querySelector('.louver-cta');
+                if (!code || !productDetails[code]) return;
+                const imageStyle = image.style.backgroundImage || getComputedStyle(image).backgroundImage;
+                image.addEventListener('click', () => openProductModal(code, imageStyle));
+                title.addEventListener('click', () => openProductModal(code, imageStyle));
+                const detailButton = document.createElement('button');
+                detailButton.type = 'button';
+                detailButton.className = 'btn btn-outline-primary';
+                detailButton.textContent = '查看詳情';
+                detailButton.addEventListener('click', () => openProductModal(code, imageStyle));
+                cta.prepend(detailButton);
+            });
+        });
+    </script>
+    <script src="shared-layout.js"></script>
+    <script src="shared-enhancements.js"></script>
+</body>
+</html>

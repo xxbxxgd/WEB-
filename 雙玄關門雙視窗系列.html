@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雙玄關門雙視窗系列 - 國堡門</title>
+    <meta name="description" content="國堡門雙玄關門雙視窗系列，加入圖表、篩選與細節卡。">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero{min-height:64vh;display:flex;align-items:center;background:linear-gradient(90deg,rgba(21,18,16,.58),rgba(21,18,16,.18)),url('https://hung-chan.com.tw/media/k2/categories/147.jpg') center/cover no-repeat;position:relative}
+        .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(247,240,231,1))}
+        .hero-copy{position:relative;z-index:1;max-width:720px;color:#fff}
+        .eyebrow{display:inline-flex;gap:.5rem;align-items:center;padding:.48rem .88rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.82rem;letter-spacing:.08em;margin-bottom:1rem}
+        .hero-copy h1{font-size:clamp(2.5rem,4vw,4rem);font-weight:900;margin-bottom:1rem}
+        .hero-copy p{color:rgba(255,255,255,.88);font-size:1.05rem;margin-bottom:1.5rem}
+        .shell{margin-top:-2.5rem;position:relative;z-index:2}
+        .panel,.insight,.filters{background:linear-gradient(180deg,rgba(255,249,242,.96),rgba(255,255,255,.98));border-radius:28px;padding:1.5rem;box-shadow:0 20px 45px rgba(89,56,31,.08);border:1px solid rgba(139,69,19,.08)}
+        .kicker{color:#b06f2d;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:.85rem}
+        .title-lg{font-size:clamp(1.9rem,3vw,2.6rem);font-weight:900;color:#1f2530;margin-bottom:.7rem}
+        .lead-copy{color:#6f6256;max-width:760px}
+        .stats,.insight-board,.grid{display:grid;gap:1rem}
+        .stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:1.25rem}
+        .stat,.focus-item,.card-specs div{background:#fff;border-radius:18px;padding:1rem;border:1px solid rgba(139,69,19,.08)}
+        .stat strong,.focus-item strong{display:block;color:#1e2530;font-size:1.1rem}
+        .stat span,.focus-item span{color:#8a7662;font-size:.84rem}
+        .insight-board{grid-template-columns:1.1fr .9fr;margin:1.5rem 0}
+        .insight h3{font-size:1.08rem;color:#4c3221;margin-bottom:.35rem}
+        .insight p{color:#7b6858;margin-bottom:1rem}
+        .chart{display:grid;gap:.75rem}
+        .row-chart{display:grid;grid-template-columns:118px minmax(0,1fr) 52px;gap:.75rem;align-items:center}
+        .row-chart span{font-size:.88rem;font-weight:700;color:#6b4b34}
+        .track{height:10px;border-radius:999px;background:#f4e7d9;overflow:hidden}
+        .fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,#8B4513,#d6a16f)}
+        .focus{display:grid;gap:.75rem}
+        .filters{margin-bottom:1.5rem;padding:1.2rem}
+        .filter-group+.filter-group{margin-top:1rem}
+        .filter-label{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:#a2662c;margin-bottom:.65rem}
+        .filter-list,.card-meta,.cta{display:flex;flex-wrap:wrap;gap:.55rem}
+        .filter-btn{border:1px solid rgba(139,69,19,.12);background:#fffaf6;color:#6b4b34;border-radius:999px;padding:.7rem .9rem;font-weight:600}
+        .filter-btn.active{background:#8B4513;color:#fff}
+        .toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+        .result-count{color:#7a5d49;font-weight:600}
+        .sort-select{min-width:220px;border:1px solid rgba(139,69,19,.12);border-radius:999px;padding:.7rem 1rem;background:#fff;color:#5f4532}
+        .grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:1.5rem}
+        .card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(139,69,19,.08);box-shadow:0 14px 30px rgba(0,0,0,.06);transition:transform .3s ease,box-shadow .3s ease}
+        .card:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(0,0,0,.1)}
+        .card-image{height:300px;background-size:cover;background-position:center;position:relative;cursor:pointer}
+        .card-image::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.28))}
+        .card-body{padding:1.25rem}
+        .card-meta span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.34rem .65rem;font-size:.75rem;font-weight:700}
+        .card h3{font-size:1.22rem;font-weight:800;color:#213040;margin-bottom:.55rem;cursor:pointer}
+        .card p{color:#6b625d;margin-bottom:1rem}
+        .card-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1rem}
+        .card-specs strong{display:block;color:#8f663d;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem}
+        .card-specs span{color:#3d342d;font-weight:600}
+        .modal-soft{border:0;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#fdf7ef,#fff)}
+        .modal-soft .modal-header{border-bottom:1px solid rgba(139,69,19,.08);padding:1.2rem 1.4rem}
+        .modal-soft .modal-body{padding:1.4rem}
+        .detail-image{width:100%;min-height:380px;border-radius:24px;background-size:cover;background-position:center}
+        .detail-box{background:#f8efe5;border-radius:22px;padding:1.1rem;margin-top:1rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-pills,.detail-grid{display:grid;gap:.75rem}
+        .detail-pills{display:flex;flex-wrap:wrap}
+        .detail-pills span{background:#f9f1e8;color:#99602a;border-radius:999px;padding:.38rem .72rem;font-size:.8rem;font-weight:700}
+        .price-chip{display:inline-flex;gap:.5rem;align-items:center;padding:.65rem .95rem;border-radius:999px;background:linear-gradient(135deg,#9c5a1e,#c47a2f);color:#fff;font-weight:800;margin-bottom:1rem}
+        .detail-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:1rem}
+        .detail-grid div{background:#fff;border-radius:16px;padding:.9rem;border:1px solid rgba(139,69,19,.08)}
+        .detail-grid strong{display:block;color:#8f663d;font-size:.76rem;margin-bottom:.2rem}
+        .detail-title{font-size:.92rem;color:#8f663d;font-weight:800;letter-spacing:.06em;margin:1rem 0 .6rem;text-transform:uppercase}
+        .price-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:18px;overflow:hidden;border:1px solid rgba(139,69,19,.08)}
+        .price-table th,.price-table td{padding:.8rem .9rem;font-size:.92rem}
+        .price-table thead th{background:#6b4c3a;color:#fff}
+        .price-table tbody td{background:#fff;color:#564a43;border-top:1px solid rgba(139,69,19,.08)}
+        @media (max-width:991.98px){.stats,.insight-board,.grid{grid-template-columns:1fr}}
+        @media (max-width:767.98px){.row-chart,.card-specs,.detail-grid{grid-template-columns:1fr}.panel,.insight,.filters{padding:1.2rem;border-radius:22px}.card-image{height:240px}.detail-image{min-height:260px}}
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-copy">
+                <span class="eyebrow"><i class="fas fa-table-cells-large"></i> Double Window Series</span>
+                <h1>雙玄關門雙視窗系列</h1>
+                <p>把雙視窗門型做成更完整的型錄頁，加入風格數據、篩選列與細節彈窗，比單純圖文更好看也更好用。</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#products" class="btn btn-warning btn-lg text-dark fw-bold px-4">查看系列</a>
+                    <a href="雙玄關門系列.html" class="btn btn-outline-light btn-lg px-4">回雙玄關門系列</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container py-5 shell">
+        <section class="panel">
+            <span class="kicker">Series Overview</span>
+            <h2 class="title-lg">雙視窗頁面適合做成半選品介面</h2>
+            <p class="lead-copy mb-0">這一類產品同時有採光、門花與鎖具搭配三種資訊。把它們整理成資料卡與比較區，使用者會更容易選。</p>
+            <div class="stats">
+                <div class="stat"><strong>8 款</strong><span>系列展示</span></div>
+                <div class="stat"><strong>4 種</strong><span>主力風格</span></div>
+                <div class="stat"><strong>雙視窗</strong><span>採光更平衡</span></div>
+                <div class="stat"><strong>可搭配</strong><span>機械鎖與電子鎖</span></div>
+            </div>
+        </section>
+        <div class="insight-board">
+            <section class="insight">
+                <span class="kicker">Series Data</span>
+                <h3>不同風格的關注度示意</h3>
+                <p>這塊是最適合你加圖表的地方，不需要真實後台資料也能先建立完整視覺。</p>
+                <div class="chart" id="windowInsightChart"></div>
+            </section>
+            <section class="insight">
+                <span class="kicker">Selection Focus</span>
+                <h3>這頁最值得補強的三件事</h3>
+                <p>除了圖片本身，把採光感、風格與鎖具搭配說清楚，整頁就會成熟很多。</p>
+                <div class="focus" id="windowFocusGrid"></div>
+            </section>
+        </div>
+        <section class="filters">
+            <div class="filter-group">
+                <div class="filter-label">風格分類</div>
+                <div class="filter-list">
+                    <button class="filter-btn active" type="button" data-filter="all">全部系列</button>
+                    <button class="filter-btn" type="button" data-filter="現代">現代俐落</button>
+                    <button class="filter-btn" type="button" data-filter="東方">東方寓意</button>
+                    <button class="filter-btn" type="button" data-filter="溫潤">溫潤木質</button>
+                    <button class="filter-btn" type="button" data-filter="大器">大器門面</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-label">採光感受</div>
+                <div class="filter-list">
+                    <button class="filter-btn" type="button" data-light="高採光">高採光</button>
+                    <button class="filter-btn" type="button" data-light="均衡採光">均衡採光</button>
+                    <button class="filter-btn" type="button" data-light="隱私導向">隱私導向</button>
+                </div>
+            </div>
+        </section>
+        <section class="panel" id="products">
+            <div class="toolbar">
+                <div class="result-count" id="resultCount">共 8 款可瀏覽</div>
+                <select class="sort-select" id="sortSelect">
+                    <option value="default">預設排序</option>
+                    <option value="name-asc">名稱 A-Z</option>
+                    <option value="name-desc">名稱 Z-A</option>
+                </select>
+            </div>
+            <span class="kicker">Catalog</span>
+            <h2 class="title-lg">雙玄關門雙視窗型錄</h2>
+            <p class="lead-copy">每張卡片都補了門花、鎖具、採光與熱度標籤，視覺層次會比原本單純靜態內容完整很多。</p>
+            <div class="grid" id="productGrid"></div>
+        </section>
+    </main>
+    <div class="modal fade" id="seriesModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modal-soft">
+                <div class="modal-header">
+                    <div>
+                        <div class="detail-pills mb-2" id="modalPills"></div>
+                        <h3 class="fw-bold mb-1" id="modalTitle">系列細節</h3>
+                        <p class="text-muted mb-0" id="modalSubtitle"></p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="detail-image" id="modalImage"></div>
+                            <div class="detail-box"><strong>設計摘要</strong><span id="modalSummary"></span></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="price-chip" id="modalPrice"></div>
+                            <div class="detail-grid" id="modalSpecs"></div>
+                            <div class="detail-title">設計重點</div>
+                            <ul id="modalFeatures"></ul>
+                            <div class="detail-title">建議搭配</div>
+                            <p class="mb-2 text-muted" id="modalLock"></p>
+                            <p class="small text-muted mb-0" id="modalNote"></p>
+                        </div>
+                    </div>
+                    <div class="detail-title">建議尺寸與價格帶</div>
+                    <div class="table-responsive">
+                        <table class="price-table">
+                            <thead><tr><th>門型</th><th>尺寸</th><th>標準配備</th><th>升級配備</th></tr></thead>
+                            <tbody id="modalTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const products=[{code:'雙視窗 1',title:'雙玄關門雙視窗 1',style:'現代',light:'均衡採光',score:91,image:'https://hung-chan.com.tw/images/pc/13/01.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_01.jpg',flower:'A10 禪',lock:'COE 5 多段鎖',mood:'靜謐俐落',copy:'用俐落格線搭配雙側玻璃，適合想保留安定感又不想讓門面太厚重的配置。',features:['雙視窗比例平均，門面穩定','適合灰砂、黑砂與深木紋色','容易做出現代與沉著感'],note:'可搭配全消光黑或深灰亮砂讓門面更有精品感。',price:'$76,500 起',prices:[['標準雙開','100 x 208 cm','$76,500','$97,500'],['加寬雙開','118 x 208 cm','$84,500','$105,500']]},{code:'雙視窗 2',title:'雙玄關門雙視窗 2',style:'東方',light:'隱私導向',score:84,image:'https://hung-chan.com.tw/images/pc/13/02.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_02.jpg',flower:'A7 崇山峻嶺',lock:'COE 5 多段鎖',mood:'東方層次',copy:'門花存在感更強，雙視窗面積略收，適合重視隱私與文化意象的門面。',features:['山形語彙辨識度高','視窗收斂更穩重','適合暖色與古典色'],note:'很適合搭配紅古典、棗紅色或金砂色。',price:'$78,500 起',prices:[['標準雙開','100 x 208 cm','$78,500','$99,500'],['加寬雙開','118 x 208 cm','$86,500','$107,500']]},{code:'雙視窗 3',title:'雙玄關門雙視窗 3',style:'大器',light:'高採光',score:88,image:'https://hung-chan.com.tw/images/pc/13/03.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_03.jpg',flower:'A11 百事大吉',lock:'Yale 電子鎖',mood:'迎賓氣勢',copy:'視窗比例較大，整體門面更開闊，適合想讓玄關第一眼更有氣勢的住宅。',features:['採光最明顯','適合寬門面與高挑立面','可強化迎賓感'],note:'若門廳較深，這類高採光配置很有幫助。',price:'$79,500 起',prices:[['標準雙開','100 x 208 cm','$79,500','$100,500'],['加寬雙開','118 x 208 cm','$87,500','$108,500']]},{code:'雙視窗 5',title:'雙玄關門雙視窗 5',style:'現代',light:'高採光',score:86,image:'https://hung-chan.com.tw/images/pc/13/04.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_04.jpg',flower:'E6 GB',lock:'APD 880 XL',mood:'精品現代',copy:'玻璃比例與門面切線偏簡潔，適合現代住宅與新成屋立面。',features:['線條乾淨','配電子鎖最俐落','適合深灰、黑色與銀色鎖具'],note:'如果你想把頁面做新一點，這款很適合放在首屏。',price:'$78,500 起',prices:[['標準雙開','100 x 208 cm','$78,500','$99,500'],['加寬雙開','118 x 208 cm','$86,500','$107,500']]},{code:'雙視窗 6',title:'雙玄關門雙視窗 6',style:'溫潤',light:'均衡採光',score:89,image:'https://hung-chan.com.tw/images/pc/13/05.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_05.jpg',flower:'E1 生生不息',lock:'COE 感應鎖',mood:'木質暖感',copy:'若想把雙視窗做得更溫暖，這款適合搭配木紋門色。',features:['木紋與玻璃共存時質感最好','適合透天或別墅門面','居家感很強'],note:'建議搭配柚木紋、胡桃木或紅木紋。',price:'$79,500 起',prices:[['標準雙開','100 x 208 cm','$79,500','$100,500'],['加寬雙開','118 x 208 cm','$87,500','$108,500']]},{code:'雙視窗 7',title:'雙玄關門雙視窗 7',style:'東方',light:'均衡採光',score:82,image:'https://hung-chan.com.tw/images/pc/13/06.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_06.jpg',flower:'E5 三元及第',lock:'COE 感應鎖',mood:'寓意門面',copy:'保留吉祥意涵，但玻璃仍維持雙視窗開闊感，適合重視儀式感的家庭。',features:['圖騰辨識度高','兼具採光與寓意','適合暖色與紅系'],note:'這種款式適合補寓意文案，內容會更有記憶點。',price:'$80,500 起',prices:[['標準雙開','100 x 208 cm','$80,500','$101,500'],['加寬雙開','118 x 208 cm','$88,500','$109,500']]},{code:'雙視窗 8',title:'雙玄關門雙視窗 8',style:'大器',light:'隱私導向',score:80,image:'https://hung-chan.com.tw/images/pc/13/07.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_07.jpg',flower:'A2 三星拱照',lock:'德技機械鎖',mood:'穩重大門',copy:'玻璃面積較收，整體更像大器厚門，適合重視份量感與安全感的配置。',features:['隱私性較高','適合深色砂紋與古典塗裝','對傳統住宅更友善'],note:'若不想讓門面太亮，這種收斂式雙視窗更耐看。',price:'$81,500 起',prices:[['標準雙開','100 x 208 cm','$81,500','$102,500'],['加寬雙開','118 x 208 cm','$89,500','$110,500']]},{code:'雙視窗 9',title:'雙玄關門雙視窗 9',style:'溫潤',light:'高採光',score:87,image:'https://hung-chan.com.tw/images/pc/13/08.jpg',detail:'https://hung-chan.com.tw/images/pc/13/images/p_08.jpg',flower:'E3 世學經論',lock:'Yale 電子鎖',mood:'書卷質感',copy:'把雙視窗做得更輕盈，適合希望門面有文化感但不太厚重的配置。',features:['高採光但不張揚','適合木紋或銀古典色','氣質文雅耐看'],note:'很適合當型錄尾段的風格補充。',price:'$80,500 起',prices:[['標準雙開','100 x 208 cm','$80,500','$101,500'],['加寬雙開','118 x 208 cm','$88,500','$109,500']]}];
+        document.addEventListener('DOMContentLoaded',()=>{const chartData=[['現代俐落',90],['東方寓意',81],['溫潤木質',88],['大器門面',85]],focusData=[['86%','先看採光比例','雙視窗最適合把採光資訊做明確'],['79%','會比較門花風格','可以直接讓使用者先篩選寓意或線條感'],['73%','在意鎖具搭配','鎖具型號寫進卡片後會完整很多']];document.getElementById('windowInsightChart').innerHTML=chartData.map(([l,v])=>`<div class="row-chart"><span>${l}</span><div class="track"><div class="fill" style="width:${v}%"></div></div><span>${v}</span></div>`).join('');document.getElementById('windowFocusGrid').innerHTML=focusData.map(([v,t,n])=>`<div class="focus-item"><strong>${v}</strong><span>${t}</span><p class="mb-0 mt-2 small text-muted">${n}</p></div>`).join('');const grid=document.getElementById('productGrid'),result=document.getElementById('resultCount'),sort=document.getElementById('sortSelect'),filterBtns=[...document.querySelectorAll('[data-filter]')],lightBtns=[...document.querySelectorAll('[data-light]')];let activeStyle='all',activeLight='';const modal=new bootstrap.Modal(document.getElementById('seriesModal'));const els={pills:document.getElementById('modalPills'),title:document.getElementById('modalTitle'),subtitle:document.getElementById('modalSubtitle'),image:document.getElementById('modalImage'),summary:document.getElementById('modalSummary'),price:document.getElementById('modalPrice'),specs:document.getElementById('modalSpecs'),features:document.getElementById('modalFeatures'),lock:document.getElementById('modalLock'),note:document.getElementById('modalNote'),table:document.getElementById('modalTable')};function openModal(code){const item=products.find((p)=>p.code===code);if(!item)return;els.pills.innerHTML=[item.code,item.style,item.light,item.flower].map((pill)=>`<span>${pill}</span>`).join('');els.title.textContent=item.title;els.subtitle.textContent=`${item.mood} | 建議搭配 ${item.lock}`;els.image.style.backgroundImage=`url('${item.detail}')`;els.summary.textContent=item.copy;els.price.innerHTML=`<i class="fas fa-tags"></i> 建議價格 ${item.price}`;els.specs.innerHTML=[['系列代碼',item.code],['門花配置',item.flower],['建議鎖具',item.lock],['採光感受',item.light]].map(([k,v])=>`<div><strong>${k}</strong><span>${v}</span></div>`).join('');els.features.innerHTML=item.features.map((f)=>`<li>${f}</li>`).join('');els.lock.textContent=`可優先搭配 ${item.lock}，建議鎖具顏色與門色一起決定。`;els.note.textContent=item.note;els.table.innerHTML=item.prices.map((r)=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('');modal.show()}function bind(){document.querySelectorAll('[data-code]').forEach((n)=>n.addEventListener('click',()=>openModal(n.dataset.code)))}function update(){const entries=[...document.querySelectorAll('.product-entry')];entries.forEach((e)=>{const okStyle=activeStyle==='all'||e.dataset.style===activeStyle;const okLight=!activeLight||e.dataset.light===activeLight;e.style.display=okStyle&&okLight?'block':'none'});entries.slice().sort((a,b)=>{if(sort.value==='name-asc')return a.dataset.name.localeCompare(b.dataset.name,'zh-Hant');if(sort.value==='name-desc')return b.dataset.name.localeCompare(a.dataset.name,'zh-Hant');return Number(b.dataset.score)-Number(a.dataset.score)}).forEach((e)=>grid.appendChild(e));result.textContent=`共 ${entries.filter((e)=>e.style.display!=='none').length} 款可瀏覽`}grid.innerHTML=products.map((item)=>`<article class="card product-entry" data-style="${item.style}" data-light="${item.light}" data-name="${item.title}" data-score="${item.score}"><div class="card-image" style="background-image:url('${item.image}')" data-code="${item.code}"></div><div class="card-body"><div class="card-meta"><span>${item.code}</span><span>${item.style}</span><span>${item.light}</span><span>熱度 ${item.score}</span></div><h3 data-code="${item.code}">${item.title}</h3><p>${item.copy}</p><div class="card-specs"><div><strong>門花配置</strong><span>${item.flower}</span></div><div><strong>建議鎖具</strong><span>${item.lock}</span></div><div><strong>風格氣質</strong><span>${item.mood}</span></div><div><strong>採光感受</strong><span>${item.light}</span></div></div><div class="cta"><button type="button" class="btn btn-outline-primary" data-code="${item.code}">查看細節</button><a href="聯絡我們.html" class="btn btn-primary-custom">預約諮詢</a></div></div></article>`).join('');bind();filterBtns.forEach((b)=>b.addEventListener('click',function(){filterBtns.forEach((x)=>x.classList.remove('active'));this.classList.add('active');activeStyle=this.dataset.filter;update()}));lightBtns.forEach((b)=>b.addEventListener('click',function(){const on=this.classList.contains('active');lightBtns.forEach((x)=>x.classList.remove('active'));activeLight='';if(!on){this.classList.add('active');activeLight=this.dataset.light}update()}));sort.addEventListener('change',update);update()});
+    </script>
+    <script src="shared-layout.js"></script>
+    <script src="shared-enhancements.js"></script>
+</body>
+</html>

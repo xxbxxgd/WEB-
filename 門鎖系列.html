@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guobao Door provides entry doors, locks, color options, product catalogs, and showroom contact information.">
+    <meta property="og:title" content="Guobao Door">
+    <meta property="og:description" content="Guobao Door provides entry doors, locks, color options, product catalogs, and showroom contact information.">
+    <meta property="og:type" content="website">
     <title>門鎖系列 - 國堡門</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -115,19 +119,185 @@
             border-radius: 24px;
             padding: 1.5rem;
         }
-        .shop-layout {
+        .insight-board {
             display: grid;
-            grid-template-columns: 280px minmax(0, 1fr);
-            gap: 1.5rem;
-            align-items: start;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: stretch;
         }
-        .filter-sidebar {
-            position: sticky;
-            top: 96px;
+        .insight-card,
+        .filter-ribbon {
             background: rgba(255,255,255,0.9);
             border-radius: 22px;
             padding: 1.25rem;
             box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+        }
+        .insight-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .insight-card h3 {
+            font-size: 1.1rem;
+            color: #4c3221;
+            margin-bottom: 0.35rem;
+        }
+        .insight-card p {
+            color: #7b6858;
+            margin-bottom: 1rem;
+        }
+        .insight-chart {
+            display: grid;
+            gap: 0.85rem;
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 108px minmax(0, 1fr) 52px;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .chart-row span {
+            color: #6b4b34;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+        .chart-track {
+            height: 10px;
+            border-radius: 999px;
+            background: #f4e7d9;
+            overflow: hidden;
+        }
+        .chart-fill {
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #8B4513, #d6a16f);
+        }
+        .insight-summary {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-top: 1.2rem;
+        }
+        .insight-summary-card {
+            background: #fbf5ee;
+            border-radius: 18px;
+            padding: 0.95rem 1rem;
+        }
+        .insight-summary-card strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #4c3221;
+        }
+        .insight-summary-card span {
+            color: #7b6858;
+            font-size: 0.82rem;
+        }
+        .ranking-panel {
+            margin-top: 0.95rem;
+            background: linear-gradient(180deg, #fffaf4, #f7ecdf);
+            border: 1px solid rgba(139, 69, 19, 0.08);
+            border-radius: 20px;
+            padding: 1rem;
+        }
+        .ranking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+        .ranking-header strong {
+            color: #4c3221;
+            font-size: 0.98rem;
+        }
+        .ranking-header span {
+            color: #8a6b54;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+        .ranking-list {
+            display: grid;
+            gap: 0.65rem;
+        }
+        .ranking-item {
+            display: grid;
+            grid-template-columns: 42px minmax(0, 1fr) 52px;
+            gap: 0.75rem;
+            align-items: center;
+            background: rgba(255,255,255,0.72);
+            border-radius: 16px;
+            padding: 0.75rem 0.85rem;
+        }
+        .ranking-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #b96f2d, #8B4513);
+            color: #fff;
+            font-weight: 800;
+        }
+        .ranking-copy strong {
+            display: block;
+            color: #4c3221;
+            font-size: 0.92rem;
+            margin-bottom: 0.15rem;
+        }
+        .ranking-copy span {
+            color: #7b6858;
+            font-size: 0.79rem;
+        }
+        .ranking-score {
+            text-align: right;
+            color: #8B4513;
+            font-weight: 800;
+            font-size: 0.92rem;
+        }
+        .feature-cards {
+            display: grid;
+            gap: 0.85rem;
+        }
+        .feature-card {
+            background: #fbf5ee;
+            border-radius: 18px;
+            padding: 1rem;
+        }
+        .feature-card strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #4c3221;
+        }
+        .feature-card span {
+            color: #7b6858;
+            font-size: 0.84rem;
+        }
+        .note-extensions {
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 0.95rem;
+        }
+        .note-extension-card {
+            background: linear-gradient(180deg, #fffaf4, #f9efe4);
+            border: 1px solid rgba(139, 69, 19, 0.08);
+            border-radius: 18px;
+            padding: 0.95rem 1rem;
+        }
+        .note-extension-card strong {
+            display: block;
+            color: #4c3221;
+            font-size: 0.96rem;
+            margin-bottom: 0.25rem;
+        }
+        .note-extension-card span {
+            color: #7b6858;
+            font-size: 0.82rem;
+        }
+        .filter-ribbon {
+            margin-bottom: 1.5rem;
         }
         .filter-group + .filter-group {
             margin-top: 1.2rem;
@@ -140,17 +310,16 @@
             margin-bottom: 0.7rem;
         }
         .filter-list {
-            display: grid;
+            display: flex;
+            flex-wrap: wrap;
             gap: 0.55rem;
         }
         .filter-btn {
-            width: 100%;
             border: 1px solid rgba(139, 69, 19, 0.12);
             background: #fffaf6;
             color: #6b4b34;
-            border-radius: 14px;
+            border-radius: 999px;
             padding: 0.7rem 0.9rem;
-            text-align: left;
             font-weight: 600;
         }
         .filter-btn.active {
@@ -309,11 +478,8 @@
             .toolbar-stats {
                 grid-template-columns: 1fr;
             }
-            .shop-layout {
+            .insight-board {
                 grid-template-columns: 1fr;
-            }
-            .filter-sidebar {
-                position: static;
             }
             .carousel-item img {
                 height: 380px;
@@ -328,59 +494,15 @@
             .lock-card-media {
                 height: 200px;
             }
+            .insight-summary,
+            .ranking-item,
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fas fa-door-open me-2 text-warning"></i>
-                <span>國堡門 <small class="text-muted fs-6">Guobao Door DESIGN</small></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-                    <li class="nav-item"><a class="nav-link" href="品牌介紹.html">品牌介紹</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="產品系列.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">產品系列</a>
-                        <ul class="dropdown-menu product-series-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="雙玄關門A系列.html">雙玄關門系列A系列</a></li>
-                            <li><a class="dropdown-item" href="雙玄關門D系列.html">雙玄關門系列D系列</a></li>
-                            <li><a class="dropdown-item" href="雙玄關門系列.html">雙玄關門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#double-window-series">雙玄關門雙視窗系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#waterproof-series">防水防污門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#steel-series">鋼製壓板門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#louver-series">百頁通風門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#japanese-series">日式玄關門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#stone-series">石材玄關門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#carving-series">烤漆精雕門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#louvre-series">羅浮宮浮雕門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#door-in-door-series">門中門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#tech-wood-series">科技實木門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#natural-wood-series">天然實木門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#carbon-series">碳纖防爆門系列</a></li>
-                            <li><a class="dropdown-item" href="產品系列.html#smdoor-series">雙茂門</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownDoorLock" role="button" data-bs-toggle="dropdown" aria-expanded="false">門花/鎖系列</a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoorLock">
-                            <li><a class="dropdown-item" href="門花鎖系列.html">門花系列</a></li>
-                            <li><a class="dropdown-item active" href="門鎖系列.html">門鎖系列</a></li>
-                            <li><a class="dropdown-item" href="門色總覽.html">門色總覽</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="展品出清.html">展品出清</a></li>
-                    <li class="nav-item"><a class="nav-link" href="聯絡我們.html">門市資訊</a></li>
-                    <li class="nav-item"><a class="btn btn-primary-custom ms-2" href="聯絡我們.html">聯絡我們</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <header class="hero-section series-hero">
         <div class="hero-overlay"></div>
@@ -422,26 +544,50 @@
                 </div>
             </div>
 
-            <div class="shop-layout">
-                <aside class="filter-sidebar">
-                    <div class="filter-group">
-                        <div class="filter-label">商品分類</div>
-                        <div class="filter-list">
-                            <button class="filter-btn active" type="button" data-lock-filter="all">全部商品</button>
-                            <button class="filter-btn" type="button" data-lock-filter="mechanical">機械鎖</button>
-                            <button class="filter-btn" type="button" data-lock-filter="electronic">電子鎖</button>
-                            <button class="filter-btn" type="button" data-lock-filter="accessory">配件</button>
+            <div class="insight-board">
+                <section class="insight-card">
+                    <div class="toolbar-title">LOCK MIX</div>
+                    <h3>各鎖具類型的關注度示意</h3>
+                    <p>用簡單數據把機械鎖、電子鎖與配件拆開，頁面會更像完整產品頁，而不是單純圖片列表。</p>
+                    <div class="insight-chart" id="lockInsightChart"></div>
+                    <div class="insight-summary" id="lockInsightSummary"></div>
+                    <div class="ranking-panel">
+                        <div class="ranking-header">
+                            <strong>Top 5 熱門鎖具</strong>
+                            <span>POPULAR PICKS</span>
                         </div>
+                        <div class="ranking-list" id="lockRankingList"></div>
                     </div>
-                    <div class="filter-group">
-                        <div class="filter-label">操作特性</div>
-                        <div class="filter-list">
-                            <button class="filter-btn" type="button" data-lock-style="智慧操作">智慧操作</button>
-                            <button class="filter-btn" type="button" data-lock-style="門面搭配">門面搭配</button>
-                        </div>
+                </section>
+                <section class="insight-card">
+                    <div class="toolbar-title">BUYER FOCUS</div>
+                    <h3>使用者最常在意的條件</h3>
+                    <p>把操作便利、外觀搭配和安全感明確寫出來，能支撐後面的篩選區。</p>
+                    <div class="feature-cards" id="lockFeatureCards"></div>
+                    <div class="note-extensions" id="lockNoteExtensions"></div>
+                </section>
+            </div>
+
+            <div class="filter-ribbon">
+                <div class="filter-group">
+                    <div class="filter-label">商品分類</div>
+                    <div class="filter-list">
+                        <button class="filter-btn active" type="button" data-lock-filter="all">全部商品</button>
+                        <button class="filter-btn" type="button" data-lock-filter="mechanical">機械鎖</button>
+                        <button class="filter-btn" type="button" data-lock-filter="electronic">電子鎖</button>
+                        <button class="filter-btn" type="button" data-lock-filter="accessory">配件</button>
                     </div>
-                </aside>
-                <div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-label">操作特性</div>
+                    <div class="filter-list">
+                        <button class="filter-btn" type="button" data-lock-style="智慧操作">智慧操作</button>
+                        <button class="filter-btn" type="button" data-lock-style="門面搭配">門面搭配</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-stage">
                     <section class="series-section section-frame" id="mechanical-carousel">
                         <span class="section-kicker">MECHANICAL LOCKS</span>
                         <h2 class="section-title fw-bold text-dark">機械鎖系列</h2>
@@ -485,91 +631,51 @@
                         <p class="section-subtitle">補充搭配型號與門鎖零件示意，方便整體瀏覽。</p>
                         <div class="row g-4 product-grid" id="otherGrid"></div>
                     </section>
-                </div>
             </div>
         </div>
     </main>
 
-    <footer id="contact" class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3">國堡門 Guobao Door DESIGN</h5>
-                    <p class="text-white-50 mb-3">專注於住宅大門、門花、門鎖與門色搭配提案，結合美感、安全與實用性，打造更完整的入門體驗。</p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="me-3 text-white"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-line fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3">快速連結</h5>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">首頁</a></li>
-                        <li class="mb-2"><a href="品牌介紹.html" class="text-white-50 text-decoration-none">品牌介紹</a></li>
-                        <li class="mb-2"><a href="門花鎖系列.html" class="text-white-50 text-decoration-none">門花／門鎖系列</a></li>
-                        <li class="mb-2"><a href="展品出清.html" class="text-white-50 text-decoration-none">展品出清</a></li>
-                        <li class="mb-2"><a href="聯絡我們.html" class="text-white-50 text-decoration-none">門市資訊</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <h5 class="text-white mb-3">聯絡資訊</h5>
-                    <ul class="list-unstyled small text-white-50 mb-0">
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>service@hung-chan.com.tw</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0800-368-369</li>
-                        <li class="mb-2"><i class="fas fa-clock me-2"></i>週一至週六 09:30 - 20:00</li>
-                        <li class="mb-2"><i class="fas fa-location-dot me-2"></i>歡迎來店洽詢客製門款與安裝方案</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="border-secondary my-4">
-            <div class="text-center small text-white-50">
-                &copy; 2026 國堡門 Guobao Door Design. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const mechanicalItems = [
-            ['德技 1號', 'https://hung-chan.com.tw/media/k2/items/cache/90c8a860751b252e58c26f97e05856c4_L.jpg'],
-            ['德技 2號', 'https://hung-chan.com.tw/media/k2/items/cache/1397be472e45feda66c2cb00ba5f4ce2_L.jpg'],
-            ['德技 3號', 'https://hung-chan.com.tw/media/k2/items/cache/52c96c35c30d11cfb13711cfa4231ac4_L.jpg'],
-            ['德技 4號', 'https://hung-chan.com.tw/media/k2/items/cache/884bd078062ee6bd157b294c752d7970_L.jpg'],
-            ['德技 5號', 'https://hung-chan.com.tw/media/k2/items/cache/4ad6df0790d749b51a9680aaf0316ad3_L.jpg']
+            ['德技 1號', 'https://hung-chan.com.tw/media/k2/items/cache/90c8a860751b252e58c26f97e05856c4_L.jpg', 82],
+            ['德技 2號', 'https://hung-chan.com.tw/media/k2/items/cache/1397be472e45feda66c2cb00ba5f4ce2_L.jpg', 78],
+            ['德技 3號', 'https://hung-chan.com.tw/media/k2/items/cache/52c96c35c30d11cfb13711cfa4231ac4_L.jpg', 76],
+            ['德技 4號', 'https://hung-chan.com.tw/media/k2/items/cache/884bd078062ee6bd157b294c752d7970_L.jpg', 74],
+            ['德技 5號', 'https://hung-chan.com.tw/media/k2/items/cache/4ad6df0790d749b51a9680aaf0316ad3_L.jpg', 73]
         ];
         const coeItems = [
-            ['COE.3 多段鎖', 'https://hung-chan.com.tw/media/k2/items/cache/e7a6f6b910c37abcb54adf404e3a392a_L.jpg'],
-            ['COE.5 多段鎖', 'https://hung-chan.com.tw/media/k2/items/cache/cd04214d115e7a754daa198b57282145_L.jpg'],
-            ['COE.5 銀色版', 'https://hung-chan.com.tw/media/k2/items/cache/e8dcebfd55c9d5d7bbfc0a0f8263a6f3_L.jpg'],
-            ['COE.5 黑色版', 'https://hung-chan.com.tw/media/k2/items/cache/5d231997759398fd54d0c1f438d55347_L.jpg'],
-            ['COE 感應鎖', 'https://hung-chan.com.tw/media/k2/items/cache/f77d553c52fa954c4cb29f5292f015ef_L.jpg'],
-            ['COE 感應鎖銀', 'https://hung-chan.com.tw/media/k2/items/cache/e53c2c9f4d6761de9122d72eac64a0cc_L.jpg'],
-            ['COE 感應鎖黑', 'https://hung-chan.com.tw/media/k2/items/cache/dc7259495409db483f53803df58f17e8_L.jpg']
+            ['COE.3 多段鎖', 'https://hung-chan.com.tw/media/k2/items/cache/e7a6f6b910c37abcb54adf404e3a392a_L.jpg', 80],
+            ['COE.5 多段鎖', 'https://hung-chan.com.tw/media/k2/items/cache/cd04214d115e7a754daa198b57282145_L.jpg', 86],
+            ['COE.5 銀色版', 'https://hung-chan.com.tw/media/k2/items/cache/e8dcebfd55c9d5d7bbfc0a0f8263a6f3_L.jpg', 77],
+            ['COE.5 黑色版', 'https://hung-chan.com.tw/media/k2/items/cache/5d231997759398fd54d0c1f438d55347_L.jpg', 83],
+            ['COE 感應鎖', 'https://hung-chan.com.tw/media/k2/items/cache/f77d553c52fa954c4cb29f5292f015ef_L.jpg', 91],
+            ['COE 感應鎖銀', 'https://hung-chan.com.tw/media/k2/items/cache/e53c2c9f4d6761de9122d72eac64a0cc_L.jpg', 88],
+            ['COE 感應鎖黑', 'https://hung-chan.com.tw/media/k2/items/cache/dc7259495409db483f53803df58f17e8_L.jpg', 89]
         ];
         const yaleItems = [
-            ['7116A 金色', 'https://hung-chan.com.tw/media/k2/items/cache/ce5a90e759e6e136127a80d546625866_L.jpg'],
-            ['7116A 黑色', 'https://hung-chan.com.tw/media/k2/items/cache/fd6c1bb5b0a1bed64c5dda3726185da3_L.jpg'],
-            ['7216A 銀色', 'https://hung-chan.com.tw/media/k2/items/cache/59cf578b8924155f92d236307362633c_L.jpg'],
-            ['4109A', 'https://hung-chan.com.tw/media/k2/items/cache/139702ff92e93f29d84ebf976a5dfd8f_L.jpg'],
-            ['3109A', 'https://hung-chan.com.tw/media/k2/items/cache/4f411c7dd400d8cc3ebd00031ff0e07d_L.jpg'],
-            ['智慧鎖款式', 'https://hung-chan.com.tw/media/k2/items/cache/c5c3ef3b8b263faba0c86cf911308716_L.jpg']
+            ['7116A 金色', 'https://hung-chan.com.tw/media/k2/items/cache/ce5a90e759e6e136127a80d546625866_L.jpg', 85],
+            ['7116A 黑色', 'https://hung-chan.com.tw/media/k2/items/cache/fd6c1bb5b0a1bed64c5dda3726185da3_L.jpg', 90],
+            ['7216A 銀色', 'https://hung-chan.com.tw/media/k2/items/cache/59cf578b8924155f92d236307362633c_L.jpg', 79],
+            ['4109A', 'https://hung-chan.com.tw/media/k2/items/cache/139702ff92e93f29d84ebf976a5dfd8f_L.jpg', 76],
+            ['3109A', 'https://hung-chan.com.tw/media/k2/items/cache/4f411c7dd400d8cc3ebd00031ff0e07d_L.jpg', 74],
+            ['智慧鎖款式', 'https://hung-chan.com.tw/media/k2/items/cache/c5c3ef3b8b263faba0c86cf911308716_L.jpg', 92]
         ];
         const apdItems = [
-            ['880 XL', 'https://hung-chan.com.tw/media/k2/items/cache/1f927a512a9909833c7b57ab40062fc5_L.jpg'],
-            ['880S', 'https://hung-chan.com.tw/media/k2/items/cache/9139b86f02108abdcc0129521eca5e85_L.jpg']
+            ['880 XL', 'https://hung-chan.com.tw/media/k2/items/cache/1f927a512a9909833c7b57ab40062fc5_L.jpg', 83],
+            ['880S', 'https://hung-chan.com.tw/media/k2/items/cache/9139b86f02108abdcc0129521eca5e85_L.jpg', 81]
         ];
         const otherItems = [
-            ['其他鎖具 2025', 'https://hung-chan.com.tw/media/k2/items/cache/6ffa065634b02c07506d37e072a9ff8b_L.jpg'],
-            ['其他鎖具 2023', 'https://hung-chan.com.tw/media/k2/items/cache/e9c1f51a97744aa713c8967fc1a2c65b_L.jpg'],
-            ['零件與配件', 'https://hung-chan.com.tw/images/part.jpg']
+            ['其他鎖具 2025', 'https://hung-chan.com.tw/media/k2/items/cache/6ffa065634b02c07506d37e072a9ff8b_L.jpg', 70],
+            ['其他鎖具 2023', 'https://hung-chan.com.tw/media/k2/items/cache/e9c1f51a97744aa713c8967fc1a2c65b_L.jpg', 66],
+            ['零件與配件', 'https://hung-chan.com.tw/images/part.jpg', 72]
         ];
 
         function renderCard(item, type) {
             const mode = item[0].includes('感應') || item[0].includes('智慧') ? '智慧操作' : '門面搭配';
             const category = type === '機械鎖' ? 'mechanical' : type === '電子鎖' ? 'electronic' : 'accessory';
             return `
-                <div class="col-sm-6 col-md-4 col-lg-3 product-entry" data-category="${category}" data-mode="${mode}" data-name="${item[0]}">
+                <div class="col-sm-6 col-md-4 col-lg-3 product-entry" data-category="${category}" data-mode="${mode}" data-name="${item[0]}" data-score="${item[2]}">
                     <article class="lock-card">
                         <div class="lock-card-media"><img src="${item[1]}" alt="${item[0]}"></div>
                         <div class="p-3 text-center">
@@ -577,6 +683,7 @@
                             <div class="card-meta">
                                 <span class="meta-chip">${type}</span>
                                 <span class="meta-chip">${mode}</span>
+                                <span class="meta-chip">熱度 ${item[2]}</span>
                             </div>
                             <p class="lock-card-copy">${type === '機械鎖' ? '偏重穩定結構與經典操作手感。' : type === '電子鎖' ? '適合重視便利性與現代感的空間。' : '適合補強整體門鎖搭配完整度。'}</p>
                             <div class="product-actions">
@@ -590,6 +697,71 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            const lockInsights = [
+                ['機械鎖', 78],
+                ['COE 系列', 87],
+                ['YALE', 84],
+                ['APD', 82],
+                ['配件', 68]
+            ];
+            const lockInsightSummary = [
+                ['20 款', '目前可瀏覽總品項'],
+                ['92%', '智慧操作關注最高'],
+                ['5 類', '主要鎖具分類']
+            ];
+            const lockRankingData = [
+                ['COE 感應鎖', '智慧操作', 91],
+                ['7116A 黑色', '熱門電子鎖', 90],
+                ['COE 感應鎖黑', '門面搭配', 89],
+                ['COE 感應鎖銀', '商空質感', 88],
+                ['COE.5 多段鎖', '經典機械鎖', 86]
+            ];
+            const buyerFocus = [
+                ['92%', '偏好智慧操作', '電子鎖區塊可以再放大展示優勢'],
+                ['76%', '重視外觀整合', '鎖具顏色與門面材質要一起看'],
+                ['81%', '在意安全感', '規格與鎖體層級應該更清楚標示']
+            ];
+            const lockNoteExtensions = [
+                ['搭配建議', '最適合再補門色與鎖具顏色對照，視覺會更完整。'],
+                ['瀏覽提示', '可先看熱門電子鎖，再回頭比較機械鎖與配件差異。'],
+                ['適合加強', '後續能補規格比較表或收藏功能，會更像選品工具。']
+            ];
+            document.getElementById('lockInsightChart').innerHTML = lockInsights.map(([label, value]) => `
+                <div class="chart-row">
+                    <span>${label}</span>
+                    <div class="chart-track"><div class="chart-fill" style="width:${value}%"></div></div>
+                    <span>${value}</span>
+                </div>
+            `).join('');
+            document.getElementById('lockInsightSummary').innerHTML = lockInsightSummary.map(([value, label]) => `
+                <div class="insight-summary-card">
+                    <strong>${value}</strong>
+                    <span>${label}</span>
+                </div>
+            `).join('');
+            document.getElementById('lockRankingList').innerHTML = lockRankingData.map(([name, tag, score], index) => `
+                <div class="ranking-item">
+                    <span class="ranking-badge">${index + 1}</span>
+                    <div class="ranking-copy">
+                        <strong>${name}</strong>
+                        <span>${tag}</span>
+                    </div>
+                    <div class="ranking-score">${score}</div>
+                </div>
+            `).join('');
+            document.getElementById('lockFeatureCards').innerHTML = buyerFocus.map(([value, title, note]) => `
+                <div class="feature-card">
+                    <strong>${value}</strong>
+                    <span>${title}</span>
+                    <p class="mb-0 mt-2 small text-muted">${note}</p>
+                </div>
+            `).join('');
+            document.getElementById('lockNoteExtensions').innerHTML = lockNoteExtensions.map(([title, note]) => `
+                <div class="note-extension-card">
+                    <strong>${title}</strong>
+                    <span>${note}</span>
+                </div>
+            `).join('');
             const carousel = document.getElementById('mechanicalCarousel');
             carousel.innerHTML = `
                 <div class="carousel-indicators">${mechanicalItems.map((_, index) => `<button type="button" data-bs-target="#mechanicalCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" ${index === 0 ? 'aria-current="true"' : ''} aria-label="Slide ${index + 1}"></button>`).join('')}</div>
@@ -624,6 +796,7 @@
                     Array.from(grid.children).sort((a, b) => {
                         if (sorter === 'name-asc') return a.dataset.name.localeCompare(b.dataset.name, 'zh-Hant');
                         if (sorter === 'name-desc') return b.dataset.name.localeCompare(a.dataset.name, 'zh-Hant');
+                        if (sorter === 'default') return Number(b.dataset.score) - Number(a.dataset.score);
                         return 0;
                     }).forEach(item => grid.appendChild(item));
                 });
@@ -649,5 +822,16 @@
             updateLockCatalog();
         });
     </script>
+    <script src="shared-layout.js"></script>
+    <script src="shared-enhancements.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+        .catalog-stage {
+            min-width: 0;
+        }
